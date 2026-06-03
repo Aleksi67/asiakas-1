@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer References – RightSpot Ltd</title>
+  <link rel="icon" href="images/cropped-RightSpotFB-32x32.png" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, var(--green-600) 0%, var(--green-500) 100%);
+      color: var(--white);
+      padding: 4rem 0;
+      text-align: center;
+      animation: slideDown 0.6s ease-out;
+    }
+    .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 0.5rem; }
+    .page-header p { font-size: 1.125rem; opacity: 0.95; }
+
+    .ref-content { max-width: 900px; margin: 3rem auto; }
+    .ref-section { margin: 2.5rem 0; animation: fadeInUp 0.6s ease-out backwards; }
+    .ref-section:nth-child(1) { animation-delay: 0.1s; }
+    .ref-section:nth-child(2) { animation-delay: 0.2s; }
+    .ref-section:nth-child(3) { animation-delay: 0.3s; }
+    .ref-section h2 { font-size: 1.5rem; color: var(--green-600); margin-bottom: 1rem; font-weight: 700; }
+    .ref-section p { font-size: 1rem; color: var(--neutral-700); line-height: 1.8; margin-bottom: 1rem; }
+    .ref-image { margin: 1.5rem 0; }
+    .ref-image img { border-radius: var(--radius-lg); box-shadow: var(--shadow-md); max-width: 400px; width: 100%; }
+
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: none; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+<main>
+  <div class="page-header">
+    <div class="container">
+      <h1>Customer References</h1>
+      <p>Trusted by leading organizations</p>
+    </div>
+  </div>
+
+  <div class="container ref-content">
+    <div class="ref-section">
+      <h2>Lapua Ballistics</h2>
+      <p>One of our most successful products, Lapua Ballistics is a professional ballistics calculation application trusted by shooters and hunters worldwide. The application features advanced trajectory calculations, environmental factor adjustments, and real-time data integration.</p>
+      <div class="ref-image">
+        <img src="images/LapuaBallisticsWeb25052017_3-e1496312176415.png" alt="Lapua Ballistics">
+      </div>
+      <p>This project demonstrates our expertise in creating precise, user-friendly applications for specialized markets.</p>
+    </div>
+
+    <div class="ref-section">
+      <h2>Enterprise Solutions</h2>
+      <p>We have successfully delivered custom software solutions for numerous enterprises across various industries. Our work ranges from business process automation to complex data management systems, all designed to improve efficiency and productivity.</p>
+      <div class="ref-image">
+        <img src="images/binary-1071776_1920-300x179.jpg" alt="Enterprise Solutions">
+      </div>
+      <p>Our enterprise clients benefit from our comprehensive approach, combining strategic planning with cutting-edge technology implementation.</p>
+    </div>
+
+    <div class="ref-section">
+      <h2>Mobile & Cloud Applications</h2>
+      <p>From iOS and Android applications to cloud-based solutions, RightSpot has delivered over 470,000+ application downloads across various platforms. Our mobile applications average 4.2-star ratings in app stores.</p>
+      <p>We combine user-centric design with robust backend infrastructure to create applications that users love and businesses trust.</p>
+    </div>
+  </div>
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script type="module">
+  import { renderHeader, renderFooter, initMobileMenu, initBackToTop, setActiveNav } from './js/shared-layout.js';
+
+  document.getElementById('header-placeholder').innerHTML = renderHeader();
+  document.getElementById('footer-placeholder').innerHTML = renderFooter();
+  initMobileMenu();
+  initBackToTop();
+  setActiveNav('references.html');
+</script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us – RightSpot Ltd</title>
+  <link rel="icon" href="images/cropped-RightSpotFB-32x32.png" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, var(--green-600) 0%, var(--green-500) 100%);
+      color: var(--white);
+      padding: 4rem 0;
+      text-align: center;
+      animation: slideDown 0.6s ease-out;
+    }
+    .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 0.5rem; }
+
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin: 3rem 0; }
+    .contact-form { animation: fadeInLeft 0.6s ease-out; }
+    .contact-info { animation: fadeInRight 0.6s ease-out; }
+    .form-group { margin-bottom: 1.25rem; }
+    label { display: block; font-size: 0.875rem; font-weight: 600; color: var(--neutral-700); margin-bottom: 0.5rem; }
+    input, textarea {
+      width: 100%; padding: 0.75rem;
+      border: 1.5px solid var(--neutral-300);
+      border-radius: var(--radius);
+      font-size: 0.9375rem; font-family: inherit;
+      color: var(--neutral-900);
+      transition: all 0.2s;
+    }
+    input:focus, textarea:focus {
+      border-color: var(--green-500);
+      box-shadow: 0 0 0 3px rgba(39,145,73,0.12);
+      outline: none;
+    }
+    textarea { resize: vertical; min-height: 120px; }
+    .btn-submit {
+      background: var(--green-500); color: var(--white);
+      padding: 0.875rem 2rem;
+      border: none; border-radius: var(--radius);
+      font-weight: 600; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-submit:hover { background: var(--green-600); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+    .contact-item { margin-bottom: 2rem; }
+    .contact-item h3 { font-size: 1.125rem; color: var(--neutral-900); margin-bottom: 0.5rem; font-weight: 700; }
+    .contact-item p { font-size: 1rem; color: var(--neutral-700); line-height: 1.7; }
+    .contact-item a { color: var(--green-500); font-weight: 500; transition: color 0.2s; }
+    .contact-item a:hover { color: var(--green-600); }
+
+    .map-container { border-radius: var(--radius-lg); overflow: hidden; margin-top: 2rem; box-shadow: var(--shadow-md); animation: fadeInUp 0.6s ease-out backwards; animation-delay: 0.3s; }
+    .map-container iframe { width: 100%; height: 300px; border: none; }
+
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: none; } }
+    @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: none; } }
+    @keyframes fadeInRight { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: none; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .contact-form { animation: fadeInUp 0.6s ease-out; }
+      .contact-info { animation: fadeInUp 0.6s ease-out backwards; animation-delay: 0.1s; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+<main>
+  <div class="page-header">
+    <div class="container">
+      <h1>Contact Us</h1>
+      <p>Get in touch with our team</p>
+    </div>
+  </div>
+
+  <div class="container" style="max-width:1200px;">
+    <div class="contact-grid">
+      <div class="contact-form">
+        <h2 style="margin-bottom:1.5rem;">Send us a Message</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject *</label>
+            <input type="text" id="subject" name="subject" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Message</button>
+          <p style="font-size:0.875rem;color:var(--neutral-500);margin-top:1rem;">We'll get back to you as soon as possible.</p>
+        </form>
+      </div>
+
+      <div class="contact-info">
+        <h2 style="margin-bottom:1.5rem;">Contact Information</h2>
+
+        <div class="contact-item">
+          <h3>Address</h3>
+          <p>Satamakatu 28<br>24100 SALO<br>Finland</p>
+        </div>
+
+        <div class="contact-item">
+          <h3>Phone</h3>
+          <p><a href="tel:+35840554853">+358 (0)40 5544853</a></p>
+        </div>
+
+        <div class="contact-item">
+          <h3>Email</h3>
+          <p>rightspot(at)rightspot.fi</p>
+        </div>
+
+        <div class="contact-item">
+          <h3>Follow Us</h3>
+          <p><a href="https://www.facebook.com/RightSpotLtd" target="_blank" rel="noreferrer">Facebook</a></p>
+        </div>
+
+        <div class="map-container">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1520.9335884492343!2d23.104612884652656!3d60.37243896127953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x468c3831ad58a38d%3A0xef09ba4a034d53ae!2sRightSpot%20Oy!5e0!3m2!1sen!2sfi!4v1623742527885!5m2!1sen!2sfi" allowfullscreen="" loading="lazy" title="RightSpot Location"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script type="module">
+  import { renderHeader, renderFooter, initMobileMenu, initBackToTop, setActiveNav } from './js/shared-layout.js';
+
+  document.getElementById('header-placeholder').innerHTML = renderHeader();
+  document.getElementById('footer-placeholder').innerHTML = renderFooter();
+  initMobileMenu();
+  initBackToTop();
+  setActiveNav('contact.html');
+
+  document.getElementById('contactForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Thank you for your message! We will get back to you soon.');
+    e.target.reset();
+  });
+</script>
+</body>
+</html>

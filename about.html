@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us – RightSpot Ltd</title>
+  <link rel="icon" href="images/cropped-RightSpotFB-32x32.png" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, var(--green-600) 0%, var(--green-500) 100%);
+      color: var(--white);
+      padding: 4rem 0;
+      text-align: center;
+      animation: slideDown 0.6s ease-out;
+    }
+    .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 0.5rem; }
+
+    .about-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin: 3rem 0; }
+    .about-card {
+      background: var(--white); border-radius: var(--radius-lg);
+      padding: 2rem; box-shadow: var(--shadow);
+      text-align: center; transition: all 0.3s;
+      animation: fadeInUp 0.6s ease-out backwards;
+      cursor: pointer;
+    }
+    .about-card:nth-child(1) { animation-delay: 0.1s; }
+    .about-card:nth-child(2) { animation-delay: 0.2s; }
+    .about-card:nth-child(3) { animation-delay: 0.3s; }
+    .about-card:nth-child(4) { animation-delay: 0.4s; }
+    .about-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .about-card-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: var(--green-50); border: 2px solid var(--green-200);
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+      transition: all 0.3s;
+    }
+    .about-card:hover .about-card-icon { background: var(--green-100); border-color: var(--green-500); }
+    .about-card-icon svg { width: 32px; height: 32px; color: var(--green-500); }
+    .about-card h3 { font-size: 1.125rem; font-weight: 700; color: var(--neutral-900); margin-bottom: 0.75rem; }
+    .about-card p { font-size: 0.875rem; color: var(--neutral-600); line-height: 1.7; }
+    .about-card .about-card-front { display: block; }
+    .about-card .about-card-back { display: none; }
+
+    .info-section { background: var(--neutral-50); border-radius: var(--radius-lg); padding: 2.5rem; margin: 2rem 0; animation: fadeInUp 0.6s ease-out backwards; animation-delay: 0.5s; }
+    .info-section h2 { font-size: 1.5rem; color: var(--neutral-900); margin-bottom: 1rem; }
+    .info-section p { font-size: 1rem; color: var(--neutral-700); line-height: 1.8; margin-bottom: 1rem; }
+
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: none; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+
+    @media (max-width: 1024px) { .about-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) { .about-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+<main>
+  <div class="page-header">
+    <div class="container">
+      <h1>About Us</h1>
+      <p>Learn more about RightSpot Ltd</p>
+    </div>
+  </div>
+
+  <div class="container" style="max-width:1200px;">
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="about-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26 12,2"/></svg>
+        </div>
+        <h3>Lapua Ballistics</h3>
+        <p>Professional ballistics app with 470K+ downloads and 4.2-star rating</p>
+      </div>
+
+      <div class="about-card">
+        <div class="about-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg>
+        </div>
+        <h3>Company</h3>
+        <p>Software & wireless solutions for PC, mobile, tablets, and cloud</p>
+      </div>
+
+      <div class="about-card">
+        <div class="about-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>
+        </div>
+        <h3>Location</h3>
+        <p>Established 2013, based in Salo, Finland</p>
+      </div>
+
+      <div class="about-card">
+        <div class="about-card-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Personnel</h3>
+        <p>45+ years combined expertise in R&D</p>
+      </div>
+    </div>
+
+    <div class="info-section">
+      <h2>Our Story</h2>
+      <p>RightSpot Ltd develops SOFTWARE and WIRELESS solutions for PC, smart phones and tablets, web / Cloud. Since our establishment in December 2013, we have been committed to delivering high-quality software solutions tailored to our clients' needs.</p>
+      <p>Our founders, Tapani Kiikeri and Ilkka Ratamo, bring a combined 45 years of expertise in R&D for test and measurement systems and product marketing.</p>
+    </div>
+
+    <div class="info-section">
+      <h2>Our Expertise</h2>
+      <p><strong>Development Areas:</strong> We specialize in custom software development using agile methodologies. Typical projects range from 1 to 12 months, with regular releases every 2-4 weeks.</p>
+      <p><strong>Technologies:</strong> AR (Augmented Reality), Mobile Payment, Location services, Maps, Image recognition, Authentication services, and more.</p>
+      <p><strong>Multi-Platform:</strong> iOS, Android, Windows, Web, and Cloud solutions designed to provide one-stop-shop capability for your software development needs.</p>
+    </div>
+  </div>
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script type="module">
+  import { renderHeader, renderFooter, initMobileMenu, initBackToTop, setActiveNav } from './js/shared-layout.js';
+
+  document.getElementById('header-placeholder').innerHTML = renderHeader();
+  document.getElementById('footer-placeholder').innerHTML = renderFooter();
+  initMobileMenu();
+  initBackToTop();
+  setActiveNav('about.html');
+</script>
+</body>
+</html>

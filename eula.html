@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EULA – RightSpot Ltd</title>
+  <link rel="icon" href="images/cropped-RightSpotFB-32x32.png" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    .page-header {
+      background: linear-gradient(135deg, var(--green-600) 0%, var(--green-500) 100%);
+      color: var(--white);
+      padding: 4rem 0;
+      text-align: center;
+      animation: slideDown 0.6s ease-out;
+    }
+    .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 0.5rem; }
+
+    .eula-content { max-width: 900px; margin: 3rem auto; animation: fadeInUp 0.6s ease-out; }
+    .eula-content h2 { font-size: 1.375rem; color: var(--neutral-900); margin-top: 2rem; margin-bottom: 1rem; font-weight: 700; }
+    .eula-content h3 { font-size: 1.125rem; color: var(--neutral-800); margin-top: 1.5rem; margin-bottom: 0.75rem; font-weight: 600; }
+    .eula-content p { font-size: 0.95rem; color: var(--neutral-700); line-height: 1.8; margin-bottom: 1rem; }
+    .eula-content ul { margin-left: 2rem; margin-bottom: 1rem; }
+    .eula-content li { font-size: 0.95rem; color: var(--neutral-700); line-height: 1.8; margin-bottom: 0.5rem; }
+
+    @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: none; } }
+    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body>
+
+<div id="header-placeholder"></div>
+
+<main>
+  <div class="page-header">
+    <div class="container">
+      <h1>End User License Agreement</h1>
+      <p>RightSpot Ltd Software Products</p>
+    </div>
+  </div>
+
+  <div class="container eula-content">
+    <h2>End User License Agreement (EULA)</h2>
+
+    <p><strong>Last Updated: June 2026</strong></p>
+
+    <h3>1. Grant of License</h3>
+    <p>RightSpot Ltd grants you a limited, non-exclusive, non-transferable license to use the Software solely for your personal or internal business purposes in accordance with the terms of this Agreement.</p>
+
+    <h3>2. Restrictions</h3>
+    <p>You may not:</p>
+    <ul>
+      <li>Modify, adapt, translate, or create derivative works based upon the Software</li>
+      <li>Copy, reproduce, or duplicate the Software in whole or in part</li>
+      <li>Sell, transfer, assign, or sublicense the Software to any third party</li>
+      <li>Reverse engineer, disassemble, decompile, or otherwise attempt to derive the source code</li>
+      <li>Remove or alter any proprietary notices, labels, or marks on the Software</li>
+    </ul>
+
+    <h3>3. Intellectual Property Rights</h3>
+    <p>The Software and all copies thereof are proprietary to RightSpot Ltd. All rights, title, and interest in and to the Software, including all intellectual property rights, remain with RightSpot Ltd.</p>
+
+    <h3>4. Disclaimer of Warranties</h3>
+    <p>THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.</p>
+
+    <h3>5. Limitation of Liability</h3>
+    <p>IN NO EVENT SHALL RIGHTSPOT LTD BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING OUT OF OR RELATING TO THIS AGREEMENT OR THE USE OF THE SOFTWARE.</p>
+
+    <h3>6. Termination</h3>
+    <p>RightSpot Ltd may terminate this License if you breach any term of this Agreement. Upon termination, you must cease all use of the Software and destroy all copies.</p>
+
+    <h3>7. Governing Law</h3>
+    <p>This Agreement shall be governed by and construed in accordance with the laws of Finland, without regard to its conflict of law principles.</p>
+
+    <h3>8. Contact Information</h3>
+    <p>For questions about this EULA, please contact us at:</p>
+    <p>
+      RightSpot Ltd<br>
+      Satamakatu 28<br>
+      24100 SALO<br>
+      Finland<br>
+      Email: rightspot(at)rightspot.fi
+    </p>
+
+    <p style="margin-top:2rem;padding-top:2rem;border-top:1px solid var(--neutral-300);color:var(--neutral-500);font-size:0.875rem;">
+      By using RightSpot Ltd software products, you acknowledge that you have read this Agreement and agree to be bound by its terms.
+    </p>
+  </div>
+</main>
+
+<div id="footer-placeholder"></div>
+
+<script type="module">
+  import { renderHeader, renderFooter, initMobileMenu, initBackToTop, setActiveNav } from './js/shared-layout.js';
+
+  document.getElementById('header-placeholder').innerHTML = renderHeader();
+  document.getElementById('footer-placeholder').innerHTML = renderFooter();
+  initMobileMenu();
+  initBackToTop();
+  setActiveNav('eula.html');
+</script>
+</body>
+</html>
