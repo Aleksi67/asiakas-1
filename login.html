@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login – RightSpot Ltd</title>
+  <link rel="icon" href="images/cropped-RightSpotFB-32x32.png" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-50: #f0faf3;
+      --green-100: #dcf3e4;
+      --green-500: #279149;
+      --green-600: #1f7a3c;
+      --neutral-100: #f1f3f5;
+      --neutral-200: #e9ecef;
+      --neutral-300: #dee2e6;
+      --neutral-500: #adb5bd;
+      --neutral-600: #6c757d;
+      --neutral-700: #495057;
+      --neutral-800: #343a40;
+      --neutral-900: #212529;
+      --white: #ffffff;
+      --red-50: #fff5f5;
+      --red-500: #e53e3e;
+      --shadow-lg: 0 20px 25px rgba(0,0,0,0.08), 0 10px 10px rgba(0,0,0,0.04);
+      --radius: 8px;
+      --radius-lg: 12px;
+    }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--neutral-100);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1.5rem;
+      -webkit-font-smoothing: antialiased;
+    }
+    .login-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      width: 100%;
+      max-width: 420px;
+      padding: 2.5rem;
+    }
+    .login-logo {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .login-logo img { height: 56px; width: auto; margin: 0 auto 1rem; display: block; }
+    .login-logo h1 { font-size: 1.375rem; font-weight: 700; color: var(--neutral-900); margin-bottom: 0.375rem; }
+    .login-logo p { font-size: 0.875rem; color: var(--neutral-600); }
+    .form-group { margin-bottom: 1.25rem; }
+    label { display: block; font-size: 0.875rem; font-weight: 500; color: var(--neutral-700); margin-bottom: 0.5rem; }
+    input[type="email"], input[type="password"] {
+      width: 100%; padding: 0.75rem 1rem;
+      border: 1.5px solid var(--neutral-300);
+      border-radius: var(--radius);
+      font-size: 0.9375rem; font-family: inherit;
+      color: var(--neutral-900);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+    input:focus { border-color: var(--green-500); box-shadow: 0 0 0 3px rgba(39,145,73,0.12); }
+    .btn-submit {
+      width: 100%; padding: 0.875rem;
+      background: var(--green-500); color: var(--white);
+      border: none; border-radius: var(--radius);
+      font-size: 1rem; font-weight: 600; font-family: inherit;
+      cursor: pointer; transition: background 0.2s, transform 0.15s;
+      margin-top: 0.5rem;
+    }
+    .btn-submit:hover:not(:disabled) { background: var(--green-600); transform: translateY(-1px); }
+    .btn-submit:disabled { opacity: 0.65; cursor: not-allowed; transform: none; }
+    .error-msg {
+      background: var(--red-50); border: 1px solid #fed7d7;
+      color: var(--red-500); border-radius: var(--radius);
+      padding: 0.75rem 1rem; font-size: 0.875rem;
+      margin-bottom: 1.25rem; display: none;
+    }
+    .error-msg.show { display: block; }
+    .back-link {
+      text-align: center; margin-top: 1.5rem;
+      font-size: 0.875rem; color: var(--neutral-600);
+    }
+    .back-link a { color: var(--green-500); font-weight: 500; }
+    .back-link a:hover { text-decoration: underline; }
+    .spinner {
+      display: inline-block; width: 16px; height: 16px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-top-color: white; border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin-right: 0.5rem; vertical-align: middle;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <div class="login-card">
+    <div class="login-logo">
+      <img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot Ltd">
+      <h1>Admin Panel</h1>
+      <p>Sign in to manage your website</p>
+    </div>
+
+    <div class="error-msg" id="errorMsg"></div>
+
+    <form id="loginForm" novalidate>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="admin@example.com" autocomplete="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" autocomplete="current-password" required>
+      </div>
+      <button type="submit" class="btn-submit" id="submitBtn">Sign In</button>
+    </form>
+
+    <div class="back-link">
+      <a href="index.html">Back to website</a>
+    </div>
+  </div>
+
+  <script type="module">
+    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+    const SUPABASE_URL = 'https://ekdwrwhsmurwtctctbal.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVrZHdyd2hzbXVyd3RjdGN0YmFsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1MjA4MjYsImV4cCI6MjA5NjA5NjgyNn0.30oEuPagsWJV-ShYnb8UTVx0X93pug4DLcOklXEcZGc';
+    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+    // If already logged in, redirect
+    const { data: { session } } = await supabase.auth.getSession();
+    if (session) window.location.href = 'admin.html';
+
+    const form = document.getElementById('loginForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const errorMsg = document.getElementById('errorMsg');
+
+    function showError(msg) {
+      errorMsg.textContent = msg;
+      errorMsg.classList.add('show');
+    }
+    function hideError() { errorMsg.classList.remove('show'); }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      hideError();
+      const email = document.getElementById('email').value.trim();
+      const password = document.getElementById('password').value;
+
+      if (!email || !password) {
+        showError('Please enter your email and password.');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = '<span class="spinner"></span>Signing in…';
+
+      const { error } = await supabase.auth.signInWithPassword({ email, password });
+
+      if (error) {
+        showError(error.message || 'Invalid email or password.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Sign In';
+        return;
+      }
+
+      window.location.href = 'admin.html';
+    });
+  </script>
+</body>
+</html>
