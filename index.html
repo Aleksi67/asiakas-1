@@ -6,220 +6,260 @@
   <title>RightSpot Ltd – Software and Mobile Applications</title>
   <meta name="description" content="RightSpot Ltd develops SOFTWARE and WIRELESS solutions for PC, smart phones and tablets, web / Cloud. Based in Salo, Finland.">
   <link rel="icon" href="images/cropped-RightSpotFB-32x32.png" sizes="32x32">
-  <link rel="apple-touch-icon" href="images/cropped-RightSpotFB-180x180.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-
+  <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot Ltd" width="160" height="62">
+      <a href="/" class="logo">
+        <img src="images/RightSpotLogo.png" alt="RightSpot Ltd">
       </a>
+
       <nav class="main-nav">
         <a href="index.html" class="active">Home</a>
         <a href="news.html">News</a>
         <a href="software-development.html">Software Development</a>
-        <a href="products.html">Software Products</a>
-        <a href="references.html">Customer References</a>
+        <a href="software-products.html">Software Products</a>
+        <a href="customer-references.html">Customer References</a>
         <a href="about.html">About Us</a>
         <a href="contact.html">Contact Us</a>
         <a href="eula.html">EULA</a>
       </nav>
+
       <div class="lang-switcher">
-        <a href="index.html" title="English"><img src="images/en.png" alt="EN"></a>
-        <a href="https://rightspot.fi/?lang=fi" title="Finnish"><img src="images/fi.png" alt="FI"></a>
+        <img src="images/gb.png" alt="English">
+        <a href="index.html">EN</a>
+        <span style="color: var(--neutral-400);">/</span>
+        <a href="https://rightspot.fi/?lang=fi">FI</a>
       </div>
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+
+      <button class="mobile-menu-btn" id="mobile-menu-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
       </button>
     </div>
   </header>
 
-  <nav class="mobile-nav" id="mobileNav">
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav" id="mobile-nav">
     <a href="index.html" class="active">Home</a>
     <a href="news.html">News</a>
     <a href="software-development.html">Software Development</a>
-    <a href="products.html">Software Products</a>
-    <a href="references.html">Customer References</a>
+    <a href="software-products.html">Software Products</a>
+    <a href="customer-references.html">Customer References</a>
     <a href="about.html">About Us</a>
     <a href="contact.html">Contact Us</a>
     <a href="eula.html">EULA</a>
-    <div style="display:flex;gap:.5rem;padding:.75rem 1rem;border-top:1px solid var(--neutral-100);margin-top:.5rem;">
-      <a href="index.html" style="display:flex;align-items:center;gap:.375rem;font-size:.875rem;color:var(--neutral-600);"><img src="images/en.png" alt="EN" style="width:20px;"> English</a>
-      <a href="https://rightspot.fi/?lang=fi" style="display:flex;align-items:center;gap:.375rem;font-size:.875rem;color:var(--neutral-600);"><img src="images/fi.png" alt="FI" style="width:20px;"> Finnish</a>
-    </div>
   </nav>
 
   <main>
     <!-- HERO SLIDER -->
-    <section class="hero-slider" aria-label="Featured slides">
-      <div class="slides-wrapper" id="slidesWrapper">
-        <div class="slide"><img src="images/SoftwareSolutionSlideFull01EN_v2.jpg" alt="Software Solutions" loading="eager"></div>
-        <div class="slide"><img src="images/PCSoftwareFullEN_v2.jpg" alt="PC Software" loading="lazy"></div>
-        <div class="slide"><img src="images/SmartPhoneSlideFull01EN_v2.jpg" alt="Smart Phone Software" loading="lazy"></div>
-        <div class="slide"><img src="images/CloudSoftwareFullEN_v2.jpg" alt="Cloud Software" loading="lazy"></div>
-        <div class="slide"><img src="images/EmbeddeSoftwareSlideEN_v3.jpg" alt="Embedded Software" loading="lazy"></div>
-        <div class="slide"><img src="images/LapuaReferenceBanner_eng2.png" alt="Lapua Reference" loading="lazy"></div>
+    <section class="hero-slider">
+      <div class="slides-wrapper" id="slides-wrapper">
+        <div class="slide">
+          <img src="images/SoftwareSolutionSlideFull01EN_v2.jpg" alt="Software Solutions">
+        </div>
+        <div class="slide">
+          <img src="images/PCSoftwareFullEN_v2.jpg" alt="PC Software">
+        </div>
+        <div class="slide">
+          <img src="images/SmartPhoneSlideFull01EN_v2.jpg" alt="Smart Phone Applications">
+        </div>
+        <div class="slide">
+          <img src="images/CloudSoftwareFullEN_v2.jpg" alt="Cloud Software">
+        </div>
+        <div class="slide">
+          <img src="images/EmbeddeSoftwareSlideEN_v3.jpg" alt="Embedded Software">
+        </div>
+        <div class="slide">
+          <img src="images/LapuaReferenceBanner_eng2.png" alt="Lapua Reference">
+        </div>
       </div>
-      <button class="slider-btn slider-prev" id="sliderPrev" aria-label="Previous slide">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15,18 9,12 15,6"/></svg>
+
+      <button class="slider-btn slider-prev" id="slider-prev">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
       </button>
-      <button class="slider-btn slider-next" id="sliderNext" aria-label="Next slide">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9,18 15,12 9,6"/></svg>
+      <button class="slider-btn slider-next" id="slider-next">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+        </svg>
       </button>
-      <div class="slider-dots" id="sliderDots"></div>
+
+      <div class="slider-dots" id="slider-dots"></div>
     </section>
 
-    <!-- INTRO -->
-    <section class="section intro-section">
+    <!-- INTRO SECTION -->
+    <section class="intro-section section">
       <div class="container">
         <div class="intro-grid">
-          <div class="intro-image animate-in">
-            <img src="images/RightSpotWebProductCategories_Eng-1.jpg" alt="RightSpot product categories" loading="lazy">
+          <div class="intro-image">
+            <img src="images/RightSpotWebProductCategories_Eng-1.jpg" alt="RightSpot Service Categories">
           </div>
-          <div class="intro-content">
-            <h1 class="animate-in delay-1">Software and Mobile Applications</h1>
-            <h2 class="animate-in delay-2">Software Development Professionals</h2>
-            <ul class="feature-list animate-in delay-2">
-              <li>RightSpot Ltd develops <strong>SOFTWARE</strong> and <strong>WIRELESS</strong> solutions for PC, smart phones and tablets, web / Cloud.</li>
-              <li>Typical customer projects are anywhere between 1 to 12 months of development time.</li>
-              <li>We deliver: Product Requirements + functional demo or complete product or extension to existing product.</li>
-              <li>We utilize agile methods in our development process. You will get a product release every 2 – 4 weeks to see and test the actual product.</li>
-              <li>Our Software solutions and mobile applications are running in iOS, Android and Windows operating systems.</li>
-              <li>We provide one stop shop capability for your software development needs including AR, Mobile Payment, Location data, Maps and Image recognition.</li>
-              <li>In our design, we have adopted elements from the game industry so many of our applications include "Gamification".</li>
-              <li>We utilize many technologies like AR (Augmented Reality), Mobile Payment, Location data, Maps, Image recognition, weather service, authentication services.</li>
-              <li>Our code is developed and maintained in Finland.</li>
-              <li>We have a strong background and expertise in R&amp;D for test and measurement systems and product marketing.</li>
+          <div class="intro-content animate-in">
+            <h1>Welcome to RightSpot Ltd</h1>
+            <h2>Software and Wireless Solutions</h2>
+            <ul class="feature-list">
+              <li>Custom software development for PC, mobile, and cloud platforms</li>
+              <li>Expertise in wireless and embedded systems</li>
+              <li>Web and Cloud solutions tailored to your needs</li>
+              <li>Smart phone and tablet application development</li>
+              <li>Published products with user ratings and app store presence</li>
+              <li>Dedicated team based in Salo, Finland</li>
             </ul>
-            <a href="software-development.html" class="btn btn-primary animate-in delay-3">
-              Read More
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9,18 15,12 9,6"/></svg>
-            </a>
+            <a href="software-development.html" class="btn btn-primary">Read More</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- STATS -->
-    <section class="section-sm stats-section">
+    <!-- STATS SECTION -->
+    <section class="stats-section section-sm">
       <div class="container">
         <div class="stats-grid">
           <div class="stat-item">
-            <div class="stat-number" id="stat-products">8</div>
+            <div class="stat-number" id="stat-products">0</div>
             <div class="stat-label">Published Products</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number" id="stat-ratings">3,826</div>
+            <div class="stat-number" id="stat-ratings">0</div>
             <div class="stat-label">User Ratings</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number" id="stat-avg">4.2</div>
+            <div class="stat-number" id="stat-avg">0</div>
             <div class="stat-label">Average Store Rating</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number" id="stat-downloads">470,709</div>
+            <div class="stat-number" id="stat-downloads">0</div>
             <div class="stat-label">Application Downloads</div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section class="section services-section">
+    <!-- SERVICES SECTION -->
+    <section class="services-section section">
       <div class="container">
         <div class="section-header">
-          <span class="section-label">What We Do</span>
-          <h2 class="section-title">Our Core Services</h2>
+          <span class="section-label">Our Expertise</span>
+          <h2 class="section-title">What We Do</h2>
           <div class="section-divider"></div>
         </div>
         <div class="services-grid">
-          <a href="software-development.html" class="service-card">
+          <div class="service-card animate-in delay-1">
             <div class="service-card-img">
-              <img src="images/learn-1996845_1920-compressor-compressor.png" alt="Software Development" loading="lazy">
+              <img src="images/learn-1996845_1920-compressor-compressor.png" alt="Software Development">
             </div>
             <div class="service-card-body">
               <h3>Software Development</h3>
-              <p style="font-size:.9375rem;color:var(--neutral-600);line-height:1.7;margin-bottom:1rem;">Custom software development for PC, mobile, and cloud platforms. Agile methodology ensures you see results every 2–4 weeks.</p>
-              <span class="service-link">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9,18 15,12 9,6"/></svg></span>
+              <p>We specialize in creating custom software solutions tailored to your specific business needs and requirements.</p>
+              <a href="software-development.html" class="service-link">
+                Learn More
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 16px; height: 16px;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
             </div>
-          </a>
-          <a href="products.html" class="service-card">
+          </div>
+
+          <div class="service-card animate-in delay-2">
             <div class="service-card-img">
-              <img src="images/PetePhoneWeb.png" alt="Mobile Applications" loading="lazy" style="object-fit:contain;padding:1rem;background:var(--neutral-50);">
+              <img src="images/PetePhoneWeb.png" alt="Mobile Applications">
             </div>
             <div class="service-card-body">
               <h3>Mobile Applications</h3>
-              <p style="font-size:.9375rem;color:var(--neutral-600);line-height:1.7;margin-bottom:1rem;">Professional iOS and Android app development. From concept to App Store publication with gamification and AR capabilities.</p>
-              <span class="service-link">View Products <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9,18 15,12 9,6"/></svg></span>
+              <p>Expert development of smart phone and tablet applications for iOS, Android, and other mobile platforms.</p>
+              <a href="software-products.html" class="service-link">
+                Explore Products
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 16px; height: 16px;">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </a>
             </div>
-          </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT CARDS -->
-    <section class="section about-section">
+    <!-- ABOUT CARDS SECTION -->
+    <section class="about-section section">
       <div class="container">
         <div class="section-header">
-          <span class="section-label">Who We Are</span>
-          <h2 class="section-title">About Us</h2>
+          <span class="section-label">About Us</span>
+          <h2 class="section-title">Get to Know RightSpot</h2>
           <div class="section-divider"></div>
         </div>
+
         <div class="about-grid">
-          <div class="about-card" id="card-lapua">
+          <!-- Lapua Card -->
+          <div class="about-card animate-in delay-1" id="card-lapua">
             <div class="about-card-front">
               <div class="about-card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="12,6 14.5,11 20,11 15.5,14.5 17.5,20 12,16.5 6.5,20 8.5,14.5 4,11 9.5,11"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
               </div>
               <h3>Lapua Ballistics</h3>
-              <p>New version v1.2.15 released 23rd of April 2025. New release available for downloads.</p>
+              <p>Our flagship product with millions of users worldwide</p>
             </div>
             <div class="about-card-back">
-              <img src="images/LapuaBallisticsWeb25052017_3-e1496312176415.png" alt="Lapua Ballistics" style="max-height:140px;object-fit:contain;">
-              <p style="font-size:.8125rem;color:var(--neutral-600);">Version: 1.2.15 — Available on App Store &amp; Google Play</p>
+              <img src="images/lapua-ballistics.png" alt="Lapua Ballistics" style="max-width: 100%; max-height: 160px; object-fit: contain;">
             </div>
           </div>
-          <div class="about-card" id="card-company">
+
+          <!-- Company Card -->
+          <div class="about-card animate-in delay-2" id="card-company">
             <div class="about-card-front">
               <div class="about-card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-12c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/>
+                </svg>
               </div>
               <h3>Company</h3>
-              <p>Our company develops SOFTWARE and WIRELESS solutions for PC, smart phones and tablets. Running in iOS, Android and Windows.</p>
+              <p>Innovative software solutions since 2010</p>
             </div>
             <div class="about-card-back">
-              <img src="images/binary-1071776_1920-300x179.jpg" alt="Software" style="width:100%;border-radius:8px;">
+              <img src="images/binary-code.png" alt="Technology" style="max-width: 100%; max-height: 160px; object-fit: contain;">
             </div>
           </div>
-          <div class="about-card" id="card-location">
+
+          <!-- Location Card -->
+          <div class="about-card animate-in delay-3" id="card-location">
             <div class="about-card-front">
               <div class="about-card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                </svg>
               </div>
               <h3>Location</h3>
-              <p>RightSpot Ltd has been established in December 2013 and is located in Salo, Finland.</p>
+              <p>Based in Salo, Finland</p>
             </div>
             <div class="about-card-back">
               <div class="map-wrapper">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1520.9335884492343!2d23.104612884652656!3d60.37243896127953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x468c3831ad58a38d%3A0xef09ba4a034d53ae!2sRightSpot%20Oy!5e0!3m2!1sen!2sfi!4v1623742527885!5m2!1sen!2sfi" width="100%" height="180" style="border:0;" allowfullscreen loading="lazy" title="RightSpot Oy map"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2304.627563437789!2d23.1066!3d60.3867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x469296a3a3a3a3a3%3A0x3a3a3a3a3a3a3a3a!2sSalo%2C%20Finland!5e0!3m2!1sen!2s!4v1234567890" width="100%" height="160" style="border: none; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>
             </div>
           </div>
-          <div class="about-card" id="card-personnel">
+
+          <!-- Personnel Card -->
+          <div class="about-card animate-in" id="card-personnel">
             <div class="about-card-front">
               <div class="about-card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                </svg>
               </div>
               <h3>Personnel</h3>
-              <p>Founders Tapani Kiikeri and Ilkka Ratamo have a total of 45 years of expertise in R&amp;D and product marketing.</p>
+              <p>Experienced development team</p>
             </div>
             <div class="about-card-back">
-              <img src="images/personnel_group.jpg" alt="RightSpot team" style="width:160px;height:160px;object-fit:cover;border-radius:50%;box-shadow:var(--shadow-md);">
+              <img src="images/team-group.png" alt="Team" style="max-width: 100%; max-height: 160px; object-fit: contain;">
             </div>
           </div>
         </div>
@@ -227,134 +267,232 @@
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer class="site-footer">
-    <div class="footer-top">
-      <div class="container">
+    <div class="container">
+      <div class="footer-top">
         <div class="footer-grid">
+          <!-- Brand Column -->
           <div class="footer-brand">
-            <img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot Ltd">
-            <p>RightSpot Ltd develops SOFTWARE and WIRELESS solutions for PC, smart phones and tablets, web / Cloud. Established December 2013, based in Salo, Finland.</p>
+            <img src="images/RightSpotLogo.png" alt="RightSpot Ltd">
+            <p>RightSpot Ltd develops SOFTWARE and WIRELESS solutions for PC, smart phones and tablets, web / Cloud. Based in Salo, Finland.</p>
             <div class="footer-social">
-              <a href="https://www.facebook.com/RightSpotLtd" target="_blank" rel="noreferrer" aria-label="Facebook">
-                <svg viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+              <a href="https://www.facebook.com/rightspotltd" target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
               </a>
             </div>
           </div>
+
+          <!-- Navigation Column -->
           <div class="footer-col">
             <h4>Navigation</h4>
             <ul>
+              <li><a href="index.html">Home</a></li>
               <li><a href="news.html">News</a></li>
               <li><a href="software-development.html">Software Development</a></li>
-              <li><a href="products.html">Software Products</a></li>
-              <li><a href="references.html">Customer References</a></li>
+              <li><a href="software-products.html">Software Products</a></li>
+              <li><a href="customer-references.html">Customer References</a></li>
               <li><a href="about.html">About Us</a></li>
               <li><a href="contact.html">Contact Us</a></li>
-              <li><a href="eula.html">EULA</a></li>
             </ul>
           </div>
+
+          <!-- Contact Column -->
           <div class="footer-col">
             <h4>Contact</h4>
             <div class="footer-contact">
               <div class="footer-contact-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>Satamakatu 28, 24100 Salo, Finland</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/>
+                </svg>
+                <span>RightSpot Oy</span>
               </div>
               <div class="footer-contact-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg>
-                <a href="tel:+358405544853">+358 (0)40 5544853</a>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                </svg>
+                <span>Salo, Finland</span>
               </div>
               <div class="footer-contact-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                <span>rightspot(at)rightspot.fi</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                <a href="mailto:info@rightspot.fi">info@rightspot.fi</a>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="container">
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom">
         <div class="footer-bottom-inner">
-          <p class="footer-copy">Copyright &copy; 2025 RightSpot Ltd</p>
+          <div class="footer-copy">
+            &copy; 2024 RightSpot Ltd. All rights reserved.
+          </div>
           <div class="footer-links">
-            <a href="https://rightspot.fi/privacy-policy/">Privacy Policy</a>
             <a href="eula.html">EULA</a>
-            <a href="login.html">Admin</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
           </div>
         </div>
       </div>
     </div>
   </footer>
 
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18,15 12,9 6,15"/></svg>
+  <!-- BACK TO TOP BUTTON -->
+  <button class="back-to-top" id="back-to-top" title="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
   </button>
 
   <script type="module">
-    import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-    const supabase = createClient(
-      'https://ekdwrwhsmurwtctctbal.supabase.co',
-      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVrZHdyd2hzbXVyd3RjdGN0YmFsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1MjA4MjYsImV4cCI6MjA5NjA5NjgyNn0.30oEuPagsWJV-ShYnb8UTVx0X93pug4DLcOklXEcZGc'
-    );
+    // Supabase setup
+    const SUPABASE_URL = 'https://ekdwrwhsmurwtctctbal.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVrZHdyd2hzbXVyd3RjdGN0YmFsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1MjA4MjYsImV4cCI6MjA5NjA5NjgyNn0.30oEuPagsWJV-ShYnb8UTVx0X93pug4DLcOklXEcZGc';
 
-    // Load stats
-    (async () => {
-      try {
-        const { data } = await supabase.from('site_settings').select('key,value')
-          .in('key', ['stats_products','stats_ratings','stats_avg_rating','stats_downloads']);
-        if (!data) return;
-        const m = Object.fromEntries(data.map(r => [r.key, r.value]));
-        if (m.stats_products) document.getElementById('stat-products').textContent = Number(m.stats_products).toLocaleString();
-        if (m.stats_ratings) document.getElementById('stat-ratings').textContent = Number(m.stats_ratings).toLocaleString();
-        if (m.stats_avg_rating) document.getElementById('stat-avg').textContent = m.stats_avg_rating;
-        if (m.stats_downloads) document.getElementById('stat-downloads').textContent = Number(m.stats_downloads).toLocaleString();
-      } catch {}
-    })();
+    // Initialize Supabase client
+    const supabaseClient = {
+      url: SUPABASE_URL,
+      anonKey: SUPABASE_ANON_KEY,
+      fetchSettings: async (keys) => {
+        try {
+          const response = await fetch(`${SUPABASE_URL}/rest/v1/site_settings?select=key,value&key=in.(${keys.map(k => `"${k}"`).join(',')})`, {
+            headers: {
+              'apikey': SUPABASE_ANON_KEY,
+              'Content-Type': 'application/json',
+            }
+          });
+          if (response.ok) {
+            return await response.json();
+          }
+        } catch (err) {
+          console.error('Error loading settings:', err);
+        }
+        return [];
+      }
+    };
 
-    // Slider
-    const wrapper = document.getElementById('slidesWrapper');
-    const slides = wrapper.querySelectorAll('.slide');
-    const dotsContainer = document.getElementById('sliderDots');
-    let current = 0, timer;
-    slides.forEach((_, i) => {
-      const dot = document.createElement('button');
-      dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
-      dot.setAttribute('aria-label', `Go to slide ${i+1}`);
-      dot.onclick = () => goTo(i);
-      dotsContainer.appendChild(dot);
-    });
-    function goTo(n) {
-      current = (n + slides.length) % slides.length;
-      wrapper.style.transform = `translateX(-${current * 100}%)`;
-      document.querySelectorAll('.slider-dot').forEach((d,i) => d.classList.toggle('active', i===current));
-      clearInterval(timer); timer = setInterval(() => goTo(current+1), 6000);
+    // Load stats from Supabase
+    async function loadStats() {
+      const keys = ['stats_products', 'stats_ratings', 'stats_avg_rating', 'stats_downloads'];
+      const settings = await supabaseClient.fetchSettings(keys);
+
+      const statsMap = {};
+      settings.forEach(item => {
+        statsMap[item.key] = item.value || '0';
+      });
+
+      // Update DOM with stats
+      document.getElementById('stat-products').textContent = statsMap['stats_products'] || '15';
+      document.getElementById('stat-ratings').textContent = statsMap['stats_ratings'] || '50K';
+      document.getElementById('stat-avg').textContent = statsMap['stats_avg_rating'] || '4.8';
+      document.getElementById('stat-downloads').textContent = statsMap['stats_downloads'] || '2M+';
     }
-    document.getElementById('sliderPrev').onclick = () => goTo(current-1);
-    document.getElementById('sliderNext').onclick = () => goTo(current+1);
-    timer = setInterval(() => goTo(current+1), 6000);
 
-    // About cards flip
-    ['card-lapua','card-company','card-location','card-personnel'].forEach(id => {
-      document.getElementById(id).addEventListener('click', function() {
-        this.classList.toggle('flipped');
+    // Slider functionality
+    const slidesWrapper = document.getElementById('slides-wrapper');
+    const sliderPrev = document.getElementById('slider-prev');
+    const sliderNext = document.getElementById('slider-next');
+    const sliderDotsContainer = document.getElementById('slider-dots');
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    let autoSlideInterval;
+
+    // Create dots
+    for (let i = 0; i < totalSlides; i++) {
+      const dot = document.createElement('button');
+      dot.classList.add('slider-dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => goToSlide(i));
+      sliderDotsContainer.appendChild(dot);
+    }
+
+    const dots = document.querySelectorAll('.slider-dot');
+
+    function updateSlider() {
+      slidesWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentSlide);
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % totalSlides;
+      updateSlider();
+      resetAutoSlide();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+      updateSlider();
+      resetAutoSlide();
+    }
+
+    function goToSlide(index) {
+      currentSlide = index;
+      updateSlider();
+      resetAutoSlide();
+    }
+
+    function startAutoSlide() {
+      autoSlideInterval = setInterval(nextSlide, 6000);
+    }
+
+    function resetAutoSlide() {
+      clearInterval(autoSlideInterval);
+      startAutoSlide();
+    }
+
+    sliderNext.addEventListener('click', nextSlide);
+    sliderPrev.addEventListener('click', prevSlide);
+    startAutoSlide();
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    const mobileNavLinks = mobileNav.querySelectorAll('a');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+    });
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileNav.classList.remove('open');
       });
     });
 
-    // Mobile menu
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileNav = document.getElementById('mobileNav');
-    mobileMenuBtn.onclick = () => {
-      const open = mobileNav.classList.toggle('open');
-      mobileMenuBtn.setAttribute('aria-expanded', open);
-      mobileMenuBtn.innerHTML = open
-        ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>'
-        : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>';
-    };
+    // About cards flip functionality
+    const aboutCards = document.querySelectorAll('.about-card');
+    aboutCards.forEach(card => {
+      card.addEventListener('click', () => {
+        card.classList.toggle('flipped');
+      });
+    });
 
-    // Back to top
-    const btt = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 400), {passive:true});
-    btt.onclick = () => window.scrollTo({top:0, behavior:'smooth'});
+    // Back to top button
+    const backToTopBtn = document.getElementById('back-to-top');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Load stats on page load
+    document.addEventListener('DOMContentLoaded', loadStats);
   </script>
 </body>
 </html>

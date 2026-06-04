@@ -1,184 +1,195 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us – RightSpot Ltd</title>
-  <link rel="icon" href="images/cropped-RightSpotFB-32x32.png" sizes="32x32">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us – RightSpot Ltd</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-
-  <header class="site-header">
-    <div class="header-inner">
-      <a href="index.html" class="logo"><img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot Ltd" width="160" height="62"></a>
-      <nav class="main-nav">
-        <a href="index.html">Home</a>
-        <a href="news.html">News</a>
-        <a href="software-development.html">Software Development</a>
-        <a href="products.html">Software Products</a>
-        <a href="references.html">Customer References</a>
-        <a href="about.html" class="active">About Us</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="eula.html">EULA</a>
-      </nav>
-      <div class="lang-switcher">
-        <a href="about.html" title="English"><img src="images/en.png" alt="EN"></a>
-        <a href="https://rightspot.fi/about-us/?lang=fi" title="Finnish"><img src="images/fi.png" alt="FI"></a>
-      </div>
-      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
-    </div>
-  </header>
-
-  <nav class="mobile-nav" id="mobileNav">
-    <a href="index.html">Home</a>
-    <a href="news.html">News</a>
-    <a href="software-development.html">Software Development</a>
-    <a href="products.html">Software Products</a>
-    <a href="references.html">Customer References</a>
-    <a href="about.html" class="active">About Us</a>
-    <a href="contact.html">Contact Us</a>
-    <a href="eula.html">EULA</a>
-  </nav>
-
-  <main>
-    <section class="page-header">
-      <div class="container">
-        <h1>About Us</h1>
-        <p>Professional software solutions since December 2013</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <div class="about-page-content">
-
-          <div class="about-intro">
-            <div>
-              <h2>RightSpot Ltd</h2>
-              <p>Our company develops <strong>SOFTWARE</strong> and <strong>WIRELESS</strong> solutions for PC, smart phones, tablets and cloud services. Our Software solutions and mobile applications are running in iOS, Android and Windows operating systems.</p>
-              <p>We have produced solutions from highly sophisticated engineering applications to cloud services and 2D/3D games.</p>
-              <p>The company has been established December 2013 and is located in Salo, Finland.</p>
-              <a href="contact.html" class="btn btn-primary" style="margin-top:1rem;">Contact Us</a>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="index.html">RightSpot</a>
+                </div>
+                <nav class="nav-desktop">
+                    <a href="index.html">Home</a>
+                    <a href="news.html">News</a>
+                    <a href="software-development.html">Software Development</a>
+                    <a href="software-products.html">Software Products</a>
+                    <a href="customer-references.html">Customer References</a>
+                    <a href="about.html" class="active">About Us</a>
+                    <a href="contact.html">Contact Us</a>
+                    <a href="eula.html">EULA</a>
+                </nav>
+                <div class="lang-switcher">
+                    <button class="lang-btn active">EN 🇬🇧</button>
+                    <button class="lang-btn">FI 🇫🇮</button>
+                </div>
+                <button class="menu-toggle" id="menuToggle">☰</button>
             </div>
-            <img src="images/personnel_group_1.jpg" alt="RightSpot team" loading="lazy">
-          </div>
-
-          <h2 style="text-align:center;margin-bottom:2rem;">Meet Our Team</h2>
-          <p style="text-align:center;color:var(--neutral-600);margin-bottom:2.5rem;">Founders Tapani Kiikeri and Ilkka Ratamo have a total of 45 years of expertise in R&amp;D for test and measurement systems and product marketing.</p>
-
-          <div class="team-grid">
-
-            <div class="team-card">
-              <div class="team-card-header">
-                <div class="team-avatar">
-                  <img src="images/personnel_group-66x66.jpg" alt="Tapani Kiikeri">
-                </div>
-                <div>
-                  <div class="name">Tapani Kiikeri</div>
-                  <div class="role">Founder, CEO, BScE</div>
-                  <div class="email">tapani.kiikeri (at) rightspot.fi</div>
-                </div>
-              </div>
-              <div class="team-card-body">
-                <p>More than 22 years' work experience in the telecommunication industry. Previously held specialist and management positions in Nokia Oyj. Deep knowledge from virtual team management, software project management, test and measurement technology development, test engineering, process capability methods and tools, supplier manufacturing capability development.</p>
-              </div>
-            </div>
-
-            <div class="team-card">
-              <div class="team-card-header">
-                <div class="team-avatar">
-                  <img src="images/personnel_group-66x66.jpg" alt="Mika Korpi">
-                </div>
-                <div>
-                  <div class="name">Mika Korpi</div>
-                  <div class="role">Test System / Software Designer</div>
-                  <div class="email">mika.s.korpi (at) rightspot.fi</div>
-                </div>
-              </div>
-              <div class="team-card-body">
-                <p>34 years' experience of production testing in Nokia Oyj (+ 2 years in Microsoft). QT environment, using C++, C, JS, HTML, CSS, jQuery Mobile, and publishing with NSIS software. JS, Express and SQL, programming in Microsoft Azure. Designed, written, updated and debugged mobile phone manufacturing test software primarily in C#, C++ and C languages.</p>
-              </div>
-            </div>
-
-            <div class="team-card">
-              <div class="team-card-header">
-                <div class="team-avatar">
-                  <img src="images/personnel_group-66x66.jpg" alt="Juha Korpela">
-                </div>
-                <div>
-                  <div class="name">Juha Korpela</div>
-                  <div class="role">Test System / Software Designer</div>
-                  <div class="email">juha.korpela (at) rightspot.fi</div>
-                </div>
-              </div>
-              <div class="team-card-body">
-                <p>28 years' experience of production testing in Nokia Oyj (+ 2 years in Microsoft). Good C/C++ and C# programming. Base Band technology knowledge in Energy Management, Camera and Audio. RF technology knowledge in GSM, WCDMA, LTE, WLAN, BT and GPS. Very good test stations knowledge.</p>
-              </div>
-            </div>
-
-            <div class="team-card">
-              <div class="team-card-header">
-                <div class="team-avatar">
-                  <img src="images/personnel_group-66x66.jpg" alt="Jari Nikkarinen">
-                </div>
-                <div>
-                  <div class="name">Jari Nikkarinen</div>
-                  <div class="role">Software Designer</div>
-                  <div class="email">jari.nikkarinen (at) rightspot.fi</div>
-                </div>
-              </div>
-              <div class="team-card-body">
-                <p>More than 7 years of experience in code / application development and publishment. Mobile applications, Back End services, Game applications. Certificate for Developing Cloud Applications with Node.js and React. C#, Unity, Python, Django, HTML5, JavaScript.</p>
-              </div>
-            </div>
-
-          </div>
+            <!-- Mobile Menu -->
+            <nav class="nav-mobile" id="mobileMenu" style="display: none;">
+                <a href="index.html">Home</a>
+                <a href="news.html">News</a>
+                <a href="software-development.html">Software Development</a>
+                <a href="software-products.html">Software Products</a>
+                <a href="customer-references.html">Customer References</a>
+                <a href="about.html" class="active">About Us</a>
+                <a href="contact.html">Contact Us</a>
+                <a href="eula.html">EULA</a>
+            </nav>
         </div>
-      </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>About Us</h1>
+            <p>Professional software solutions since December 2013</p>
+        </div>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="footer-top"><div class="container"><div class="footer-grid">
-      <div class="footer-brand">
-        <img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot Ltd">
-        <p>RightSpot Ltd develops SOFTWARE and WIRELESS solutions for PC, smart phones and tablets, web / Cloud. Established December 2013, based in Salo, Finland.</p>
-      </div>
-      <div class="footer-col"><h4>Navigation</h4><ul>
-        <li><a href="news.html">News</a></li>
-        <li><a href="software-development.html">Software Development</a></li>
-        <li><a href="products.html">Software Products</a></li>
-        <li><a href="references.html">Customer References</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul></div>
-      <div class="footer-col"><h4>Contact</h4><div class="footer-contact">
-        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Satamakatu 28, 24100 Salo, Finland</span></div>
-        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg><a href="tel:+358405544853">+358 (0)40 5544853</a></div>
-        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>rightspot(at)rightspot.fi</span></div>
-      </div></div>
-    </div></div></div>
-    <div class="footer-bottom"><div class="container"><div class="footer-bottom-inner">
-      <p class="footer-copy">Copyright &copy; 2025 RightSpot Ltd</p>
-      <div class="footer-links"><a href="https://rightspot.fi/privacy-policy/">Privacy Policy</a><a href="eula.html">EULA</a><a href="login.html">Admin</a></div>
-    </div></div></div>
-  </footer>
+    <!-- Main Content -->
+    <main class="container page-content">
+        <section class="about-page-content">
+            <!-- Intro Section -->
+            <div class="about-intro">
+                <div class="about-intro-text">
+                    <h2>Welcome to RightSpot</h2>
+                    <p>
+                        RightSpot Ltd develops professional SOFTWARE and WIRELESS solutions for iOS, Android, and Windows platforms.
+                        Established in December 2013, we are based in Salo, Finland, with a team of experienced software engineers
+                        and specialists dedicated to delivering high-quality test and measurement systems.
+                    </p>
+                    <a href="contact.html" class="btn btn-primary">Contact Us</a>
+                </div>
+                <div class="about-intro-img">
+                    <img src="images/personnel_group_1.jpg" alt="RightSpot team">
+                </div>
+            </div>
 
-  <button class="back-to-top" id="backToTop" aria-label="Back to top">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18,15 12,9 6,15"/></svg>
-  </button>
-  <script>
-    const btn = document.getElementById('mobileMenuBtn'), nav = document.getElementById('mobileNav');
-    btn.onclick = () => { const o = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', o); };
-    const btt = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 400), {passive:true});
-    btt.onclick = () => window.scrollTo({top:0,behavior:'smooth'});
-  </script>
+            <!-- Team Section -->
+            <div class="team-section">
+                <h2 class="section-heading">Meet Our Team</h2>
+                <p class="team-subtitle">
+                    Founders Tapani Kiikeri and Ilkka Ratamo have a total of 45 years of expertise in R&D for test and measurement systems and product marketing.
+                </p>
+
+                <div class="team-grid">
+                    <!-- Team Member 1 -->
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <img src="images/personnel_group-66x66.jpg" alt="Tapani Kiikeri">
+                        </div>
+                        <h3>Tapani Kiikeri</h3>
+                        <p class="team-title">Founder, CEO, BScE</p>
+                        <p class="team-email">tapani.kiikeri (at) rightspot.fi</p>
+                        <p class="team-bio">
+                            More than 22 years' work experience in the telecommunication industry. Previously held specialist and management positions in Nokia Oyj.
+                            Deep knowledge from virtual team management, software project management, test and measurement technology development, test engineering,
+                            process capability methods and tools, supplier manufacturing capability development.
+                        </p>
+                    </div>
+
+                    <!-- Team Member 2 -->
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <img src="images/personnel_group-66x66.jpg" alt="Mika Korpi">
+                        </div>
+                        <h3>Mika Korpi</h3>
+                        <p class="team-title">Test System / Software Designer</p>
+                        <p class="team-email">mika.s.korpi (at) rightspot.fi</p>
+                        <p class="team-bio">
+                            34 years' experience of production testing in Nokia Oyj (+ 2 years in Microsoft). QT environment, using C++, C, JS, HTML, CSS, jQuery Mobile,
+                            and publishing with NSIS software. JS, Express and SQL, programming in Microsoft Azure. Designed, written, updated and debugged mobile phone
+                            manufacturing test software primarily in C#, C++ and C languages.
+                        </p>
+                    </div>
+
+                    <!-- Team Member 3 -->
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <img src="images/personnel_group-66x66.jpg" alt="Juha Korpela">
+                        </div>
+                        <h3>Juha Korpela</h3>
+                        <p class="team-title">Test System / Software Designer</p>
+                        <p class="team-email">juha.korpela (at) rightspot.fi</p>
+                        <p class="team-bio">
+                            28 years' experience of production testing in Nokia Oyj (+ 2 years in Microsoft). Good C/C++ and C# programming. Base Band technology knowledge
+                            in Energy Management, Camera and Audio. RF technology knowledge in GSM, WCDMA, LTE, WLAN, BT and GPS. Very good test stations knowledge.
+                        </p>
+                    </div>
+
+                    <!-- Team Member 4 -->
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <img src="images/personnel_group-66x66.jpg" alt="Jari Nikkarinen">
+                        </div>
+                        <h3>Jari Nikkarinen</h3>
+                        <p class="team-title">Software Designer</p>
+                        <p class="team-email">jari.nikkarinen (at) rightspot.fi</p>
+                        <p class="team-bio">
+                            More than 7 years of experience in code / application development and publishment. Mobile applications, Back End services, Game applications.
+                            Certificate for Developing Cloud Applications with Node.js and React. C#, Unity, Python, Django, HTML5, JavaScript.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col footer-brand">
+                    <h4>RightSpot Ltd</h4>
+                    <p>Professional software solutions for test and measurement systems.</p>
+                    <a href="https://www.facebook.com/RightSpotLtd" class="social-icon" target="_blank">f</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="software-development.html">Software Development</a></li>
+                        <li><a href="software-products.html">Software Products</a></li>
+                        <li><a href="customer-references.html">Customer References</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <p>Satamakatu 28<br>24100 Salo<br>Finland</p>
+                    <p><a href="tel:+358405544853">+358 (0)40 5544853</a></p>
+                    <p><a href="mailto:rightspot@rightspot.fi">rightspot(at)rightspot.fi</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 RightSpot Ltd | <a href="#">Privacy Policy</a> | <a href="eula.html">EULA</a> | <a href="login.html">Admin</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTopBtn" onclick="window.scrollTo(0, 0)">↑</button>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const menu = document.getElementById('mobileMenu');
+            menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+        });
+
+        // Back to top button visibility
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('backToTopBtn');
+            btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+        });
+    </script>
 </body>
 </html>

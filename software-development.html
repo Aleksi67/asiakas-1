@@ -7,32 +7,15 @@
   <link rel="icon" href="images/cropped-RightSpotFB-32x32.png" sizes="32x32">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
-  <style>
-    .page-header { background: linear-gradient(135deg, var(--green-600) 0%, var(--green-500) 100%); color: var(--white); padding: 4rem 0; text-align: center; }
-    .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 0.5rem; }
-    .content-section { max-width: 800px; margin: 0 auto; color: var(--neutral-700); line-height: 1.8; }
-    .content-section h2 { font-size: 1.5rem; font-weight: 700; color: var(--neutral-900); margin: 2rem 0 1rem; }
-    .content-section h3 { font-size: 1.25rem; font-weight: 600; color: var(--neutral-900); margin: 1.5rem 0 0.75rem; }
-    .content-section p { margin-bottom: 1rem; }
-    .content-section ul { list-style: disc; margin-left: 1.5rem; margin-bottom: 1rem; }
-    .content-section li { margin-bottom: 0.5rem; }
-    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 2rem 0; }
-    .step-card { background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--radius-xl); padding: 1.5rem; text-align: center; }
-    .step-number { font-size: 2rem; font-weight: 700; color: var(--green-500); margin-bottom: 0.5rem; }
-    .step-card h4 { font-weight: 600; margin-bottom: 0.75rem; }
-    .step-card p { font-size: 0.9rem; }
-    @media (max-width: 768px) { .steps-grid { grid-template-columns: 1fr; } }
-  </style>
 </head>
 <body>
+
   <header class="site-header">
     <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot Ltd Logo" width="180" height="70">
-      </a>
-      <nav class="main-nav" aria-label="Main Navigation">
+      <a href="index.html" class="logo"><img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot Ltd" width="160" height="62"></a>
+      <nav class="main-nav">
         <a href="index.html">Home</a>
         <a href="news.html">News</a>
         <a href="software-development.html" class="active">Software Development</a>
@@ -43,8 +26,8 @@
         <a href="eula.html">EULA</a>
       </nav>
       <div class="lang-switcher">
-        <a href="software-development.html" title="English"><img src="images/en.png" alt="English"></a>
-        <a href="https://rightspot.fi/?lang=fi" title="Finnish"><img src="images/fi.png" alt="Finnish"></a>
+        <a href="software-development.html" title="English"><img src="images/en.png" alt="EN"></a>
+        <a href="https://rightspot.fi/customer-projects/?lang=fi" title="Finnish"><img src="images/fi.png" alt="FI"></a>
       </div>
       <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -52,7 +35,7 @@
     </div>
   </header>
 
-  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
+  <nav class="mobile-nav" id="mobileNav">
     <a href="index.html">Home</a>
     <a href="news.html">News</a>
     <a href="software-development.html" class="active">Software Development</a>
@@ -64,153 +47,344 @@
   </nav>
 
   <main>
-    <section class="page-header">
+
+    <!-- HERO BANNER -->
+    <section class="dev-hero-banner">
       <div class="container">
-        <h1>Software Development</h1>
-        <p style="font-size: 1.1rem; opacity: 0.95;">Professional solutions from concept to market</p>
+        <p class="eyebrow">Do you have an idea or need to develop a new product or service?</p>
+        <h1>Congratulations! You are in the right spot!</h1>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container content-section">
-        <p style="font-size: 1.1rem; font-weight: 600; color: var(--green-600); margin-bottom: 1.5rem;">Do you have an idea or need to develop a new product or service?</p>
-
-        <h2>Congratulations! You are in the right spot!</h2>
-        <p>We develop and implement professional software solutions and when needed, we will search and implement required hardware for you. Typical customer projects are anywhere between 1 to 12 months of development time.</p>
-        <p>We have capabilities for concepting and fast prototyping. This often helps customers test the product or service idea before going for full scale development.</p>
-        <p>We have delivered solutions that have been running already for years and still going strong. Maintenance is key factor in fast changing IT world to keep the solutions up-to-date.</p>
-
-        <h2>Steps for Your Success</h2>
-
-        <div class="steps-grid">
-          <div class="step-card">
-            <div class="step-number">1</div>
-            <h4>Pre-Study</h4>
-            <p>We help you clarify your needs through interviews with key stakeholders and form a processed concept idea for you.</p>
+    <!-- INTRO -->
+    <section class="dev-intro">
+      <div class="container">
+        <div class="dev-intro-grid">
+          <div class="dev-intro-text animate-in">
+            <h2>Professional Software Solutions <span>from Concept to Market</span></h2>
+            <p>We develop and implement professional software solutions and when needed, we will search and implement required hardware for you. Typical customer projects are anywhere between 1 to 12 months of development time.</p>
+            <p>We have capabilities for concepting and fast prototyping. This often helps customers test the product or service idea before going for full scale development.</p>
+            <p>We have delivered solutions that have been running already for years and still going strong. Maintenance is key factor in fast changing IT world to keep the solutions up-to-date. Careful selection on development platforms will keep your products alive and supported as long as required.</p>
+            <p>Our process and development steps are described below.</p>
+            <a href="contact.html" class="btn btn-primary" style="margin-top:1.5rem;">Get in Touch</a>
           </div>
-          <div class="step-card">
-            <div class="step-number">2</div>
-            <h4>Competitor Analysis</h4>
-            <p>We benchmark your solution against competitors to provide valuable insight and identify areas for enhancement.</p>
-          </div>
-          <div class="step-card">
-            <div class="step-number">3</div>
-            <h4>Requirements</h4>
-            <p>We build a clear picture of features, use cases, and target customers that meets your expectations.</p>
+          <div class="dev-intro-img animate-in delay-2">
+            <img src="images/woman_phone_thumbsup.png" alt="Software development professional" loading="lazy">
           </div>
         </div>
-
-        <h3>Pre-Study</h3>
-        <p>We help you to further clarify your needs. Normally there are multiple needs, view points, feature requests, expectations and opinions within organizations and on the customer side. We make it easy for you! Just nominate key contributors no matter where they physically are. We will interview the individuals, teams, key customers and form a further processed concept idea for you.</p>
-
-        <h3>Competitor Benchmarking</h3>
-        <p>We carry out solutions benchmarking as part of the process. You will get valuable insight for your competitor solutions, how those are built, what is missing, good inventions and what are the possible areas to be enhanced.</p>
-
-        <h3>Requirements</h3>
-        <p>Product or service requirements will form a picture about the final product. It describes features, use cases, environment, connections to related services and the target customer group. This will help us and you to build a quality product that meets your, your team's, and your customer's expectations and needs while being ahead the competition. This will be the basis for development work. Our agile working methods allow us to revisit the project requirements whenever there is mutually agreed need for it.</p>
-
-        <h2>Development Process</h2>
-        <p>Our Development process includes:</p>
-        <ul>
-          <li>Graphical Design</li>
-          <li>User Interface Design</li>
-          <li>Functionality Design</li>
-          <li>Back processes and functions design</li>
-          <li>Development</li>
-          <li>Testing</li>
-          <li>Alpha and Beta releases (every 2 to 4 weeks until product meets its final agreed maturity)</li>
-        </ul>
-
-        <h2>Publishment & Maintenance</h2>
-        <p>We publish the end product on your behalf (or assist you to become a publisher) in App Store, Google Play Store, Windows Phone Store. Upon agreement, we can take care of all needed maintenance actions for you including follow-up and product roadmap proposal based on customer feedback.</p>
-
-        <h2>Development Platforms</h2>
-
-        <h3>Smart Phone / Tablet Applications</h3>
-        <p>We develop smartphone / tablet software using Unity 3D. This platform has been developed since 2006 and it has 45% market share in development platforms used for game industry. There are 4.5M registered developers around the world. Unity 3D supports platforms like iOS, Android, Windows, PS3, PS4, XBOX One, XBOX 360, Linux, Wii, WebGL, and HTML5.</p>
-
-        <h3>Service Platform</h3>
-        <p>Our service platforms are built on MySQL or Microsoft Azure depending on the scale and the amount of the transactions expected. We can utilize other platforms as well depending on customer needs.</p>
-
-        <h3>Web Applications / Cloud Solutions</h3>
-        <p>Our solutions use Visual Studio, .NET, Microsoft Azure, C#, Java and other modern technologies. Solutions are running as web applications so users need only web browsers to access and use the services.</p>
-
-        <h2>Technologies</h2>
-        <p>We have applied many leading-edge technologies in our solutions:</p>
-        <ul>
-          <li><strong>Augmented Reality</strong> - Connects real and virtual objects in a real environment</li>
-          <li><strong>Weather Service</strong> - Real-time weather data integration</li>
-          <li><strong>Push Notifications</strong> - Instant user engagement</li>
-          <li><strong>User Identification</strong> - Secure authentication systems</li>
-          <li><strong>Location and Maps</strong> - GPS and mapping integration</li>
-          <li><strong>Mobile Payment</strong> - Secure payment processing</li>
-          <li><strong>Mobile Advertising</strong> - Targeted marketing solutions</li>
-        </ul>
-
-        <h2>Why Choose Us?</h2>
-        <ul>
-          <li>Long experience in system and software development from measurement systems to games</li>
-          <li>Agile methodology enabling full visibility and feedback every 2–4 weeks</li>
-          <li>Code developed and maintained in Finland</li>
-          <li>Professional project management and transparent communication</li>
-          <li>Proven track record with satisfied customers</li>
-        </ul>
       </div>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="footer-top">
+    <!-- STEPS FOR SUCCESS -->
+    <section class="dev-steps">
       <div class="container">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot Ltd" width="180" height="70">
-            <p>RightSpot Ltd develops SOFTWARE and WIRELESS solutions for PC, smart phones and tablets, web / Cloud. Established in 2013, based in Salo, Finland.</p>
-          </div>
-          <div class="footer-col">
-            <h4>Navigation</h4>
-            <ul>
-              <li><a href="news.html">News</a></li>
-              <li><a href="software-development.html">Software Development</a></li>
-              <li><a href="products.html">Software Products</a></li>
-              <li><a href="references.html">Customer References</a></li>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="contact.html">Contact Us</a></li>
-              <li><a href="eula.html">EULA</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Contact</h4>
-            <div class="footer-contact">
-              <div class="footer-contact-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>Satamakatu 28, 24100 SALO, Finland</span>
-              </div>
-              <div class="footer-contact-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg>
-                <span>+358 (0)40 5544853</span>
-              </div>
-              <div class="footer-contact-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                <span>rightspot(at)rightspot.fi</span>
+        <div class="dev-steps-header">
+          <h2>Steps for Your Success</h2>
+          <p>Our proven process takes you from idea to market-ready product</p>
+        </div>
+
+        <div class="steps-accordion" id="stepsAccordion">
+
+          <div class="step-acc-item open">
+            <div class="step-acc-header">
+              <div class="step-num-badge">1</div>
+              <h3>Pre-Study</h3>
+              <svg class="step-acc-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+            <div class="step-acc-body">
+              <div class="step-acc-body-inner">
+                <p>We help you to further clarify your needs. Normally there are multiple needs, view points, feature requests, expectations and opinions within organizations and on the customer side. We make it easy for you!</p>
+                <p>Just nominate key contributors no matter where they physically are. We will interview the individuals, teams, key customers and form a further processed concept idea for you.</p>
               </div>
             </div>
           </div>
+
+          <div class="step-acc-item">
+            <div class="step-acc-header">
+              <div class="step-num-badge">2</div>
+              <h3>Competitor Benchmarking</h3>
+              <svg class="step-acc-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+            <div class="step-acc-body">
+              <div class="step-acc-body-inner">
+                <p>We carry out solutions benchmarking as part of the process. You will get valuable insight for your competitor solutions, how those are built, what is missing, good inventions and what are the possible areas to be enhanced.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-acc-item">
+            <div class="step-acc-header">
+              <div class="step-num-badge">3</div>
+              <h3>Requirements</h3>
+              <svg class="step-acc-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+            <div class="step-acc-body">
+              <div class="step-acc-body-inner">
+                <p>Product or service requirements will form a picture about the final product. It describes features, use cases, environment, connections to related services and the target customer group.</p>
+                <p>This will help us and you to build a quality product that meets your, your team's, and your customer's expectations and needs while being ahead the competition.</p>
+                <p>This will be the basis for development work. Our agile working methods allow us to revisit the project requirements whenever there is mutually agreed need for it.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-acc-item">
+            <div class="step-acc-header">
+              <div class="step-num-badge">4</div>
+              <h3>Development</h3>
+              <svg class="step-acc-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+            <div class="step-acc-body">
+              <div class="step-acc-body-inner">
+                <p>Our Development process includes the following steps:</p>
+                <ul>
+                  <li>Graphical Design</li>
+                  <li>User Interface Design</li>
+                  <li>Functionality Design</li>
+                  <li>Back processes and functions design</li>
+                  <li>Development</li>
+                  <li>Testing</li>
+                  <li>Alpha and Beta releases (every 2 to 4 weeks until product meets its final agreed maturity)</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-acc-item">
+            <div class="step-acc-header">
+              <div class="step-num-badge">5</div>
+              <h3>Publishment</h3>
+              <svg class="step-acc-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+            <div class="step-acc-body">
+              <div class="step-acc-body-inner">
+                <p>We publish the end product on your behalf (or assist you to become a publisher) in App Store, Google Play Store, Windows Phone Store.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="step-acc-item">
+            <div class="step-acc-header">
+              <div class="step-num-badge">6</div>
+              <h3>Product Maintenance</h3>
+              <svg class="step-acc-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6,9 12,15 18,9"/></svg>
+            </div>
+            <div class="step-acc-body">
+              <div class="step-acc-body-inner">
+                <p>Upon agreement, we can take care of all needed maintenance actions for you. This includes follow-up (statistics, download reports, user reviews and ratings, customer feedback) and a product roadmap proposal based on the customer feedback.</p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-    </div>
-    <div class="footer-bottom">
+    </section>
+
+    <!-- DEVELOPMENT PLATFORMS -->
+    <section class="dev-platforms">
       <div class="container">
-        <div class="footer-bottom-inner">
-          <p class="footer-copy">Copyright &copy; 2025 RightSpot Ltd</p>
-          <div class="footer-links">
-            <a href="https://rightspot.fi/privacy-policy/">Privacy Policy</a>
-            <a href="eula.html">EULA</a>
-            <a href="login.html">Admin</a>
+        <div class="section-header">
+          <span class="section-label">Development Platforms</span>
+          <h2 class="section-title">Our Technology Stack</h2>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="dev-platforms-grid">
+          <div class="platform-card">
+            <div class="platform-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            </div>
+            <h3>Smart Phone / Tablet Applications</h3>
+            <p>We develop smartphone / tablet software using Unity 3D. This platform has been developed since 2006 and it has 45% market share in development platforms used for game industry. There are 4.5M registered developers around the world. Unity 3D supports platforms like iOS, Android, Windows, PS3, PS4, XBOX One, XBOX 360, Linux, Wii, WebGL, and HTML5. Our code is mainly written in C#.</p>
+            <p style="margin-top:.75rem;font-size:.8125rem;color:var(--neutral-500);">Unity customers include: Cartoon Network, Coca Cola, Disney, Electronic Arts, LEGO, Microsoft, NASA, Nexon, Nickelodeon, Square, Ubisoft, Warner Bros.</p>
+          </div>
+          <div class="platform-card">
+            <div class="platform-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <h3>Service Platform</h3>
+            <p>Our service platforms are built on MySQL or Microsoft Azure depending on the scale and the amount of the transactions expected. We can utilize other platforms as well depending on customer needs.</p>
+          </div>
+          <div class="platform-card">
+            <div class="platform-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h3>Service Management (Back Office)</h3>
+            <p>Our service management environment is WWW based, which enables users to use and access the service with normal web browsers.</p>
+          </div>
+          <div class="platform-card">
+            <div class="platform-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 15a4 4 0 0 0 4 4h9a5 5 0 0 0 1.8-9.7 6 6 0 0 0-11.8-1 4 4 0 0 0-3 6.7"/></svg>
+            </div>
+            <h3>Web Applications / Cloud Solutions</h3>
+            <p>Keywords for solutions we are currently developing are: Visual Studio, .NET, Microsoft Azure, C#, Java. Solutions are running as web applications so users need only web browsers to access and use the services. Installation can be either in Cloud environment or in customers' own private servers.</p>
           </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- OUR STANDARD SOLUTION -->
+    <section class="dev-standard">
+      <div class="container">
+        <div class="dev-standard-grid">
+          <div class="dev-standard-text animate-in">
+            <span class="section-label">Our Standard Solution</span>
+            <h2>Complete Mobile Ecosystem</h2>
+            <p>Our standard solution includes a mobile application, a mobile service and service management (Back Office). All of these can be fully tailored to any given solution.</p>
+            <p>Customer solutions may have one, multiple or all building blocks implemented depending on the scale of the requested system.</p>
+            <p>We can integrate 3rd party data sources, sensors, measurement devices/systems etc. into the solution.</p>
+            <ul>
+              <li><strong>1</strong> &nbsp;Smart Device Application (phone/tablet)</li>
+              <li><strong>2</strong> &nbsp;Mobile Service (cloud, SQL, mySQL)</li>
+              <li><strong>3</strong> &nbsp;Management Environment (BackOffice)</li>
+            </ul>
+          </div>
+          <div class="dev-standard-img animate-in delay-2">
+            <img src="images/standard_solution_diagram.png" alt="RightSpot standard solution diagram" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGIES -->
+    <section class="dev-technologies">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Technologies</span>
+          <h2 class="section-title">Leading-Edge Technology Portfolio</h2>
+          <p class="section-subtitle">We have applied many leading-edge technologies in our solutions. Our technology portfolio is expanding all the time.</p>
+          <div class="section-divider"></div>
+        </div>
+
+        <div class="tech-grid">
+
+          <div class="tech-card">
+            <div class="tech-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h3>Augmented Reality</h3>
+            <p>Connects real and virtual objects in a real environment. Works interactively and in real time. We have been applying this technology since 2014.</p>
+            <p>This technology is based on image recognition using a smartphone/tablet camera. After the specified part of the image has been identified, the application can start multiple operations (animation, text, video, sound) on top of the actual identified image.</p>
+            <p style="font-size:.8125rem;color:var(--neutral-500);font-weight:600;">Possible use cases:</p>
+            <ul>
+              <li>Industry – detect a machine and show maintenance instructions</li>
+              <li>Interior decoration – show 3D model of furniture in real dimensions</li>
+              <li>Product launch – show your product as a live 3D model</li>
+            </ul>
+            <a href="#" class="yt-link" id="ar-yt-link" style="display:none;">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.75 15.5V8.5l6.25 3.5-6.25 3.5z"/></svg>
+              View Example on YouTube
+            </a>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"/><path d="M22 10a3 3 0 0 0-3-3h-1"/></svg>
+            </div>
+            <h3>Weather Service</h3>
+            <p>Get weather information from the nearest weather station. We have been applying this technology since 2016.</p>
+            <p>Based on GPS positioning. The nearest weather station is called by sending location data to a service — you get temperature, air pressure, humidity etc. The service we utilize has more than 40,000 weather stations all over the world.</p>
+            <p style="font-size:.8125rem;color:var(--neutral-500);font-weight:600;">Possible use cases:</p>
+            <ul>
+              <li>Modelling product behavior depending on environmental conditions</li>
+              <li>Assist in decision making where weather conditions need to be considered</li>
+              <li>House temperature control systems</li>
+            </ul>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            </div>
+            <h3>Push Notifications</h3>
+            <p>A push notification is a message that pops up on a mobile device. App publishers can send them at any time and users don't have to be in the app or using their devices to receive them. Sending Push Messages is free of charge.</p>
+            <p style="font-size:.8125rem;color:var(--neutral-500);font-weight:600;">Possible use cases:</p>
+            <ul>
+              <li>Inform users about a new app release</li>
+              <li>Inform about the start of a competition</li>
+              <li>New product launch or important event notifications</li>
+            </ul>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h3>User Identification</h3>
+            <p>In solutions where the user is required to log in to the system, we use techniques which allow easy use and enough security. We have implemented support for Apple, Facebook and Google login solutions.</p>
+            <p>Our data is stored in servers located in Northern Europe and are thus under privacy policies of the European Union. We also have our privacy policy documented and attached into application descriptions in all app stores.</p>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <h3>Location and Maps</h3>
+            <p>Location can be sorted out in multiple ways and with solution dependent accuracy. Most location related solutions have a GPS based system in the background. Smart Phone devices can typically reach 4.9m accuracy in position.</p>
+            <p>We have used position information with Weather service, Ballistic calculations, OpenStreetMap and Google maps.</p>
+            <p style="font-size:.8125rem;color:var(--neutral-500);font-weight:600;">Possible use cases:</p>
+            <ul>
+              <li>Navigators and nearest services finder</li>
+              <li>Safety solutions and tracking solutions</li>
+            </ul>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            </div>
+            <h3>Mobile Payment</h3>
+            <p>An application could offer many forms of digital content to be purchased. There are multiple payment methods supported: credit card, gift card, Operator billing. Each OS provider has their own payment service (App Store, Google Play Store, Windows Phone Store).</p>
+            <p style="font-size:.8125rem;color:var(--neutral-500);font-weight:600;">Possible use cases:</p>
+            <ul>
+              <li>Sell advanced features for your product</li>
+              <li>Sell an annual license to use the application</li>
+            </ul>
+          </div>
+
+          <div class="tech-card">
+            <div class="tech-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+            </div>
+            <h3>Mobile Advertising</h3>
+            <p>Mobile applications can be used to enable 3rd party advertising by enabling advertising channels. Advertisements can be banners, full page and with video content. With these channels, you can make additional income based on shown ads and ad clicks.</p>
+            <p>Campaigns can be profiled to show based on target country, language, demography, connection type etc.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top"><div class="container"><div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot Ltd">
+        <p>RightSpot Ltd develops SOFTWARE and WIRELESS solutions for PC, smart phones and tablets, web / Cloud. Established December 2013, based in Salo, Finland.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/RightSpotLtd" target="_blank" rel="noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Navigation</h4><ul>
+        <li><a href="news.html">News</a></li>
+        <li><a href="software-development.html">Software Development</a></li>
+        <li><a href="products.html">Software Products</a></li>
+        <li><a href="references.html">Customer References</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><div class="footer-contact">
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Satamakatu 28, 24100 Salo, Finland</span></div>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg><a href="tel:+358405544853">+358 (0)40 5544853</a></div>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>rightspot(at)rightspot.fi</span></div>
+      </div></div>
+    </div></div></div>
+    <div class="footer-bottom"><div class="container"><div class="footer-bottom-inner">
+      <p class="footer-copy">Copyright &copy; 2025 RightSpot Ltd</p>
+      <div class="footer-links"><a href="https://rightspot.fi/privacy-policy/">Privacy Policy</a><a href="eula.html">EULA</a><a href="login.html">Admin</a></div>
+    </div></div></div>
   </footer>
 
   <button class="back-to-top" id="backToTop" aria-label="Back to top">
@@ -218,18 +392,44 @@
   </button>
 
   <script>
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileNav = document.getElementById('mobileNav');
-    mobileMenuBtn.addEventListener('click', () => {
-      const isOpen = mobileNav.classList.toggle('open');
-      mobileMenuBtn.setAttribute('aria-expanded', isOpen);
-    });
+    const btn = document.getElementById('mobileMenuBtn'), nav = document.getElementById('mobileNav');
+    btn.onclick = () => { const o = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', o); };
+    const btt = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 400), {passive:true});
+    btt.onclick = () => window.scrollTo({top:0,behavior:'smooth'});
 
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      backToTop.classList.toggle('visible', window.scrollY > 400);
+    // Accordion
+    document.querySelectorAll('.step-acc-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const item = header.parentElement;
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.step-acc-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.step-acc-body').style.maxHeight = null;
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          item.querySelector('.step-acc-body').style.maxHeight = item.querySelector('.step-acc-body-inner').scrollHeight + 'px';
+        }
+      });
     });
-    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    // Open first item
+    const firstItem = document.querySelector('.step-acc-item.open');
+    if (firstItem) firstItem.querySelector('.step-acc-body').style.maxHeight = firstItem.querySelector('.step-acc-body-inner').scrollHeight + 'px';
+
+    // Load AR YouTube link from Supabase settings if set
+    (async () => {
+      try {
+        const { createClient } = await import('https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm');
+        const sb = createClient('https://ekdwrwhsmurwtctctbal.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVrZHdyd2hzbXVyd3RjdGN0YmFsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1MjA4MjYsImV4cCI6MjA5NjA5NjgyNn0.30oEuPagsWJV-ShYnb8UTVx0X93pug4DLcOklXEcZGc');
+        const { data } = await sb.from('site_settings').select('value').eq('key','ar_youtube_url').maybeSingle();
+        if (data?.value) {
+          const link = document.getElementById('ar-yt-link');
+          link.href = data.value;
+          link.style.display = 'inline-flex';
+        }
+      } catch {}
+    })();
   </script>
 </body>
 </html>

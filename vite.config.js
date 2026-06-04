@@ -1,25 +1,13 @@
-import { defineConfig } from 'vite'
-import { readdirSync } from 'fs'
-import { resolve } from 'path'
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
+import { readdirSync } from 'fs';
 
-const files = readdirSync('.').filter(f => f.endsWith('.html'))
-const input = {}
-files.forEach(f => {
-  input[f.replace('.html', '')] = resolve(__dirname, f)
-})
+const htmlFiles = readdirSync('.').filter(f => f.endsWith('.html'));
+const input = Object.fromEntries(htmlFiles.map(f => [f.replace('.html',''), resolve(__dirname, f)]));
 
 export default defineConfig({
-  root: '.',
-  server: {
-    port: 5173,
-    host: '0.0.0.0',
-    open: false,
-  },
   build: {
-    outDir: 'dist',
-    target: 'esnext',
-    rollupOptions: {
-      input: input,
-    },
-  },
-})
+    target: 'es2022',
+    rollupOptions: { input }
+  }
+});

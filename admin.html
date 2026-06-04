@@ -11,137 +11,43 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --green-50: #f0faf3;
-      --green-100: #dcf3e4;
-      --green-200: #bbe7cb;
-      --green-500: #279149;
-      --green-600: #1f7a3c;
-      --neutral-50: #f8f9fa;
-      --neutral-100: #f1f3f5;
-      --neutral-200: #e9ecef;
-      --neutral-300: #dee2e6;
-      --neutral-400: #ced4da;
-      --neutral-500: #adb5bd;
-      --neutral-600: #6c757d;
-      --neutral-700: #495057;
-      --neutral-800: #343a40;
-      --neutral-900: #212529;
-      --white: #ffffff;
-      --red-50: #fff5f5;
-      --red-100: #fed7d7;
-      --red-500: #e53e3e;
-      --red-600: #c53030;
-      --yellow-50: #fffff0;
-      --yellow-500: #d69e2e;
-      --blue-50: #ebf8ff;
-      --blue-500: #3182ce;
+      --green-50: #f0faf3; --green-100: #dcf3e4; --green-200: #bbe7cb;
+      --green-500: #279149; --green-600: #1f7a3c;
+      --neutral-50: #f8f9fa; --neutral-100: #f1f3f5; --neutral-200: #e9ecef;
+      --neutral-300: #dee2e6; --neutral-400: #ced4da; --neutral-500: #adb5bd;
+      --neutral-600: #6c757d; --neutral-700: #495057; --neutral-800: #343a40;
+      --neutral-900: #212529; --white: #ffffff;
+      --red-50: #fff5f5; --red-100: #fed7d7; --red-500: #e53e3e; --red-600: #c53030;
+      --yellow-50: #fffff0; --yellow-500: #d69e2e;
+      --blue-50: #ebf8ff; --blue-500: #3182ce;
       --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-      --shadow: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.05);
-      --shadow-md: 0 10px 15px rgba(0,0,0,0.07), 0 4px 6px rgba(0,0,0,0.05);
-      --radius: 8px;
-      --radius-lg: 12px;
+      --shadow: 0 4px 6px rgba(0,0,0,0.07);
+      --shadow-md: 0 10px 15px rgba(0,0,0,0.07);
+      --radius: 8px; --radius-lg: 12px;
       --sidebar-width: 260px;
     }
     html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      background: var(--neutral-100);
-      color: var(--neutral-800);
-      min-height: 100vh;
-      display: flex;
-      -webkit-font-smoothing: antialiased;
-    }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--neutral-100); color: var(--neutral-800); min-height: 100vh; display: flex; -webkit-font-smoothing: antialiased; }
 
-    /* SIDEBAR */
-    .sidebar {
-      width: var(--sidebar-width);
-      min-width: var(--sidebar-width);
-      background: var(--neutral-900);
-      display: flex;
-      flex-direction: column;
-      position: fixed;
-      top: 0; left: 0; bottom: 0;
-      overflow-y: auto;
-      z-index: 50;
-      transition: transform 0.3s ease;
-    }
-    .sidebar-logo {
-      padding: 1.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-    .sidebar-logo img {
-      height: 44px; width: auto;
-      filter: brightness(0) invert(1);
-      display: block;
-    }
-    .sidebar-logo span {
-      display: block;
-      font-size: 0.75rem; color: var(--neutral-500);
-      margin-top: 0.375rem; font-weight: 500;
-    }
+    .sidebar { width: var(--sidebar-width); min-width: var(--sidebar-width); background: var(--neutral-900); display: flex; flex-direction: column; position: fixed; top: 0; left: 0; bottom: 0; overflow-y: auto; z-index: 50; transition: transform 0.3s ease; }
+    .sidebar-logo { padding: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .sidebar-logo img { height: 44px; width: auto; filter: brightness(0) invert(1); display: block; }
+    .sidebar-logo span { display: block; font-size: 0.75rem; color: var(--neutral-500); margin-top: 0.375rem; font-weight: 500; }
     .sidebar-nav { padding: 1.25rem 0.75rem; flex: 1; }
-    .nav-section-label {
-      font-size: 0.6875rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.1em;
-      color: var(--neutral-600);
-      padding: 0 0.75rem;
-      margin-bottom: 0.5rem; margin-top: 1.25rem;
-    }
+    .nav-section-label { font-size: 0.6875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--neutral-600); padding: 0 0.75rem; margin-bottom: 0.5rem; margin-top: 1.25rem; }
     .nav-section-label:first-child { margin-top: 0; }
-    .nav-item {
-      display: flex; align-items: center; gap: 0.75rem;
-      padding: 0.625rem 0.75rem;
-      border-radius: var(--radius);
-      font-size: 0.875rem; font-weight: 500;
-      color: var(--neutral-500);
-      cursor: pointer; transition: background 0.15s, color 0.15s;
-      border: none; background: none; width: 100%;
-      text-align: left;
-    }
+    .nav-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.625rem 0.75rem; border-radius: var(--radius); font-size: 0.875rem; font-weight: 500; color: var(--neutral-500); cursor: pointer; transition: background 0.15s, color 0.15s; border: none; background: none; width: 100%; text-align: left; }
     .nav-item:hover { background: rgba(255,255,255,0.06); color: var(--white); }
     .nav-item.active { background: var(--green-500); color: var(--white); }
     .nav-item svg { width: 18px; height: 18px; min-width: 18px; }
-    .sidebar-footer {
-      padding: 1rem 0.75rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
+    .sidebar-footer { padding: 1rem 0.75rem; border-top: 1px solid rgba(255,255,255,0.08); }
 
-    /* MAIN */
-    .main-area {
-      margin-left: var(--sidebar-width);
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    .topbar-admin {
-      background: var(--white);
-      border-bottom: 1px solid var(--neutral-200);
-      padding: 0 2rem;
-      height: 64px;
-      display: flex; align-items: center; justify-content: space-between;
-      position: sticky; top: 0; z-index: 40;
-      box-shadow: var(--shadow-sm);
-    }
+    .main-area { margin-left: var(--sidebar-width); flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
+    .topbar-admin { background: var(--white); border-bottom: 1px solid var(--neutral-200); padding: 0 2rem; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 40; box-shadow: var(--shadow-sm); }
     .topbar-title { font-size: 1.125rem; font-weight: 700; color: var(--neutral-900); }
-    .topbar-right { display: flex; align-items: center; gap: 1rem; }
-    .user-badge {
-      display: flex; align-items: center; gap: 0.625rem;
-      font-size: 0.875rem; color: var(--neutral-700);
-    }
-    .user-avatar {
-      width: 32px; height: 32px; border-radius: 50%;
-      background: var(--green-500); color: var(--white);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.875rem; font-weight: 600;
-    }
-    .btn-sm {
-      display: inline-flex; align-items: center; gap: 0.375rem;
-      padding: 0.4375rem 0.875rem;
-      font-size: 0.8125rem; font-weight: 600;
-      border-radius: var(--radius); border: none; cursor: pointer;
-      transition: all 0.15s; font-family: inherit;
-    }
+    .user-badge { display: flex; align-items: center; gap: 0.625rem; font-size: 0.875rem; color: var(--neutral-700); }
+    .user-avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--green-500); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 0.875rem; font-weight: 600; }
+    .btn-sm { display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.4375rem 0.875rem; font-size: 0.8125rem; font-weight: 600; border-radius: var(--radius); border: none; cursor: pointer; transition: all 0.15s; font-family: inherit; }
     .btn-primary { background: var(--green-500); color: var(--white); }
     .btn-primary:hover { background: var(--green-600); }
     .btn-danger { background: var(--red-50); color: var(--red-500); border: 1px solid var(--red-100); }
@@ -152,22 +58,13 @@
     .btn-ghost:hover { background: var(--neutral-100); }
 
     .page-content { padding: 2rem; flex: 1; }
-
-    /* VIEWS */
     .view { display: none; }
     .view.active { display: block; }
 
-    /* STAT CARDS */
     .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-bottom: 2rem; }
-    .stat-card {
-      background: var(--white); border-radius: var(--radius-lg);
-      padding: 1.5rem; box-shadow: var(--shadow-sm);
-    }
+    .stat-card { background: var(--white); border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow-sm); }
     .stat-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
-    .stat-card-icon {
-      width: 40px; height: 40px; border-radius: var(--radius);
-      display: flex; align-items: center; justify-content: center;
-    }
+    .stat-card-icon { width: 40px; height: 40px; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; }
     .stat-card-icon svg { width: 20px; height: 20px; }
     .stat-card-icon.green { background: var(--green-50); color: var(--green-500); }
     .stat-card-icon.blue { background: var(--blue-50); color: var(--blue-500); }
@@ -176,201 +73,90 @@
     .stat-card-value { font-size: 2rem; font-weight: 700; color: var(--neutral-900); line-height: 1; margin-bottom: 0.375rem; }
     .stat-card-label { font-size: 0.8125rem; color: var(--neutral-500); font-weight: 500; }
 
-    /* TABLES */
-    .section-card {
-      background: var(--white); border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-sm); overflow: hidden;
-      margin-bottom: 1.5rem;
-    }
-    .section-card-header {
-      padding: 1.25rem 1.5rem;
-      display: flex; align-items: center; justify-content: space-between;
-      border-bottom: 1px solid var(--neutral-200);
-    }
+    .section-card { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); overflow: hidden; margin-bottom: 1.5rem; }
+    .section-card-header { padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--neutral-200); }
     .section-card-header h2 { font-size: 1rem; font-weight: 700; color: var(--neutral-900); }
     .section-card-body { padding: 1.5rem; }
     .data-table { width: 100%; border-collapse: collapse; }
-    .data-table th {
-      font-size: 0.75rem; font-weight: 600;
-      text-transform: uppercase; letter-spacing: 0.05em;
-      color: var(--neutral-500); padding: 0.75rem 1rem;
-      text-align: left; border-bottom: 1px solid var(--neutral-200);
-    }
-    .data-table td {
-      padding: 0.875rem 1rem;
-      font-size: 0.875rem; color: var(--neutral-700);
-      border-bottom: 1px solid var(--neutral-100);
-      vertical-align: middle;
-    }
+    .data-table th { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--neutral-500); padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--neutral-200); }
+    .data-table td { padding: 0.875rem 1rem; font-size: 0.875rem; color: var(--neutral-700); border-bottom: 1px solid var(--neutral-100); vertical-align: middle; }
     .data-table tr:last-child td { border-bottom: none; }
     .data-table tr:hover td { background: var(--neutral-50); }
-    .badge {
-      display: inline-flex; align-items: center;
-      padding: 0.2rem 0.625rem; border-radius: 999px;
-      font-size: 0.75rem; font-weight: 600;
-    }
+    .badge { display: inline-flex; align-items: center; padding: 0.2rem 0.625rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; }
     .badge-green { background: var(--green-50); color: var(--green-600); }
-    .badge-red { background: var(--red-50); color: var(--red-500); }
     .badge-yellow { background: var(--yellow-50); color: var(--yellow-500); }
     .badge-blue { background: var(--blue-50); color: var(--blue-500); }
+    .badge-red { background: var(--red-50); color: var(--red-500); }
     .table-actions { display: flex; gap: 0.5rem; }
     .empty-state { text-align: center; padding: 3rem; color: var(--neutral-500); }
-    .empty-state svg { width: 48px; height: 48px; margin: 0 auto 1rem; opacity: 0.4; }
-    .empty-state p { font-size: 0.9375rem; }
+    .empty-state svg { width: 48px; height: 48px; margin: 0 auto 1rem; opacity: 0.4; display: block; }
 
-    /* MODAL */
-    .modal-overlay {
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.45);
-      display: flex; align-items: center; justify-content: center;
-      z-index: 200; padding: 1.5rem;
-      opacity: 0; pointer-events: none; transition: opacity 0.2s;
-    }
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center; z-index: 200; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
     .modal-overlay.open { opacity: 1; pointer-events: auto; }
-    .modal {
-      background: var(--white); border-radius: var(--radius-lg);
-      box-shadow: 0 25px 50px rgba(0,0,0,0.25);
-      width: 100%; max-width: 540px; max-height: 90vh;
-      overflow-y: auto;
-      transform: translateY(16px); transition: transform 0.2s;
-    }
+    .modal { background: var(--white); border-radius: var(--radius-lg); box-shadow: 0 25px 50px rgba(0,0,0,0.25); width: 100%; max-width: 560px; max-height: 90vh; overflow-y: auto; transform: translateY(16px); transition: transform 0.2s; }
     .modal-overlay.open .modal { transform: translateY(0); }
-    .modal-header {
-      padding: 1.5rem;
-      border-bottom: 1px solid var(--neutral-200);
-      display: flex; align-items: center; justify-content: space-between;
-    }
+    .modal-header { padding: 1.5rem; border-bottom: 1px solid var(--neutral-200); display: flex; align-items: center; justify-content: space-between; }
     .modal-header h3 { font-size: 1.0625rem; font-weight: 700; color: var(--neutral-900); }
-    .modal-close {
-      width: 32px; height: 32px; border-radius: var(--radius);
-      background: var(--neutral-100); border: none; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--neutral-600); transition: background 0.15s;
-    }
+    .modal-close { width: 32px; height: 32px; border-radius: var(--radius); background: var(--neutral-100); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--neutral-600); transition: background 0.15s; }
     .modal-close:hover { background: var(--neutral-200); }
     .modal-close svg { width: 16px; height: 16px; }
     .modal-body { padding: 1.5rem; }
-    .modal-footer {
-      padding: 1.25rem 1.5rem;
-      border-top: 1px solid var(--neutral-200);
-      display: flex; justify-content: flex-end; gap: 0.75rem;
-    }
+    .modal-footer { padding: 1.25rem 1.5rem; border-top: 1px solid var(--neutral-200); display: flex; justify-content: flex-end; gap: 0.75rem; }
     .form-group { margin-bottom: 1.25rem; }
     label { display: block; font-size: 0.875rem; font-weight: 500; color: var(--neutral-700); margin-bottom: 0.5rem; }
-    input[type="text"], input[type="url"], textarea, select {
-      width: 100%; padding: 0.625rem 0.875rem;
-      border: 1.5px solid var(--neutral-300);
-      border-radius: var(--radius);
-      font-size: 0.9375rem; font-family: inherit;
-      color: var(--neutral-900); background: var(--white);
-      transition: border-color 0.2s, box-shadow 0.2s;
-      outline: none;
-    }
-    input:focus, textarea:focus, select:focus {
-      border-color: var(--green-500);
-      box-shadow: 0 0 0 3px rgba(39,145,73,0.12);
-    }
-    textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+    input[type="text"], input[type="url"], textarea, select { width: 100%; padding: 0.625rem 0.875rem; border: 1.5px solid var(--neutral-300); border-radius: var(--radius); font-size: 0.9375rem; font-family: inherit; color: var(--neutral-900); background: var(--white); transition: border-color 0.2s, box-shadow 0.2s; outline: none; }
+    input:focus, textarea:focus, select:focus { border-color: var(--green-500); box-shadow: 0 0 0 3px rgba(39,145,73,0.12); }
+    textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
     .form-check { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
-    .form-check input[type="checkbox"] {
-      width: 16px; height: 16px; min-width: 16px;
-      accent-color: var(--green-500); cursor: pointer;
-    }
+    .form-check input[type="checkbox"] { width: 16px; height: 16px; min-width: 16px; accent-color: var(--green-500); cursor: pointer; }
     .form-check span { font-size: 0.875rem; color: var(--neutral-700); }
     .help-text { font-size: 0.8125rem; color: var(--neutral-500); margin-top: 0.375rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .store-link-preview { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.375rem; }
+    .store-link-preview a { font-size: 0.75rem; color: var(--green-500); }
+    .form-section-label { font-size: 0.8125rem; font-weight: 700; color: var(--neutral-500); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; padding-top: 0.5rem; border-top: 1px solid var(--neutral-200); margin-top: 0.25rem; }
 
-    /* TOAST */
     .toast-container { position: fixed; top: 1.5rem; right: 1.5rem; z-index: 300; display: flex; flex-direction: column; gap: 0.75rem; }
-    .toast {
-      background: var(--white); border-radius: var(--radius);
-      box-shadow: var(--shadow-md); padding: 0.875rem 1.25rem;
-      display: flex; align-items: center; gap: 0.75rem;
-      font-size: 0.875rem; font-weight: 500;
-      min-width: 280px; max-width: 380px;
-      animation: toastIn 0.3s ease;
-      border-left: 4px solid var(--green-500);
-    }
+    .toast { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 0.875rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; font-size: 0.875rem; font-weight: 500; min-width: 280px; max-width: 380px; animation: toastIn 0.3s ease; border-left: 4px solid var(--green-500); }
     .toast.error { border-left-color: var(--red-500); }
     .toast svg { width: 18px; height: 18px; min-width: 18px; }
     .toast.success svg { color: var(--green-500); }
     .toast.error svg { color: var(--red-500); }
     @keyframes toastIn { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: none; } }
 
-    /* CONFIRM DIALOG */
-    .confirm-overlay {
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.45);
-      display: flex; align-items: center; justify-content: center;
-      z-index: 300; padding: 1.5rem;
-      opacity: 0; pointer-events: none; transition: opacity 0.2s;
-    }
+    .confirm-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center; z-index: 300; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
     .confirm-overlay.open { opacity: 1; pointer-events: auto; }
-    .confirm-dialog {
-      background: var(--white); border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-md);
-      width: 100%; max-width: 400px;
-      padding: 2rem;
-      transform: scale(0.95); transition: transform 0.2s;
-    }
+    .confirm-dialog { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); width: 100%; max-width: 400px; padding: 2rem; transform: scale(0.95); transition: transform 0.2s; }
     .confirm-overlay.open .confirm-dialog { transform: scale(1); }
     .confirm-dialog h3 { font-size: 1.0625rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--neutral-900); }
     .confirm-dialog p { font-size: 0.9rem; color: var(--neutral-600); margin-bottom: 1.5rem; line-height: 1.6; }
     .confirm-actions { display: flex; justify-content: flex-end; gap: 0.75rem; }
 
-    /* ANALYTICS */
+    /* Analytics */
     .analytics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    .chart-placeholder {
-      background: var(--neutral-50); border-radius: var(--radius);
-      padding: 1.5rem; min-height: 200px;
-      display: flex; flex-direction: column; gap: 0.75rem;
-    }
+    .chart-placeholder { background: var(--neutral-50); border-radius: var(--radius); padding: 1.5rem; min-height: 200px; display: flex; flex-direction: column; gap: 0.75rem; }
     .chart-bar-row { display: flex; align-items: center; gap: 0.75rem; }
     .chart-bar-label { font-size: 0.8125rem; color: var(--neutral-600); min-width: 80px; text-align: right; }
     .chart-bar-track { flex: 1; background: var(--neutral-200); border-radius: 4px; height: 24px; overflow: hidden; }
     .chart-bar-fill { height: 100%; background: var(--green-500); border-radius: 4px; transition: width 0.6s ease; display: flex; align-items: center; padding-left: 0.5rem; }
     .chart-bar-count { font-size: 0.75rem; color: var(--white); font-weight: 600; }
 
-    /* SETTINGS */
     .settings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-
-    /* RESPONSIVE */
-    @media (max-width: 1024px) {
-      .stats-row { grid-template-columns: repeat(2, 1fr); }
-      .analytics-grid { grid-template-columns: 1fr; }
-      .settings-grid { grid-template-columns: 1fr; }
-    }
-    @media (max-width: 768px) {
-      .sidebar { transform: translateX(-100%); }
-      .sidebar.mobile-open { transform: translateX(0); }
-      .main-area { margin-left: 0; }
-      .stats-row { grid-template-columns: 1fr 1fr; }
-      .page-content { padding: 1.25rem; }
-      .topbar-admin { padding: 0 1.25rem; }
-    }
-    @media (max-width: 480px) {
-      .stats-row { grid-template-columns: 1fr; }
-    }
-
-    .mobile-toggle {
-      display: none; background: none; border: none; cursor: pointer;
-      color: var(--neutral-700); padding: 0.25rem;
-    }
-    .mobile-toggle svg { width: 22px; height: 22px; }
-    @media (max-width: 768px) { .mobile-toggle { display: block; } }
-
-    .overlay-backdrop {
-      display: none; position: fixed; inset: 0;
-      background: rgba(0,0,0,0.3); z-index: 40;
-    }
-    .overlay-backdrop.show { display: block; }
-
-    /* Page views table compact */
     .pv-time { font-size: 0.8125rem; color: var(--neutral-500); }
     .truncate { max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--neutral-700); padding: 0.25rem; }
+    .mobile-toggle svg { width: 22px; height: 22px; }
+    .overlay-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.3); z-index: 40; }
+    .overlay-backdrop.show { display: block; }
+
+    @media (max-width: 1024px) { .stats-row { grid-template-columns: repeat(2, 1fr); } .analytics-grid { grid-template-columns: 1fr; } .settings-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
+    @media (max-width: 768px) { .sidebar { transform: translateX(-100%); } .sidebar.mobile-open { transform: translateX(0); } .main-area { margin-left: 0; } .stats-row { grid-template-columns: 1fr 1fr; } .page-content { padding: 1.25rem; } .topbar-admin { padding: 0 1.25rem; } .mobile-toggle { display: block; } }
+    @media (max-width: 480px) { .stats-row { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-  <!-- SIDEBAR -->
+
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-logo">
       <img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot Ltd">
@@ -392,7 +178,7 @@
         News Posts
       </button>
       <button class="nav-item" data-view="products">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
         Software Products
       </button>
       <div class="nav-section-label">Configuration</div>
@@ -415,7 +201,6 @@
 
   <div class="overlay-backdrop" id="sidebarBackdrop"></div>
 
-  <!-- MAIN AREA -->
   <div class="main-area">
     <header class="topbar-admin">
       <div style="display:flex;align-items:center;gap:1rem;">
@@ -424,116 +209,76 @@
         </button>
         <span class="topbar-title" id="topbarTitle">Dashboard</span>
       </div>
-      <div class="topbar-right">
-        <div class="user-badge">
-          <div class="user-avatar" id="userAvatar">A</div>
-          <span id="userEmail" style="display:none;"></span>
-        </div>
+      <div class="user-badge">
+        <div class="user-avatar" id="userAvatar">A</div>
       </div>
     </header>
 
     <div class="page-content">
 
-      <!-- DASHBOARD VIEW -->
+      <!-- DASHBOARD -->
       <div class="view active" id="view-dashboard">
         <div class="stats-row">
           <div class="stat-card">
             <div class="stat-card-top">
-              <div>
-                <div class="stat-card-value" id="dash-news-count">—</div>
-                <div class="stat-card-label">News Posts</div>
-              </div>
-              <div class="stat-card-icon green">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2z"/></svg>
-              </div>
+              <div><div class="stat-card-value" id="dash-news-count">—</div><div class="stat-card-label">News Posts</div></div>
+              <div class="stat-card-icon green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2z"/></svg></div>
             </div>
           </div>
           <div class="stat-card">
             <div class="stat-card-top">
-              <div>
-                <div class="stat-card-value" id="dash-products-count">—</div>
-                <div class="stat-card-label">Active Products</div>
-              </div>
-              <div class="stat-card-icon blue">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-              </div>
+              <div><div class="stat-card-value" id="dash-products-count">—</div><div class="stat-card-label">Active Products</div></div>
+              <div class="stat-card-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
             </div>
           </div>
           <div class="stat-card">
             <div class="stat-card-top">
-              <div>
-                <div class="stat-card-value" id="dash-views-today">—</div>
-                <div class="stat-card-label">Views Today</div>
-              </div>
-              <div class="stat-card-icon yellow">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
-              </div>
+              <div><div class="stat-card-value" id="dash-views-today">—</div><div class="stat-card-label">Views Today</div></div>
+              <div class="stat-card-icon yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
             </div>
           </div>
           <div class="stat-card">
             <div class="stat-card-top">
-              <div>
-                <div class="stat-card-value" id="dash-views-total">—</div>
-                <div class="stat-card-label">Total Page Views</div>
-              </div>
-              <div class="stat-card-icon red">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg>
-              </div>
+              <div><div class="stat-card-value" id="dash-views-total">—</div><div class="stat-card-label">Total Page Views</div></div>
+              <div class="stat-card-icon red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg></div>
             </div>
           </div>
         </div>
-
-        <!-- Recent News -->
         <div class="section-card">
           <div class="section-card-header">
             <h2>Recent News Posts</h2>
             <button class="btn-sm btn-primary" id="dashAddNewsBtn">+ Add News</button>
           </div>
           <div class="section-card-body" style="padding:0;">
-            <table class="data-table" id="dashNewsTable">
-              <thead><tr><th>Title</th><th>Date</th><th>Status</th></tr></thead>
-              <tbody id="dashNewsBody"><tr><td colspan="3"><div class="empty-state"><p>Loading…</p></div></td></tr></tbody>
-            </table>
+            <table class="data-table"><thead><tr><th>Title</th><th>Date</th><th>Status</th></tr></thead>
+            <tbody id="dashNewsBody"><tr><td colspan="3"><div class="empty-state"><p>Loading…</p></div></td></tr></tbody></table>
           </div>
         </div>
       </div>
 
-      <!-- ANALYTICS VIEW -->
+      <!-- ANALYTICS -->
       <div class="view" id="view-analytics">
         <div class="stats-row" style="grid-template-columns:repeat(3,1fr);">
-          <div class="stat-card">
-            <div class="stat-card-value" id="ana-today">—</div>
-            <div class="stat-card-label">Views Today</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-card-value" id="ana-week">—</div>
-            <div class="stat-card-label">Views This Week</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-card-value" id="ana-total">—</div>
-            <div class="stat-card-label">All-Time Views</div>
-          </div>
+          <div class="stat-card"><div class="stat-card-value" id="ana-today">—</div><div class="stat-card-label">Views Today</div></div>
+          <div class="stat-card"><div class="stat-card-value" id="ana-week">—</div><div class="stat-card-label">Views This Week</div></div>
+          <div class="stat-card"><div class="stat-card-value" id="ana-total">—</div><div class="stat-card-label">All-Time Views</div></div>
         </div>
         <div class="analytics-grid">
           <div class="section-card">
             <div class="section-card-header"><h2>Views by Page</h2></div>
-            <div class="section-card-body">
-              <div class="chart-placeholder" id="pageChart"><p style="color:var(--neutral-500);font-size:.875rem;">Loading…</p></div>
-            </div>
+            <div class="section-card-body"><div class="chart-placeholder" id="pageChart"><p style="color:var(--neutral-500);font-size:.875rem;">Loading…</p></div></div>
           </div>
           <div class="section-card">
             <div class="section-card-header"><h2>Recent Visits (Last 20)</h2></div>
             <div class="section-card-body" style="padding:0;overflow-x:auto;">
-              <table class="data-table">
-                <thead><tr><th>Page</th><th>Referrer</th><th>Time</th></tr></thead>
-                <tbody id="recentVisits"><tr><td colspan="3" style="padding:2rem;text-align:center;color:var(--neutral-500);">Loading…</td></tr></tbody>
-              </table>
+              <table class="data-table"><thead><tr><th>Page</th><th>Referrer</th><th>Time</th></tr></thead>
+              <tbody id="recentVisits"><tr><td colspan="3" style="padding:2rem;text-align:center;color:var(--neutral-500);">Loading…</td></tr></tbody></table>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- NEWS VIEW -->
+      <!-- NEWS -->
       <div class="view" id="view-news">
         <div class="section-card">
           <div class="section-card-header">
@@ -542,14 +287,14 @@
           </div>
           <div class="section-card-body" style="padding:0;overflow-x:auto;">
             <table class="data-table">
-              <thead><tr><th>Title</th><th>Published Date</th><th>Status</th><th>Actions</th></tr></thead>
-              <tbody id="newsTableBody"><tr><td colspan="4" style="padding:2rem;text-align:center;color:var(--neutral-500);">Loading…</td></tr></tbody>
+              <thead><tr><th>Title</th><th>Date</th><th>Store Links</th><th>Status</th><th>Actions</th></tr></thead>
+              <tbody id="newsTableBody"><tr><td colspan="5" style="padding:2rem;text-align:center;color:var(--neutral-500);">Loading…</td></tr></tbody>
             </table>
           </div>
         </div>
       </div>
 
-      <!-- PRODUCTS VIEW -->
+      <!-- PRODUCTS -->
       <div class="view" id="view-products">
         <div class="section-card">
           <div class="section-card-header">
@@ -565,7 +310,7 @@
         </div>
       </div>
 
-      <!-- SETTINGS VIEW -->
+      <!-- SETTINGS -->
       <div class="view" id="view-settings">
         <div class="section-card">
           <div class="section-card-header">
@@ -573,21 +318,23 @@
             <button class="btn-sm btn-primary" id="saveSettingsBtn">Save Changes</button>
           </div>
           <div class="section-card-body">
-            <div class="settings-grid" id="settingsGrid">
-              <p style="color:var(--neutral-500);">Loading settings…</p>
-            </div>
+            <div class="settings-grid" id="settingsGrid"><p style="color:var(--neutral-500);">Loading…</p></div>
           </div>
         </div>
         <div class="section-card">
-          <div class="section-card-header"><h2>Statistics Display</h2></div>
+          <div class="section-card-header"><h2>Homepage Statistics</h2></div>
           <div class="section-card-body">
-            <p style="font-size:.875rem;color:var(--neutral-600);margin-bottom:1.25rem;">These values are shown in the stats bar on the homepage.</p>
-            <div class="settings-grid" id="statsSettingsGrid">
-              <p style="color:var(--neutral-500);">Loading…</p>
-            </div>
-            <div style="margin-top:1.5rem;">
-              <button class="btn-sm btn-primary" id="saveStatsBtn">Save Statistics</button>
-            </div>
+            <p style="font-size:.875rem;color:var(--neutral-600);margin-bottom:1.25rem;">These values appear in the stats bar on the homepage.</p>
+            <div class="settings-grid" id="statsSettingsGrid"><p style="color:var(--neutral-500);">Loading…</p></div>
+            <div style="margin-top:1.5rem;"><button class="btn-sm btn-primary" id="saveStatsBtn">Save Statistics</button></div>
+          </div>
+        </div>
+        <div class="section-card">
+          <div class="section-card-header"><h2>Technology Links</h2></div>
+          <div class="section-card-body">
+            <p style="font-size:.875rem;color:var(--neutral-600);margin-bottom:1.25rem;">YouTube and other links shown in the Software Development page technology section.</p>
+            <div class="settings-grid" id="techSettingsGrid"><p style="color:var(--neutral-500);">Loading…</p></div>
+            <div style="margin-top:1.5rem;"><button class="btn-sm btn-primary" id="saveTechBtn">Save Tech Links</button></div>
           </div>
         </div>
       </div>
@@ -610,14 +357,49 @@
         </div>
         <div class="form-group">
           <label for="newsContent">Content *</label>
-          <textarea id="newsContent" placeholder="Write the news content here…" rows="6"></textarea>
+          <textarea id="newsContent" placeholder="Write the news content here…" rows="5"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="newsDate">Published Date</label>
+            <input type="text" id="newsDate" placeholder="YYYY-MM-DD">
+            <div class="help-text">Leave blank for today.</div>
+          </div>
+          <div class="form-group">
+            <label for="newsImageUrl">Image Path / URL</label>
+            <input type="text" id="newsImageUrl" placeholder="images/photo.jpg or https://…">
+            <div class="help-text">Optional image for the news item.</div>
+          </div>
+        </div>
+
+        <div class="form-section-label">Store &amp; Media Links</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="newsAppStore">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--neutral-700)" style="display:inline;margin-right:4px;vertical-align:middle;"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              App Store URL
+            </label>
+            <input type="url" id="newsAppStore" placeholder="https://apps.apple.com/…">
+          </div>
+          <div class="form-group">
+            <label for="newsPlayStore">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--neutral-700)" style="display:inline;margin-right:4px;vertical-align:middle;"><path d="M3.18 23.76c.3.17.64.2.96.09l12.93-7.47-2.77-2.77-11.12 10.15zm-1.01-19.5C2.06 4.6 2 4.98 2 5.38v13.25c0 .4.06.78.17 1.12l.09.08 7.42-7.42v-.17L2.17 4.17l-.09.09h.09zm15.83 9.16l-2.31-2.31-9.11 9.11 2.3.06L18 13.42zM2.17 4.17l11.52 6.49-2.3 2.3-9.22-8.79z"/></svg>
+              Google Play URL
+            </label>
+            <input type="url" id="newsPlayStore" placeholder="https://play.google.com/…">
+          </div>
         </div>
         <div class="form-group">
-          <label for="newsDate">Published Date</label>
-          <input type="text" id="newsDate" placeholder="YYYY-MM-DD">
-          <div class="help-text">Leave blank to use today's date.</div>
+          <label for="newsYoutube">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#e53e3e" style="display:inline;margin-right:4px;vertical-align:middle;"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.75 15.5V8.5l6.25 3.5-6.25 3.5z"/></svg>
+            YouTube URL
+          </label>
+          <input type="url" id="newsYoutube" placeholder="https://youtube.com/watch?v=…">
+          <div class="help-text">Optional YouTube video link shown as a button on the news post.</div>
         </div>
-        <div class="form-group">
+
+        <div class="form-group" style="margin-bottom:0;">
           <label class="form-check">
             <input type="checkbox" id="newsPublished" checked>
             <span>Published (visible on website)</span>
@@ -640,37 +422,13 @@
       </div>
       <div class="modal-body">
         <input type="hidden" id="productId">
-        <div class="form-group">
-          <label for="productName">Product Name *</label>
-          <input type="text" id="productName" placeholder="e.g. Lapua Ballistics">
-        </div>
-        <div class="form-group">
-          <label for="productPlatform">Platform *</label>
-          <input type="text" id="productPlatform" placeholder="e.g. iOS, Android, Windows">
-        </div>
-        <div class="form-group">
-          <label for="productDescription">Description</label>
-          <textarea id="productDescription" placeholder="Describe the product…" rows="4"></textarea>
-        </div>
-        <div class="form-group">
-          <label for="productImageUrl">Image URL</label>
-          <input type="url" id="productImageUrl" placeholder="https://…">
-        </div>
-        <div class="form-group">
-          <label for="productStoreUrl">Store / Product URL</label>
-          <input type="url" id="productStoreUrl" placeholder="https://…">
-        </div>
-        <div class="form-group">
-          <label for="productSort">Sort Order</label>
-          <input type="text" id="productSort" placeholder="0">
-          <div class="help-text">Lower numbers appear first.</div>
-        </div>
-        <div class="form-group">
-          <label class="form-check">
-            <input type="checkbox" id="productActive" checked>
-            <span>Active (visible on website)</span>
-          </label>
-        </div>
+        <div class="form-group"><label for="productName">Product Name *</label><input type="text" id="productName" placeholder="e.g. Lapua Ballistics"></div>
+        <div class="form-group"><label for="productPlatform">Platform *</label><input type="text" id="productPlatform" placeholder="e.g. iOS, Android, Windows"></div>
+        <div class="form-group"><label for="productDescription">Description</label><textarea id="productDescription" rows="3"></textarea></div>
+        <div class="form-group"><label for="productImageUrl">Image URL</label><input type="url" id="productImageUrl" placeholder="https://…"></div>
+        <div class="form-group"><label for="productStoreUrl">Store / Product URL</label><input type="url" id="productStoreUrl" placeholder="https://…"></div>
+        <div class="form-group"><label for="productSort">Sort Order</label><input type="text" id="productSort" placeholder="0"><div class="help-text">Lower numbers appear first.</div></div>
+        <div class="form-group"><label class="form-check"><input type="checkbox" id="productActive" checked><span>Active (visible on website)</span></label></div>
       </div>
       <div class="modal-footer">
         <button class="btn-sm btn-ghost" id="productModalCancel">Cancel</button>
@@ -691,399 +449,280 @@
     </div>
   </div>
 
-  <!-- TOAST CONTAINER -->
   <div class="toast-container" id="toastContainer"></div>
 
   <script type="module">
     import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+    const sb = createClient('https://ekdwrwhsmurwtctctbal.supabase.co','eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVrZHdyd2hzbXVyd3RjdGN0YmFsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1MjA4MjYsImV4cCI6MjA5NjA5NjgyNn0.30oEuPagsWJV-ShYnb8UTVx0X93pug4DLcOklXEcZGc');
 
-    const SUPABASE_URL = 'https://ekdwrwhsmurwtctctbal.supabase.co';
-    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVrZHdyd2hzbXVyd3RjdGN0YmFsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1MjA4MjYsImV4cCI6MjA5NjA5NjgyNn0.30oEuPagsWJV-ShYnb8UTVx0X93pug4DLcOklXEcZGc';
-    const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-    // Auth guard
-    const { data: { session } } = await supabase.auth.getSession();
+    const { data: { session } } = await sb.auth.getSession();
     if (!session) { window.location.href = 'login.html'; }
-
     const user = session?.user;
-    if (user?.email) {
-      document.getElementById('userEmail').textContent = user.email;
-      document.getElementById('userAvatar').textContent = user.email[0].toUpperCase();
-    }
+    if (user?.email) document.getElementById('userAvatar').textContent = user.email[0].toUpperCase();
 
-    // --- TOAST ---
-    function toast(msg, type = 'success') {
-      const tc = document.getElementById('toastContainer');
+    // Toast
+    function toast(msg, type='success') {
       const t = document.createElement('div');
       t.className = `toast ${type}`;
-      const icon = type === 'success'
-        ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>`
-        : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`;
+      const icon = type==='success'
+        ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20,6 9,17 4,12"/></svg>'
+        : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>';
       t.innerHTML = icon + `<span>${msg}</span>`;
-      tc.appendChild(t);
+      document.getElementById('toastContainer').appendChild(t);
       setTimeout(() => t.remove(), 4000);
     }
 
-    // --- CONFIRM ---
+    // Confirm
     let confirmResolve = null;
     function confirm(title, msg) {
-      return new Promise(resolve => {
-        confirmResolve = resolve;
+      return new Promise(r => {
+        confirmResolve = r;
         document.getElementById('confirmTitle').textContent = title;
         document.getElementById('confirmMsg').textContent = msg;
         document.getElementById('confirmOverlay').classList.add('open');
       });
     }
-    document.getElementById('confirmCancel').addEventListener('click', () => {
-      document.getElementById('confirmOverlay').classList.remove('open');
-      if (confirmResolve) confirmResolve(false);
-    });
-    document.getElementById('confirmOk').addEventListener('click', () => {
-      document.getElementById('confirmOverlay').classList.remove('open');
-      if (confirmResolve) confirmResolve(true);
-    });
+    document.getElementById('confirmCancel').onclick = () => { document.getElementById('confirmOverlay').classList.remove('open'); if(confirmResolve) confirmResolve(false); };
+    document.getElementById('confirmOk').onclick = () => { document.getElementById('confirmOverlay').classList.remove('open'); if(confirmResolve) confirmResolve(true); };
 
-    // --- NAVIGATION ---
-    const navItems = document.querySelectorAll('.nav-item[data-view]');
-    const views = document.querySelectorAll('.view');
-    const titles = { dashboard: 'Dashboard', analytics: 'Visitor Analytics', news: 'News Posts', products: 'Software Products', settings: 'Site Settings' };
+    // Navigation
+    const titles = { dashboard:'Dashboard', analytics:'Visitor Analytics', news:'News Posts', products:'Software Products', settings:'Site Settings' };
     let currentView = 'dashboard';
-
     function showView(name) {
       currentView = name;
-      navItems.forEach(n => n.classList.toggle('active', n.dataset.view === name));
-      views.forEach(v => v.classList.toggle('active', v.id === `view-${name}`));
-      document.getElementById('topbarTitle').textContent = titles[name] || name;
+      document.querySelectorAll('.nav-item[data-view]').forEach(n => n.classList.toggle('active', n.dataset.view===name));
+      document.querySelectorAll('.view').forEach(v => v.classList.toggle('active', v.id===`view-${name}`));
+      document.getElementById('topbarTitle').textContent = titles[name]||name;
       loadView(name);
-      closeSidebar();
+      document.getElementById('sidebar').classList.remove('mobile-open');
+      document.getElementById('sidebarBackdrop').classList.remove('show');
     }
+    document.querySelectorAll('.nav-item[data-view]').forEach(b => b.onclick = () => showView(b.dataset.view));
+    document.getElementById('viewSiteBtn').onclick = () => window.open('index.html','_blank');
+    document.getElementById('logoutBtn').onclick = async () => { await sb.auth.signOut(); window.location.href = 'login.html'; };
+    document.getElementById('mobileToggle').onclick = () => { document.getElementById('sidebar').classList.toggle('mobile-open'); document.getElementById('sidebarBackdrop').classList.toggle('show'); };
+    document.getElementById('sidebarBackdrop').onclick = () => { document.getElementById('sidebar').classList.remove('mobile-open'); document.getElementById('sidebarBackdrop').classList.remove('show'); };
+    document.getElementById('dashAddNewsBtn').onclick = () => { showView('news'); openNewsModal(); };
 
-    navItems.forEach(btn => btn.addEventListener('click', () => showView(btn.dataset.view)));
-
-    document.getElementById('viewSiteBtn').addEventListener('click', () => { window.open('index.html', '_blank'); });
-    document.getElementById('logoutBtn').addEventListener('click', async () => {
-      await supabase.auth.signOut();
-      window.location.href = 'login.html';
-    });
-
-    // Mobile sidebar
-    const sidebar = document.getElementById('sidebar');
-    const sidebarBackdrop = document.getElementById('sidebarBackdrop');
-    document.getElementById('mobileToggle').addEventListener('click', () => {
-      sidebar.classList.toggle('mobile-open');
-      sidebarBackdrop.classList.toggle('show');
-    });
-    sidebarBackdrop.addEventListener('click', closeSidebar);
-    function closeSidebar() {
-      sidebar.classList.remove('mobile-open');
-      sidebarBackdrop.classList.remove('show');
-    }
-
-    // Dashboard Add News shortcut
-    document.getElementById('dashAddNewsBtn').addEventListener('click', () => { showView('news'); openNewsModal(); });
-
-    // --- DATA LOADING ---
     async function loadView(name) {
-      if (name === 'dashboard') loadDashboard();
-      else if (name === 'analytics') loadAnalytics();
-      else if (name === 'news') loadNews();
-      else if (name === 'products') loadProducts();
-      else if (name === 'settings') loadSettings();
+      if(name==='dashboard') loadDashboard();
+      else if(name==='analytics') loadAnalytics();
+      else if(name==='news') loadNews();
+      else if(name==='products') loadProducts();
+      else if(name==='settings') loadSettings();
     }
 
-    // DASHBOARD
+    // Dashboard
     async function loadDashboard() {
-      const [newsRes, prodRes, viewsTodayRes, viewsTotalRes] = await Promise.all([
-        supabase.from('news_posts').select('id', { count: 'exact', head: true }),
-        supabase.from('software_products').select('id', { count: 'exact', head: true }).eq('is_active', true),
-        supabase.from('page_views').select('id', { count: 'exact', head: true }).gte('visited_at', new Date().toISOString().slice(0,10)),
-        supabase.from('page_views').select('id', { count: 'exact', head: true }),
+      const today = new Date().toISOString().slice(0,10);
+      const [nr,pr,vt,va] = await Promise.all([
+        sb.from('news_posts').select('id',{count:'exact',head:true}),
+        sb.from('software_products').select('id',{count:'exact',head:true}).eq('is_active',true),
+        sb.from('page_views').select('id',{count:'exact',head:true}).gte('visited_at',today),
+        sb.from('page_views').select('id',{count:'exact',head:true}),
       ]);
-      document.getElementById('dash-news-count').textContent = newsRes.count ?? '—';
-      document.getElementById('dash-products-count').textContent = prodRes.count ?? '—';
-      document.getElementById('dash-views-today').textContent = viewsTodayRes.count ?? '—';
-      document.getElementById('dash-views-total').textContent = (viewsTotalRes.count ?? 0).toLocaleString();
-
-      const { data: recentNews } = await supabase.from('news_posts').select('*').order('published_at', { ascending: false }).limit(5);
+      document.getElementById('dash-news-count').textContent = nr.count??'—';
+      document.getElementById('dash-products-count').textContent = pr.count??'—';
+      document.getElementById('dash-views-today').textContent = vt.count??'—';
+      document.getElementById('dash-views-total').textContent = (va.count??0).toLocaleString();
+      const {data} = await sb.from('news_posts').select('*').order('published_at',{ascending:false}).limit(5);
       const tbody = document.getElementById('dashNewsBody');
-      if (!recentNews?.length) { tbody.innerHTML = '<tr><td colspan="3"><div class="empty-state"><p>No news posts yet.</p></div></td></tr>'; return; }
-      tbody.innerHTML = recentNews.map(p => `
-        <tr>
-          <td style="font-weight:500;">${escHtml(p.title)}</td>
-          <td>${fmtDate(p.published_at)}</td>
-          <td><span class="badge ${p.is_published ? 'badge-green' : 'badge-yellow'}">${p.is_published ? 'Published' : 'Draft'}</span></td>
-        </tr>`).join('');
+      if(!data?.length){tbody.innerHTML='<tr><td colspan="3"><div class="empty-state"><p>No news posts yet.</p></div></td></tr>';return;}
+      tbody.innerHTML=data.map(p=>`<tr><td style="font-weight:500;">${esc(p.title)}</td><td>${fmt(p.published_at)}</td><td><span class="badge ${p.is_published?'badge-green':'badge-yellow'}">${p.is_published?'Published':'Draft'}</span></td></tr>`).join('');
     }
 
-    // ANALYTICS
+    // Analytics
     async function loadAnalytics() {
       const today = new Date().toISOString().slice(0,10);
-      const weekAgo = new Date(Date.now() - 7*24*60*60*1000).toISOString();
-
-      const [todayRes, weekRes, totalRes, recentRes] = await Promise.all([
-        supabase.from('page_views').select('id', { count: 'exact', head: true }).gte('visited_at', today),
-        supabase.from('page_views').select('id', { count: 'exact', head: true }).gte('visited_at', weekAgo),
-        supabase.from('page_views').select('id', { count: 'exact', head: true }),
-        supabase.from('page_views').select('page, referrer, visited_at').order('visited_at', { ascending: false }).limit(20),
+      const weekAgo = new Date(Date.now()-7*24*60*60*1000).toISOString();
+      const [tr,wr,ar,rr] = await Promise.all([
+        sb.from('page_views').select('id',{count:'exact',head:true}).gte('visited_at',today),
+        sb.from('page_views').select('id',{count:'exact',head:true}).gte('visited_at',weekAgo),
+        sb.from('page_views').select('id',{count:'exact',head:true}),
+        sb.from('page_views').select('page,referrer,visited_at').order('visited_at',{ascending:false}).limit(20),
       ]);
-
-      document.getElementById('ana-today').textContent = todayRes.count ?? '—';
-      document.getElementById('ana-week').textContent = weekRes.count ?? '—';
-      document.getElementById('ana-total').textContent = (totalRes.count ?? 0).toLocaleString();
-
-      // Page chart
-      const { data: allViews } = await supabase.from('page_views').select('page');
-      const pageCounts = {};
-      (allViews || []).forEach(v => { pageCounts[v.page] = (pageCounts[v.page] || 0) + 1; });
-      const sorted = Object.entries(pageCounts).sort((a,b) => b[1]-a[1]).slice(0,8);
-      const maxCount = sorted[0]?.[1] || 1;
-      const chartEl = document.getElementById('pageChart');
-      if (!sorted.length) { chartEl.innerHTML = '<p style="color:var(--neutral-500);font-size:.875rem;">No data yet.</p>'; }
-      else {
-        chartEl.innerHTML = sorted.map(([page, count]) => `
-          <div class="chart-bar-row">
-            <div class="chart-bar-label">${escHtml(page.length > 12 ? page.slice(0,12)+'…' : page)}</div>
-            <div class="chart-bar-track">
-              <div class="chart-bar-fill" style="width:${Math.round(count/maxCount*100)}%">
-                <span class="chart-bar-count">${count}</span>
-              </div>
-            </div>
-          </div>`).join('');
-      }
-
-      // Recent visits table
-      const rvBody = document.getElementById('recentVisits');
-      if (!recentRes.data?.length) { rvBody.innerHTML = '<tr><td colspan="3" style="padding:2rem;text-align:center;color:var(--neutral-500);">No visits recorded yet.</td></tr>'; return; }
-      rvBody.innerHTML = recentRes.data.map(v => `
-        <tr>
-          <td>${escHtml(v.page || '/')}</td>
-          <td class="truncate">${v.referrer ? escHtml(v.referrer) : '<span style="color:var(--neutral-400)">—</span>'}</td>
-          <td class="pv-time">${new Date(v.visited_at).toLocaleString()}</td>
-        </tr>`).join('');
+      document.getElementById('ana-today').textContent=tr.count??'—';
+      document.getElementById('ana-week').textContent=wr.count??'—';
+      document.getElementById('ana-total').textContent=(ar.count??0).toLocaleString();
+      const {data:allV} = await sb.from('page_views').select('page');
+      const pc={};(allV||[]).forEach(v=>{pc[v.page]=(pc[v.page]||0)+1;});
+      const sorted=Object.entries(pc).sort((a,b)=>b[1]-a[1]).slice(0,8);
+      const maxC=sorted[0]?.[1]||1;
+      const ce=document.getElementById('pageChart');
+      if(!sorted.length){ce.innerHTML='<p style="color:var(--neutral-500);font-size:.875rem;">No data yet.</p>';}
+      else{ce.innerHTML=sorted.map(([p,c])=>`<div class="chart-bar-row"><div class="chart-bar-label">${esc(p.length>12?p.slice(0,12)+'…':p)}</div><div class="chart-bar-track"><div class="chart-bar-fill" style="width:${Math.round(c/maxC*100)}%"><span class="chart-bar-count">${c}</span></div></div></div>`).join('');}
+      const rvb=document.getElementById('recentVisits');
+      if(!rr.data?.length){rvb.innerHTML='<tr><td colspan="3" style="padding:2rem;text-align:center;color:var(--neutral-500);">No visits recorded yet.</td></tr>';return;}
+      rvb.innerHTML=rr.data.map(v=>`<tr><td>${esc(v.page||'/')}</td><td class="truncate">${v.referrer?esc(v.referrer):'<span style="color:var(--neutral-400)">—</span>'}</td><td class="pv-time">${new Date(v.visited_at).toLocaleString()}</td></tr>`).join('');
     }
 
-    // NEWS
+    // News
     async function loadNews() {
-      const { data, error } = await supabase.from('news_posts').select('*').order('published_at', { ascending: false });
-      const tbody = document.getElementById('newsTableBody');
-      if (error || !data?.length) {
-        tbody.innerHTML = `<tr><td colspan="4"><div class="empty-state">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2z"/></svg>
-          <p>No news posts yet. Click "+ Add News Post" to create one.</p>
-        </div></td></tr>`;
-        return;
-      }
-      tbody.innerHTML = data.map(p => `
-        <tr>
-          <td style="font-weight:500;max-width:320px;">${escHtml(p.title)}</td>
-          <td>${fmtDate(p.published_at)}</td>
-          <td><span class="badge ${p.is_published ? 'badge-green' : 'badge-yellow'}">${p.is_published ? 'Published' : 'Draft'}</span></td>
-          <td>
-            <div class="table-actions">
-              <button class="btn-sm btn-secondary" onclick="editNews('${p.id}')">Edit</button>
-              <button class="btn-sm btn-danger" onclick="deleteNews('${p.id}', '${escHtml(p.title).replace(/'/g, "\\'")}')">Delete</button>
-            </div>
-          </td>
-        </tr>`).join('');
+      const {data,error} = await sb.from('news_posts').select('*').order('published_at',{ascending:false});
+      const tbody=document.getElementById('newsTableBody');
+      if(error||!data?.length){tbody.innerHTML=`<tr><td colspan="5"><div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2z"/></svg><p>No news posts yet.</p></div></td></tr>`;return;}
+      tbody.innerHTML=data.map(p=>{
+        const links=[];
+        if(p.appstore_url) links.push(`<span class="badge badge-blue" style="margin-right:2px;">App Store</span>`);
+        if(p.playstore_url) links.push(`<span class="badge badge-green" style="margin-right:2px;">Play</span>`);
+        if(p.youtube_url) links.push(`<span class="badge badge-red">YT</span>`);
+        return `<tr>
+          <td style="font-weight:500;max-width:280px;">${esc(p.title)}</td>
+          <td>${fmt(p.published_at)}</td>
+          <td>${links.join('')||'<span style="color:var(--neutral-400)">—</span>'}</td>
+          <td><span class="badge ${p.is_published?'badge-green':'badge-yellow'}">${p.is_published?'Published':'Draft'}</span></td>
+          <td><div class="table-actions">
+            <button class="btn-sm btn-secondary" onclick="editNews('${p.id}')">Edit</button>
+            <button class="btn-sm btn-danger" onclick="deleteNews('${p.id}','${esc(p.title).replace(/'/g,"\\'")}')">Delete</button>
+          </div></td>
+        </tr>`;
+      }).join('');
     }
 
-    // PRODUCTS
+    // Products
     async function loadProducts() {
-      const { data, error } = await supabase.from('software_products').select('*').order('sort_order').order('created_at');
-      const tbody = document.getElementById('productsTableBody');
-      if (error || !data?.length) {
-        tbody.innerHTML = `<tr><td colspan="5"><div class="empty-state">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
-          <p>No products yet.</p>
-        </div></td></tr>`;
-        return;
-      }
-      tbody.innerHTML = data.map(p => `
-        <tr>
-          <td style="font-weight:500;">${escHtml(p.name)}</td>
-          <td><span class="badge badge-blue">${escHtml(p.platform)}</span></td>
-          <td><span class="badge ${p.is_active ? 'badge-green' : 'badge-yellow'}">${p.is_active ? 'Active' : 'Hidden'}</span></td>
-          <td>${p.sort_order}</td>
-          <td>
-            <div class="table-actions">
-              <button class="btn-sm btn-secondary" onclick="editProduct('${p.id}')">Edit</button>
-              <button class="btn-sm btn-danger" onclick="deleteProduct('${p.id}', '${escHtml(p.name).replace(/'/g, "\\'")}')">Delete</button>
-            </div>
-          </td>
-        </tr>`).join('');
+      const {data,error} = await sb.from('software_products').select('*').order('sort_order').order('created_at');
+      const tbody=document.getElementById('productsTableBody');
+      if(error||!data?.length){tbody.innerHTML=`<tr><td colspan="5"><div class="empty-state"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/></svg><p>No products yet.</p></div></td></tr>`;return;}
+      tbody.innerHTML=data.map(p=>`<tr>
+        <td style="font-weight:500;">${esc(p.name)}</td>
+        <td><span class="badge badge-blue">${esc(p.platform)}</span></td>
+        <td><span class="badge ${p.is_active?'badge-green':'badge-yellow'}">${p.is_active?'Active':'Hidden'}</span></td>
+        <td>${p.sort_order}</td>
+        <td><div class="table-actions">
+          <button class="btn-sm btn-secondary" onclick="editProduct('${p.id}')">Edit</button>
+          <button class="btn-sm btn-danger" onclick="deleteProduct('${p.id}','${esc(p.name).replace(/'/g,"\\'")}')">Delete</button>
+        </div></td>
+      </tr>`).join('');
     }
 
-    // SETTINGS
-    const CONTACT_KEYS = ['phone', 'email', 'address', 'facebook_url'];
-    const STATS_KEYS = ['stats_products', 'stats_ratings', 'stats_avg_rating', 'stats_downloads'];
-    const SETTING_LABELS = {
-      phone: 'Phone Number',
-      email: 'Email Address',
-      address: 'Office Address',
-      facebook_url: 'Facebook URL',
-      stats_products: 'Published Products (count)',
-      stats_ratings: 'User Ratings (count)',
-      stats_avg_rating: 'Average Store Rating',
-      stats_downloads: 'Application Downloads (count)',
-    };
+    // Settings
+    const CONTACT_KEYS=['phone','email','address','facebook_url'];
+    const STATS_KEYS=['stats_products','stats_ratings','stats_avg_rating','stats_downloads'];
+    const TECH_KEYS=['ar_youtube_url'];
+    const LABELS={phone:'Phone Number',email:'Email Address',address:'Office Address',facebook_url:'Facebook URL',stats_products:'Published Products',stats_ratings:'User Ratings',stats_avg_rating:'Average Store Rating',stats_downloads:'Application Downloads',ar_youtube_url:'AR Technology YouTube Link'};
 
     async function loadSettings() {
-      const { data } = await supabase.from('site_settings').select('key, value');
-      const map = Object.fromEntries((data || []).map(r => [r.key, r.value]));
-
-      document.getElementById('settingsGrid').innerHTML = CONTACT_KEYS.map(k => `
-        <div class="form-group">
-          <label for="setting-${k}">${SETTING_LABELS[k] || k}</label>
-          <input type="text" id="setting-${k}" value="${escHtml(map[k] || '')}">
-        </div>`).join('');
-
-      document.getElementById('statsSettingsGrid').innerHTML = STATS_KEYS.map(k => `
-        <div class="form-group">
-          <label for="setting-${k}">${SETTING_LABELS[k] || k}</label>
-          <input type="text" id="setting-${k}" value="${escHtml(map[k] || '')}">
-        </div>`).join('');
+      const {data} = await sb.from('site_settings').select('key,value');
+      const map=Object.fromEntries((data||[]).map(r=>[r.key,r.value]));
+      document.getElementById('settingsGrid').innerHTML=CONTACT_KEYS.map(k=>`<div class="form-group"><label for="s-${k}">${LABELS[k]}</label><input type="text" id="s-${k}" value="${esc(map[k]||'')}"></div>`).join('');
+      document.getElementById('statsSettingsGrid').innerHTML=STATS_KEYS.map(k=>`<div class="form-group"><label for="s-${k}">${LABELS[k]}</label><input type="text" id="s-${k}" value="${esc(map[k]||'')}"></div>`).join('');
+      document.getElementById('techSettingsGrid').innerHTML=TECH_KEYS.map(k=>`<div class="form-group" style="grid-column:1/-1;"><label for="s-${k}">${LABELS[k]}</label><input type="url" id="s-${k}" value="${esc(map[k]||'')}"><div class="help-text">Paste a YouTube video link to show a video button in the Augmented Reality section.</div></div>`).join('');
     }
 
-    async function saveSettingsGroup(keys) {
-      for (const k of keys) {
-        const el = document.getElementById(`setting-${k}`);
-        if (!el) continue;
-        await supabase.from('site_settings').upsert({ key: k, value: el.value, updated_at: new Date().toISOString() }, { onConflict: 'key' });
+    async function saveKeys(keys) {
+      for(const k of keys){
+        const el=document.getElementById(`s-${k}`);
+        if(!el) continue;
+        await sb.from('site_settings').upsert({key:k,value:el.value,updated_at:new Date().toISOString()},{onConflict:'key'});
       }
-      toast('Settings saved successfully!');
+      toast('Settings saved!');
     }
+    document.getElementById('saveSettingsBtn').onclick=()=>saveKeys(CONTACT_KEYS);
+    document.getElementById('saveStatsBtn').onclick=()=>saveKeys(STATS_KEYS);
+    document.getElementById('saveTechBtn').onclick=()=>saveKeys(TECH_KEYS);
 
-    document.getElementById('saveSettingsBtn').addEventListener('click', () => saveSettingsGroup(CONTACT_KEYS));
-    document.getElementById('saveStatsBtn').addEventListener('click', () => saveSettingsGroup(STATS_KEYS));
-
-    // --- NEWS MODAL ---
-    let editingNewsId = null;
-    function openNewsModal(data = null) {
-      editingNewsId = data?.id || null;
-      document.getElementById('newsModalTitle').textContent = data ? 'Edit News Post' : 'Add News Post';
-      document.getElementById('newsId').value = data?.id || '';
-      document.getElementById('newsTitle').value = data?.title || '';
-      document.getElementById('newsContent').value = data?.content || '';
-      document.getElementById('newsDate').value = data?.published_at ? data.published_at.slice(0,10) : '';
-      document.getElementById('newsPublished').checked = data ? data.is_published : true;
+    // News modal
+    let editingNewsId=null;
+    function openNewsModal(data=null) {
+      editingNewsId=data?.id||null;
+      document.getElementById('newsModalTitle').textContent=data?'Edit News Post':'Add News Post';
+      document.getElementById('newsId').value=data?.id||'';
+      document.getElementById('newsTitle').value=data?.title||'';
+      document.getElementById('newsContent').value=data?.content||'';
+      document.getElementById('newsDate').value=data?.published_at?data.published_at.slice(0,10):'';
+      document.getElementById('newsImageUrl').value=data?.image_url||'';
+      document.getElementById('newsAppStore').value=data?.appstore_url||'';
+      document.getElementById('newsPlayStore').value=data?.playstore_url||'';
+      document.getElementById('newsYoutube').value=data?.youtube_url||'';
+      document.getElementById('newsPublished').checked=data?data.is_published:true;
       document.getElementById('newsModal').classList.add('open');
     }
-    function closeNewsModal() { document.getElementById('newsModal').classList.remove('open'); }
-    document.getElementById('newsModalClose').addEventListener('click', closeNewsModal);
-    document.getElementById('newsModalCancel').addEventListener('click', closeNewsModal);
-    document.getElementById('addNewsBtn').addEventListener('click', () => openNewsModal());
+    function closeNewsModal(){document.getElementById('newsModal').classList.remove('open');}
+    document.getElementById('newsModalClose').onclick=closeNewsModal;
+    document.getElementById('newsModalCancel').onclick=closeNewsModal;
+    document.getElementById('addNewsBtn').onclick=()=>openNewsModal();
+    document.getElementById('newsModal').onclick=e=>{if(e.target===document.getElementById('newsModal'))closeNewsModal();};
 
-    document.getElementById('newsModalSave').addEventListener('click', async () => {
-      const title = document.getElementById('newsTitle').value.trim();
-      const content = document.getElementById('newsContent').value.trim();
-      const dateVal = document.getElementById('newsDate').value.trim();
-      const published = document.getElementById('newsPublished').checked;
-      if (!title) { toast('Please enter a title.', 'error'); return; }
-      if (!content) { toast('Please enter content.', 'error'); return; }
-      const published_at = dateVal ? new Date(dateVal).toISOString() : new Date().toISOString();
-      const payload = { title, content, published_at, is_published: published, updated_at: new Date().toISOString() };
-      let err;
-      if (editingNewsId) {
-        ({ error: err } = await supabase.from('news_posts').update(payload).eq('id', editingNewsId));
-      } else {
-        ({ error: err } = await supabase.from('news_posts').insert(payload));
-      }
-      if (err) { toast('Error saving post: ' + err.message, 'error'); return; }
-      toast(editingNewsId ? 'News post updated!' : 'News post added!');
-      closeNewsModal();
-      loadNews();
-      if (currentView === 'dashboard') loadDashboard();
-    });
-
-    window.editNews = async (id) => {
-      const { data } = await supabase.from('news_posts').select('*').eq('id', id).maybeSingle();
-      if (data) openNewsModal(data);
-    };
-    window.deleteNews = async (id, title) => {
-      const ok = await confirm('Delete News Post', `Delete "${title}"? This cannot be undone.`);
-      if (!ok) return;
-      const { error } = await supabase.from('news_posts').delete().eq('id', id);
-      if (error) { toast('Error deleting post.', 'error'); return; }
-      toast('News post deleted.');
-      loadNews();
-      if (currentView === 'dashboard') loadDashboard();
-    };
-
-    // --- PRODUCT MODAL ---
-    let editingProductId = null;
-    function openProductModal(data = null) {
-      editingProductId = data?.id || null;
-      document.getElementById('productModalTitle').textContent = data ? 'Edit Product' : 'Add Software Product';
-      document.getElementById('productId').value = data?.id || '';
-      document.getElementById('productName').value = data?.name || '';
-      document.getElementById('productPlatform').value = data?.platform || '';
-      document.getElementById('productDescription').value = data?.description || '';
-      document.getElementById('productImageUrl').value = data?.image_url || '';
-      document.getElementById('productStoreUrl').value = data?.store_url || '';
-      document.getElementById('productSort').value = data?.sort_order ?? '0';
-      document.getElementById('productActive').checked = data ? data.is_active : true;
-      document.getElementById('productModal').classList.add('open');
-    }
-    function closeProductModal() { document.getElementById('productModal').classList.remove('open'); }
-    document.getElementById('productModalClose').addEventListener('click', closeProductModal);
-    document.getElementById('productModalCancel').addEventListener('click', closeProductModal);
-    document.getElementById('addProductBtn').addEventListener('click', () => openProductModal());
-
-    document.getElementById('productModalSave').addEventListener('click', async () => {
-      const name = document.getElementById('productName').value.trim();
-      const platform = document.getElementById('productPlatform').value.trim();
-      if (!name) { toast('Please enter a product name.', 'error'); return; }
-      if (!platform) { toast('Please enter the platform.', 'error'); return; }
-      const payload = {
-        name, platform,
-        description: document.getElementById('productDescription').value.trim(),
-        image_url: document.getElementById('productImageUrl').value.trim(),
-        store_url: document.getElementById('productStoreUrl').value.trim(),
-        sort_order: parseInt(document.getElementById('productSort').value) || 0,
-        is_active: document.getElementById('productActive').checked,
+    document.getElementById('newsModalSave').onclick=async()=>{
+      const title=document.getElementById('newsTitle').value.trim();
+      const content=document.getElementById('newsContent').value.trim();
+      if(!title){toast('Please enter a title.','error');return;}
+      if(!content){toast('Please enter content.','error');return;}
+      const dateVal=document.getElementById('newsDate').value.trim();
+      const payload={
+        title, content,
+        published_at: dateVal?new Date(dateVal).toISOString():new Date().toISOString(),
+        is_published: document.getElementById('newsPublished').checked,
+        image_url: document.getElementById('newsImageUrl').value.trim(),
+        appstore_url: document.getElementById('newsAppStore').value.trim(),
+        playstore_url: document.getElementById('newsPlayStore').value.trim(),
+        youtube_url: document.getElementById('newsYoutube').value.trim(),
         updated_at: new Date().toISOString(),
       };
       let err;
-      if (editingProductId) {
-        ({ error: err } = await supabase.from('software_products').update(payload).eq('id', editingProductId));
-      } else {
-        ({ error: err } = await supabase.from('software_products').insert(payload));
-      }
-      if (err) { toast('Error saving product: ' + err.message, 'error'); return; }
-      toast(editingProductId ? 'Product updated!' : 'Product added!');
-      closeProductModal();
-      loadProducts();
-    });
-
-    window.editProduct = async (id) => {
-      const { data } = await supabase.from('software_products').select('*').eq('id', id).maybeSingle();
-      if (data) openProductModal(data);
-    };
-    window.deleteProduct = async (id, name) => {
-      const ok = await confirm('Delete Product', `Delete "${name}"? This cannot be undone.`);
-      if (!ok) return;
-      const { error } = await supabase.from('software_products').delete().eq('id', id);
-      if (error) { toast('Error deleting product.', 'error'); return; }
-      toast('Product deleted.');
-      loadProducts();
+      if(editingNewsId){({error:err}=await sb.from('news_posts').update(payload).eq('id',editingNewsId));}
+      else{({error:err}=await sb.from('news_posts').insert(payload));}
+      if(err){toast('Error: '+err.message,'error');return;}
+      toast(editingNewsId?'News post updated!':'News post added!');
+      closeNewsModal(); loadNews();
+      if(currentView==='dashboard') loadDashboard();
     };
 
-    // --- HELPERS ---
-    function escHtml(str) {
-      const d = document.createElement('div');
-      d.appendChild(document.createTextNode(String(str)));
-      return d.innerHTML;
-    }
-    function fmtDate(s) {
-      if (!s) return '—';
-      return new Date(s).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
-    }
+    window.editNews=async(id)=>{
+      const {data}=await sb.from('news_posts').select('*').eq('id',id).maybeSingle();
+      if(data) openNewsModal(data);
+    };
+    window.deleteNews=async(id,title)=>{
+      const ok=await confirm('Delete News Post',`Delete "${title}"? This cannot be undone.`);
+      if(!ok) return;
+      const {error}=await sb.from('news_posts').delete().eq('id',id);
+      if(error){toast('Error deleting.','error');return;}
+      toast('News post deleted.'); loadNews();
+      if(currentView==='dashboard') loadDashboard();
+    };
 
-    // Close modals on overlay click
-    document.getElementById('newsModal').addEventListener('click', (e) => { if (e.target === document.getElementById('newsModal')) closeNewsModal(); });
-    document.getElementById('productModal').addEventListener('click', (e) => { if (e.target === document.getElementById('productModal')) closeProductModal(); });
+    // Product modal
+    let editingProductId=null;
+    function openProductModal(data=null) {
+      editingProductId=data?.id||null;
+      document.getElementById('productModalTitle').textContent=data?'Edit Product':'Add Software Product';
+      document.getElementById('productId').value=data?.id||'';
+      document.getElementById('productName').value=data?.name||'';
+      document.getElementById('productPlatform').value=data?.platform||'';
+      document.getElementById('productDescription').value=data?.description||'';
+      document.getElementById('productImageUrl').value=data?.image_url||'';
+      document.getElementById('productStoreUrl').value=data?.store_url||'';
+      document.getElementById('productSort').value=data?.sort_order??'0';
+      document.getElementById('productActive').checked=data?data.is_active:true;
+      document.getElementById('productModal').classList.add('open');
+    }
+    function closeProductModal(){document.getElementById('productModal').classList.remove('open');}
+    document.getElementById('productModalClose').onclick=closeProductModal;
+    document.getElementById('productModalCancel').onclick=closeProductModal;
+    document.getElementById('addProductBtn').onclick=()=>openProductModal();
+    document.getElementById('productModal').onclick=e=>{if(e.target===document.getElementById('productModal'))closeProductModal();};
 
-    // Initial load
+    document.getElementById('productModalSave').onclick=async()=>{
+      const name=document.getElementById('productName').value.trim();
+      const platform=document.getElementById('productPlatform').value.trim();
+      if(!name){toast('Please enter a name.','error');return;}
+      if(!platform){toast('Please enter the platform.','error');return;}
+      const payload={name,platform,description:document.getElementById('productDescription').value.trim(),image_url:document.getElementById('productImageUrl').value.trim(),store_url:document.getElementById('productStoreUrl').value.trim(),sort_order:parseInt(document.getElementById('productSort').value)||0,is_active:document.getElementById('productActive').checked,updated_at:new Date().toISOString()};
+      let err;
+      if(editingProductId){({error:err}=await sb.from('software_products').update(payload).eq('id',editingProductId));}
+      else{({error:err}=await sb.from('software_products').insert(payload));}
+      if(err){toast('Error: '+err.message,'error');return;}
+      toast(editingProductId?'Product updated!':'Product added!');
+      closeProductModal(); loadProducts();
+    };
+
+    window.editProduct=async(id)=>{const {data}=await sb.from('software_products').select('*').eq('id',id).maybeSingle();if(data)openProductModal(data);};
+    window.deleteProduct=async(id,name)=>{const ok=await confirm('Delete Product',`Delete "${name}"?`);if(!ok)return;const {error}=await sb.from('software_products').delete().eq('id',id);if(error){toast('Error.','error');return;}toast('Product deleted.');loadProducts();};
+
+    function esc(str){const d=document.createElement('div');d.appendChild(document.createTextNode(String(str)));return d.innerHTML;}
+    function fmt(s){if(!s)return'—';return new Date(s).toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'});}
+
     loadDashboard();
   </script>
 </body>
