@@ -7,31 +7,15 @@
   <link rel="icon" href="images/cropped-RightSpotFB-32x32.png" sizes="32x32">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
-  <style>
-    .page-header { background: linear-gradient(135deg, var(--green-600) 0%, var(--green-500) 100%); color: var(--white); padding: 4rem 0; text-align: center; }
-    .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 0.5rem; }
-    .news-list { display: grid; grid-template-columns: 1fr; gap: 2rem; }
-    .news-item { background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--radius-xl); padding: 2rem; box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s; }
-    .news-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
-    .news-date { font-size: 0.875rem; color: var(--green-600); font-weight: 600; margin-bottom: 0.5rem; }
-    .news-item h2 { font-size: 1.5rem; font-weight: 700; color: var(--neutral-900); margin-bottom: 1rem; }
-    .news-content { color: var(--neutral-700); line-height: 1.8; }
-    .news-content ul { list-style: disc; margin-left: 1.5rem; margin-top: 1rem; }
-    .news-content li { margin-bottom: 0.5rem; }
-    .app-links { display: flex; gap: 1rem; margin-top: 1rem; }
-    .app-links a { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: var(--green-50); color: var(--green-600); border-radius: var(--radius); font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: all 0.2s; }
-    .app-links a:hover { background: var(--green-600); color: var(--white); }
-  </style>
 </head>
 <body>
+
   <header class="site-header">
     <div class="header-inner">
-      <a href="index.html" class="logo">
-        <img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot Ltd Logo" width="180" height="70">
-      </a>
-      <nav class="main-nav" aria-label="Main Navigation">
+      <a href="index.html" class="logo"><img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot Ltd" width="160" height="62"></a>
+      <nav class="main-nav">
         <a href="index.html">Home</a>
         <a href="news.html" class="active">News</a>
         <a href="software-development.html">Software Development</a>
@@ -42,8 +26,8 @@
         <a href="eula.html">EULA</a>
       </nav>
       <div class="lang-switcher">
-        <a href="news.html" title="English"><img src="images/en.png" alt="English"></a>
-        <a href="https://rightspot.fi/?lang=fi" title="Finnish"><img src="images/fi.png" alt="Finnish"></a>
+        <a href="news.html" title="English"><img src="images/en.png" alt="EN"></a>
+        <a href="https://rightspot.fi/news/?lang=fi" title="Finnish"><img src="images/fi.png" alt="FI"></a>
       </div>
       <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
@@ -51,7 +35,7 @@
     </div>
   </header>
 
-  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
+  <nav class="mobile-nav" id="mobileNav">
     <a href="index.html">Home</a>
     <a href="news.html" class="active">News</a>
     <a href="software-development.html">Software Development</a>
@@ -65,62 +49,30 @@
   <main>
     <section class="page-header">
       <div class="container">
-        <h1>Latest News</h1>
-        <p style="font-size: 1.1rem; opacity: 0.95;">Stay updated with our latest product releases and developments</p>
+        <h1>News</h1>
+        <p>Latest application releases and product updates</p>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" style="background:var(--neutral-50);">
       <div class="container">
         <div class="news-list">
-          <!-- News Item 1 -->
-          <div class="news-item">
-            <div class="news-date">April 24, 2025</div>
-            <h2>Lapua Ballistics 1.2.15 Released</h2>
-            <p class="news-content">
-              <strong>New application release</strong><br>
-              Version: 1.2.15
-              <ul>
-                <li>Range presets. Pre-set ranges and quickly move between them.</li>
-                <li>Change output unit type: Clicks, mrad or MOA.</li>
-                <li>Automatic shooting direction update when getting weather data or location.</li>
-                <li>Automatic wind direction correction if shooting direction changes.</li>
-                <li>Usability improvements.</li>
-              </ul>
-            </p>
-            <div class="app-links">
-              <a href="https://play.google.com/store" target="_blank">Google Play</a>
-              <a href="https://apps.apple.com" target="_blank">App Store</a>
-            </div>
-          </div>
 
-          <!-- News Item 2 -->
-          <div class="news-item">
-            <div class="news-date">February 7, 2025</div>
-            <h2>Vihtavuori Reload 1.93.17 Released</h2>
-            <p class="news-content">
-              <strong>New application release</strong><br>
-              Version: 1.93.17
-              <ul>
-                <li>Filter your recipes according to Powder type and Powder Manufacturer</li>
-                <li>Add "Cartridge Base to Ogive" or CBTO to your recipe in either inches or millimeters.</li>
-                <li>New filtering feature for the reloading data table. Filter the reload data by several different categories, like manufacturer, bullet type, powder type etc.</li>
-              </ul>
-            </p>
-            <div class="app-links">
-              <a href="https://play.google.com/store" target="_blank">Google Play</a>
-              <a href="https://apps.apple.com" target="_blank">App Store</a>
+          <!-- News 1: Vihtavuori 1.95.13 -->
+          <article class="news-item">
+            <div class="news-item-img">
+              <img src="images/PetePhoneWeb.png" alt="Vihtavuori Reload" loading="lazy" style="object-fit:contain;padding:2rem;background:#f8f9fa;">
             </div>
-          </div>
-
-          <!-- News Item 3 -->
-          <div class="news-item">
-            <div class="news-date">April 24, 2025</div>
-            <h2>Vihtavuori Reload 1.95.13 Released</h2>
-            <p class="news-content">
-              <strong>New brand look and feel</strong><br>
-              Version: 1.95.13
+            <div class="news-item-body">
+              <div class="news-item-meta">
+                <span class="news-date">March 3, 2026</span>
+                <span class="news-badge">New Release</span>
+              </div>
+              <h2>Vihtavuori Reload 1.95.13</h2>
+              <p><strong>Vihtavuori Reload application</strong> — Version number: 1.95.13</p>
+              <p><strong>What's new:</strong></p>
               <ul>
+                <li>New brand look and feel</li>
                 <li>New feature to add test shooting results</li>
                 <li>Submit Load Request feature</li>
                 <li>Feedback on existing load data feature</li>
@@ -129,89 +81,124 @@
                 <li>More parameters in default unit settings</li>
                 <li>Update for filter function in reload data tables</li>
               </ul>
-              <p>Watch what's new: <a href="https://www.youtube.com/watch?v=YyZKIXNzDeY" target="_blank">YouTube Video</a></p>
-            </p>
-            <div class="app-links">
-              <a href="https://play.google.com/store" target="_blank">Google Play</a>
-              <a href="https://apps.apple.com" target="_blank">App Store</a>
+              <p style="margin-top:.75rem;"><a href="https://www.youtube.com/watch?v=YyZKIXNzDeY" target="_blank" style="color:var(--green-600);font-weight:600;">▶ Watch what's new on YouTube</a></p>
+              <div class="app-store-links">
+                <a href="https://play.google.com/store/apps/details?id=com.Vihtavuori.VihtavuoriReload" target="_blank" rel="noreferrer">
+                  <svg viewBox="0 0 24 24"><path d="M3.18 23.76a2 2 0 0 0 2.82-.08l10-10-2.83-2.83-10 10a2 2 0 0 0 0 2.91zM21.34 10.19l-3.41-1.97-3.18 3.18 3.18 3.18 3.43-1.99a1.79 1.79 0 0 0 0-2.4zM2.01 1.05a2 2 0 0 0-.01.32v21.26a2 2 0 0 0 .01.32l.1.1 11.9-11.9-.1-.1zM5.99.32a2 2 0 0 0-2.81-.08l.09.09 12.12 7.01z"/></svg>
+                  Google Play
+                </a>
+                <a href="https://apps.apple.com/fi/app/vihtavuori-reload/id1071540632" target="_blank" rel="noreferrer">
+                  <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                  App Store
+                </a>
+              </div>
             </div>
-          </div>
+          </article>
+
+          <!-- News 2: Lapua Ballistics 1.2.15 -->
+          <article class="news-item">
+            <div class="news-item-img">
+              <img src="images/LapuaBallisticsWeb25052017_3-e1496312176415.png" alt="Lapua Ballistics" loading="lazy" style="object-fit:contain;padding:1rem;">
+            </div>
+            <div class="news-item-body">
+              <div class="news-item-meta">
+                <span class="news-date">April 24, 2025</span>
+                <span class="news-badge">New Release</span>
+              </div>
+              <h2>Lapua Ballistics 1.2.15</h2>
+              <p><strong>Lapua Ballistics application</strong> — Version number: 1.2.15</p>
+              <p><strong>What's new:</strong></p>
+              <ul>
+                <li>Range presets. Pre-set ranges and quickly move between them.</li>
+                <li>Change output unit type: Clicks, mrad or MOA.</li>
+                <li>Automatic shooting direction update when getting weather data or location.</li>
+                <li>Automatic wind direction correction if shooting direction changes.</li>
+                <li>Usability improvements.</li>
+              </ul>
+              <div class="app-store-links">
+                <a href="https://play.google.com/store/apps/details?id=com.Lapua.LapuaBallistics&hl=en" target="_blank" rel="noreferrer">
+                  <svg viewBox="0 0 24 24"><path d="M3.18 23.76a2 2 0 0 0 2.82-.08l10-10-2.83-2.83-10 10a2 2 0 0 0 0 2.91zM21.34 10.19l-3.41-1.97-3.18 3.18 3.18 3.18 3.43-1.99a1.79 1.79 0 0 0 0-2.4zM2.01 1.05a2 2 0 0 0-.01.32v21.26a2 2 0 0 0 .01.32l.1.1 11.9-11.9-.1-.1zM5.99.32a2 2 0 0 0-2.81-.08l.09.09 12.12 7.01z"/></svg>
+                  Google Play
+                </a>
+                <a href="https://apps.apple.com/fi/app/lapua-ballistics/id1162688042" target="_blank" rel="noreferrer">
+                  <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                  App Store
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- News 3: Vihtavuori 1.93.17 -->
+          <article class="news-item">
+            <div class="news-item-img">
+              <img src="images/PetePhoneWeb-300x186.png" alt="Vihtavuori Reload" loading="lazy" style="object-fit:contain;padding:1.5rem;background:#f8f9fa;">
+            </div>
+            <div class="news-item-body">
+              <div class="news-item-meta">
+                <span class="news-date">February 7, 2025</span>
+                <span class="news-badge">New Release</span>
+              </div>
+              <h2>Vihtavuori Reload 1.93.17</h2>
+              <p><strong>Vihtavuori Reload application</strong> — Version: 1.93.17</p>
+              <p><strong>New features:</strong></p>
+              <ul>
+                <li>Filter your recipes according to Powder type and Powder Manufacturer</li>
+                <li>Add "Cartridge Base to Ogive" or CBTO to your recipe in either inches or millimeters.</li>
+                <li>New filtering feature for the reloading data table. Filter the reload data by several different categories, like manufacturer, bullet type, powder type etc.</li>
+              </ul>
+              <div class="app-store-links">
+                <a href="https://play.google.com/store/apps/details?id=com.Vihtavuori.VihtavuoriReload&hl=en" target="_blank" rel="noreferrer">
+                  <svg viewBox="0 0 24 24"><path d="M3.18 23.76a2 2 0 0 0 2.82-.08l10-10-2.83-2.83-10 10a2 2 0 0 0 0 2.91zM21.34 10.19l-3.41-1.97-3.18 3.18 3.18 3.18 3.43-1.99a1.79 1.79 0 0 0 0-2.4zM2.01 1.05a2 2 0 0 0-.01.32v21.26a2 2 0 0 0 .01.32l.1.1 11.9-11.9-.1-.1zM5.99.32a2 2 0 0 0-2.81-.08l.09.09 12.12 7.01z"/></svg>
+                  Google Play
+                </a>
+                <a href="https://itunes.apple.com/us/app/vihtavuori-reload/id1071540632?mt=8" target="_blank" rel="noreferrer">
+                  <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+                  App Store
+                </a>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot Ltd" width="180" height="70">
-            <p>RightSpot Ltd develops SOFTWARE and WIRELESS solutions for PC, smart phones and tablets, web / Cloud. Established in 2013, based in Salo, Finland.</p>
-          </div>
-          <div class="footer-col">
-            <h4>Navigation</h4>
-            <ul>
-              <li><a href="news.html">News</a></li>
-              <li><a href="software-development.html">Software Development</a></li>
-              <li><a href="products.html">Software Products</a></li>
-              <li><a href="references.html">Customer References</a></li>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="contact.html">Contact Us</a></li>
-              <li><a href="eula.html">EULA</a></li>
-            </ul>
-          </div>
-          <div class="footer-col">
-            <h4>Contact</h4>
-            <div class="footer-contact">
-              <div class="footer-contact-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>Satamakatu 28, 24100 SALO, Finland</span>
-              </div>
-              <div class="footer-contact-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg>
-                <span>+358 (0)40 5544853</span>
-              </div>
-              <div class="footer-contact-item">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                <span>rightspot(at)rightspot.fi</span>
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="footer-top"><div class="container"><div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot Ltd">
+        <p>RightSpot Ltd develops SOFTWARE and WIRELESS solutions for PC, smart phones and tablets, web / Cloud. Established December 2013, based in Salo, Finland.</p>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="container">
-        <div class="footer-bottom-inner">
-          <p class="footer-copy">Copyright &copy; 2025 RightSpot Ltd</p>
-          <div class="footer-links">
-            <a href="https://rightspot.fi/privacy-policy/">Privacy Policy</a>
-            <a href="eula.html">EULA</a>
-            <a href="login.html">Admin</a>
-          </div>
-        </div>
-      </div>
-    </div>
+      <div class="footer-col"><h4>Navigation</h4><ul>
+        <li><a href="news.html">News</a></li>
+        <li><a href="software-development.html">Software Development</a></li>
+        <li><a href="products.html">Software Products</a></li>
+        <li><a href="references.html">Customer References</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><div class="footer-contact">
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Satamakatu 28, 24100 Salo, Finland</span></div>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg><a href="tel:+358405544853">+358 (0)40 5544853</a></div>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>rightspot(at)rightspot.fi</span></div>
+      </div></div>
+    </div></div></div>
+    <div class="footer-bottom"><div class="container"><div class="footer-bottom-inner">
+      <p class="footer-copy">Copyright &copy; 2025 RightSpot Ltd</p>
+      <div class="footer-links"><a href="https://rightspot.fi/privacy-policy/">Privacy Policy</a><a href="eula.html">EULA</a><a href="login.html">Admin</a></div>
+    </div></div></div>
   </footer>
 
   <button class="back-to-top" id="backToTop" aria-label="Back to top">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18,15 12,9 6,15"/></svg>
   </button>
-
   <script>
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileNav = document.getElementById('mobileNav');
-    mobileMenuBtn.addEventListener('click', () => {
-      const isOpen = mobileNav.classList.toggle('open');
-      mobileMenuBtn.setAttribute('aria-expanded', isOpen);
-    });
-
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      backToTop.classList.toggle('visible', window.scrollY > 400);
-    });
-    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    const btn = document.getElementById('mobileMenuBtn'), nav = document.getElementById('mobileNav');
+    btn.onclick = () => { const o = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', o); };
+    const btt = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 400), {passive:true});
+    btt.onclick = () => window.scrollTo({top:0,behavior:'smooth'});
   </script>
 </body>
 </html>
