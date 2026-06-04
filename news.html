@@ -10,106 +10,208 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
   <style>
-    .page-header {
-      background: linear-gradient(135deg, var(--green-600) 0%, var(--green-500) 100%);
-      color: var(--white);
-      padding: 4rem 0;
-      text-align: center;
-      animation: slideDown 0.6s ease-out;
-    }
+    .page-header { background: linear-gradient(135deg, var(--green-600) 0%, var(--green-500) 100%); color: var(--white); padding: 4rem 0; text-align: center; }
     .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 0.5rem; }
-    .page-header p { font-size: 1.125rem; opacity: 0.95; }
-
-    .news-container { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
-    .news-list { display: grid; grid-template-columns: 1fr; gap: 2rem; margin: 3rem 0; }
-    .news-item {
-      background: var(--white); border-radius: var(--radius-lg);
-      padding: 2rem; box-shadow: var(--shadow);
-      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-      animation: fadeInUp 0.6s ease-out backwards;
-      border-left: 4px solid var(--green-500);
-    }
-    .news-item:nth-child(1) { animation-delay: 0.1s; }
-    .news-item:nth-child(2) { animation-delay: 0.2s; }
-    .news-item:nth-child(3) { animation-delay: 0.3s; }
-    .news-item:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-lg);
-      border-left-color: var(--green-600);
-    }
-    .news-date { font-size: 0.875rem; color: var(--neutral-500); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
-    .news-item h2 { font-size: 1.5rem; color: var(--neutral-900); margin-bottom: 0.75rem; line-height: 1.4; }
-    .news-item p { font-size: 1rem; color: var(--neutral-700); line-height: 1.8; margin-bottom: 1rem; }
-    .news-empty { text-align: center; padding: 3rem; color: var(--neutral-500); }
-
-    @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: none; } }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+    .news-list { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+    .news-item { background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--radius-xl); padding: 2rem; box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s; }
+    .news-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .news-date { font-size: 0.875rem; color: var(--green-600); font-weight: 600; margin-bottom: 0.5rem; }
+    .news-item h2 { font-size: 1.5rem; font-weight: 700; color: var(--neutral-900); margin-bottom: 1rem; }
+    .news-content { color: var(--neutral-700); line-height: 1.8; }
+    .news-content ul { list-style: disc; margin-left: 1.5rem; margin-top: 1rem; }
+    .news-content li { margin-bottom: 0.5rem; }
+    .app-links { display: flex; gap: 1rem; margin-top: 1rem; }
+    .app-links a { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: var(--green-50); color: var(--green-600); border-radius: var(--radius); font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+    .app-links a:hover { background: var(--green-600); color: var(--white); }
   </style>
 </head>
 <body>
-
-<div id="header-placeholder"></div>
-
-<main>
-  <div class="page-header">
-    <div class="container">
-      <h1>News & Updates</h1>
-      <p>Latest news and releases from RightSpot Ltd</p>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot Ltd Logo" width="180" height="70">
+      </a>
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="index.html">Home</a>
+        <a href="news.html" class="active">News</a>
+        <a href="software-development.html">Software Development</a>
+        <a href="products.html">Software Products</a>
+        <a href="references.html">Customer References</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="eula.html">EULA</a>
+      </nav>
+      <div class="lang-switcher">
+        <a href="news.html" title="English"><img src="images/en.png" alt="English"></a>
+        <a href="https://rightspot.fi/?lang=fi" title="Finnish"><img src="images/fi.png" alt="Finnish"></a>
+      </div>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
     </div>
-  </div>
+  </header>
 
-  <div class="container news-container">
-    <div class="news-list" id="newsList">
-      <p style="text-align:center;color:var(--neutral-500);">Loading news...</p>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
+    <a href="index.html">Home</a>
+    <a href="news.html" class="active">News</a>
+    <a href="software-development.html">Software Development</a>
+    <a href="products.html">Software Products</a>
+    <a href="references.html">Customer References</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="eula.html">EULA</a>
+  </nav>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Latest News</h1>
+        <p style="font-size: 1.1rem; opacity: 0.95;">Stay updated with our latest product releases and developments</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="news-list">
+          <!-- News Item 1 -->
+          <div class="news-item">
+            <div class="news-date">April 24, 2025</div>
+            <h2>Lapua Ballistics 1.2.15 Released</h2>
+            <p class="news-content">
+              <strong>New application release</strong><br>
+              Version: 1.2.15
+              <ul>
+                <li>Range presets. Pre-set ranges and quickly move between them.</li>
+                <li>Change output unit type: Clicks, mrad or MOA.</li>
+                <li>Automatic shooting direction update when getting weather data or location.</li>
+                <li>Automatic wind direction correction if shooting direction changes.</li>
+                <li>Usability improvements.</li>
+              </ul>
+            </p>
+            <div class="app-links">
+              <a href="https://play.google.com/store" target="_blank">Google Play</a>
+              <a href="https://apps.apple.com" target="_blank">App Store</a>
+            </div>
+          </div>
+
+          <!-- News Item 2 -->
+          <div class="news-item">
+            <div class="news-date">February 7, 2025</div>
+            <h2>Vihtavuori Reload 1.93.17 Released</h2>
+            <p class="news-content">
+              <strong>New application release</strong><br>
+              Version: 1.93.17
+              <ul>
+                <li>Filter your recipes according to Powder type and Powder Manufacturer</li>
+                <li>Add "Cartridge Base to Ogive" or CBTO to your recipe in either inches or millimeters.</li>
+                <li>New filtering feature for the reloading data table. Filter the reload data by several different categories, like manufacturer, bullet type, powder type etc.</li>
+              </ul>
+            </p>
+            <div class="app-links">
+              <a href="https://play.google.com/store" target="_blank">Google Play</a>
+              <a href="https://apps.apple.com" target="_blank">App Store</a>
+            </div>
+          </div>
+
+          <!-- News Item 3 -->
+          <div class="news-item">
+            <div class="news-date">April 24, 2025</div>
+            <h2>Vihtavuori Reload 1.95.13 Released</h2>
+            <p class="news-content">
+              <strong>New brand look and feel</strong><br>
+              Version: 1.95.13
+              <ul>
+                <li>New feature to add test shooting results</li>
+                <li>Submit Load Request feature</li>
+                <li>Feedback on existing load data feature</li>
+                <li>Login account info now visible</li>
+                <li>Info about latest reload data update</li>
+                <li>More parameters in default unit settings</li>
+                <li>Update for filter function in reload data tables</li>
+              </ul>
+              <p>Watch what's new: <a href="https://www.youtube.com/watch?v=YyZKIXNzDeY" target="_blank">YouTube Video</a></p>
+            </p>
+            <div class="app-links">
+              <a href="https://play.google.com/store" target="_blank">Google Play</a>
+              <a href="https://apps.apple.com" target="_blank">App Store</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot Ltd" width="180" height="70">
+            <p>RightSpot Ltd develops SOFTWARE and WIRELESS solutions for PC, smart phones and tablets, web / Cloud. Established in 2013, based in Salo, Finland.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="news.html">News</a></li>
+              <li><a href="software-development.html">Software Development</a></li>
+              <li><a href="products.html">Software Products</a></li>
+              <li><a href="references.html">Customer References</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="eula.html">EULA</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <div class="footer-contact">
+              <div class="footer-contact-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Satamakatu 28, 24100 SALO, Finland</span>
+              </div>
+              <div class="footer-contact-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg>
+                <span>+358 (0)40 5544853</span>
+              </div>
+              <div class="footer-contact-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span>rightspot(at)rightspot.fi</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</main>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-inner">
+          <p class="footer-copy">Copyright &copy; 2025 RightSpot Ltd</p>
+          <div class="footer-links">
+            <a href="https://rightspot.fi/privacy-policy/">Privacy Policy</a>
+            <a href="eula.html">EULA</a>
+            <a href="login.html">Admin</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-<div id="footer-placeholder"></div>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18,15 12,9 6,15"/></svg>
+  </button>
 
-<script type="module">
-  import { renderHeader, renderFooter, initMobileMenu, initBackToTop, setActiveNav } from './js/shared-layout.js';
-  import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+    });
 
-  document.getElementById('header-placeholder').innerHTML = renderHeader();
-  document.getElementById('footer-placeholder').innerHTML = renderFooter();
-  initMobileMenu();
-  initBackToTop();
-  setActiveNav('news.html');
-
-  const SUPABASE_URL = 'https://ekdwrwhsmurwtctctbal.supabase.co';
-  const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVrZHdyd2hzbXVyd3RjdGN0YmFsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1MjA4MjYsImV4cCI6MjA5NjA5NjgyNn0.30oEuPagsWJV-ShYnb8UTVx0X93pug4DLcOklXEcZGc';
-  const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
-
-  async function loadNews() {
-    const list = document.getElementById('newsList');
-    try {
-      const { data } = await supabase.from('news_posts').select('*').eq('is_published', true).order('published_at', { ascending: false });
-      if (!data?.length) {
-        list.innerHTML = '<div class="news-empty"><p>No news posts yet.</p></div>';
-        return;
-      }
-      list.innerHTML = data.map(post => {
-        const date = new Date(post.published_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-        return `
-          <article class="news-item">
-            <div class="news-date">${date}</div>
-            <h2>${escHtml(post.title)}</h2>
-            <p>${escHtml(post.content)}</p>
-          </article>`;
-      }).join('');
-    } catch (e) {
-      list.innerHTML = '<div class="news-empty"><p>Error loading news.</p></div>';
-    }
-  }
-
-  function escHtml(str) {
-    const d = document.createElement('div');
-    d.appendChild(document.createTextNode(str));
-    return d.innerHTML;
-  }
-
-  loadNews();
-</script>
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 400);
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
 </body>
 </html>

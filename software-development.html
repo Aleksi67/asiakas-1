@@ -10,97 +10,226 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
   <style>
-    .page-header {
-      background: linear-gradient(135deg, var(--green-600) 0%, var(--green-500) 100%);
-      color: var(--white);
-      padding: 4rem 0;
-      text-align: center;
-      animation: slideDown 0.6s ease-out;
-    }
+    .page-header { background: linear-gradient(135deg, var(--green-600) 0%, var(--green-500) 100%); color: var(--white); padding: 4rem 0; text-align: center; }
     .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; margin-bottom: 0.5rem; }
-    .page-header p { font-size: 1.125rem; opacity: 0.95; }
-
-    .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; margin: 3rem 0; }
-    .content-image { animation: fadeInLeft 0.6s ease-out; }
-    .content-image img { border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); }
-    .content-text { animation: fadeInRight 0.6s ease-out; }
-    .content-text h2 { font-size: 1.875rem; color: var(--neutral-900); margin-bottom: 1.5rem; line-height: 1.3; }
-    .content-text p { font-size: 1rem; color: var(--neutral-700); line-height: 1.8; margin-bottom: 1.25rem; }
-    .feature-list { list-style: none; margin: 2rem 0; }
-    .feature-list li {
-      display: flex; align-items: flex-start; gap: 0.75rem;
-      font-size: 0.95rem; color: var(--neutral-700); line-height: 1.6;
-      margin-bottom: 0.875rem;
-      animation: fadeInUp 0.6s ease-out backwards;
-    }
-    .feature-list li:nth-child(1) { animation-delay: 0.1s; }
-    .feature-list li:nth-child(2) { animation-delay: 0.2s; }
-    .feature-list li:nth-child(3) { animation-delay: 0.3s; }
-    .feature-list li:nth-child(4) { animation-delay: 0.4s; }
-    .feature-list li::before {
-      content: '✓';
-      color: var(--green-500);
-      font-weight: 700;
-      font-size: 1.25rem;
-      min-width: 24px;
-    }
-
-    @keyframes slideDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: none; } }
-    @keyframes fadeInLeft { from { opacity: 0; transform: translateX(-30px); } to { opacity: 1; transform: none; } }
-    @keyframes fadeInRight { from { opacity: 0; transform: translateX(30px); } to { opacity: 1; transform: none; } }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
-
-    @media (max-width: 768px) {
-      .content-grid { grid-template-columns: 1fr; gap: 2rem; }
-    }
+    .content-section { max-width: 800px; margin: 0 auto; color: var(--neutral-700); line-height: 1.8; }
+    .content-section h2 { font-size: 1.5rem; font-weight: 700; color: var(--neutral-900); margin: 2rem 0 1rem; }
+    .content-section h3 { font-size: 1.25rem; font-weight: 600; color: var(--neutral-900); margin: 1.5rem 0 0.75rem; }
+    .content-section p { margin-bottom: 1rem; }
+    .content-section ul { list-style: disc; margin-left: 1.5rem; margin-bottom: 1rem; }
+    .content-section li { margin-bottom: 0.5rem; }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 2rem 0; }
+    .step-card { background: var(--white); border: 1px solid var(--neutral-200); border-radius: var(--radius-xl); padding: 1.5rem; text-align: center; }
+    .step-number { font-size: 2rem; font-weight: 700; color: var(--green-500); margin-bottom: 0.5rem; }
+    .step-card h4 { font-weight: 600; margin-bottom: 0.75rem; }
+    .step-card p { font-size: 0.9rem; }
+    @media (max-width: 768px) { .steps-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-
-<div id="header-placeholder"></div>
-
-<main>
-  <div class="page-header">
-    <div class="container">
-      <h1>Software Development</h1>
-      <p>Custom solutions tailored to your needs</p>
-    </div>
-  </div>
-
-  <div class="container" style="max-width:1200px;">
-    <div class="content-grid">
-      <div class="content-image">
-        <img src="images/learn-1996845_1920-compressor-compressor.png" alt="Software Development">
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot Ltd Logo" width="180" height="70">
+      </a>
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="index.html">Home</a>
+        <a href="news.html">News</a>
+        <a href="software-development.html" class="active">Software Development</a>
+        <a href="products.html">Software Products</a>
+        <a href="references.html">Customer References</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="eula.html">EULA</a>
+      </nav>
+      <div class="lang-switcher">
+        <a href="software-development.html" title="English"><img src="images/en.png" alt="English"></a>
+        <a href="https://rightspot.fi/?lang=fi" title="Finnish"><img src="images/fi.png" alt="Finnish"></a>
       </div>
-      <div class="content-text">
-        <h2>Professional Software Development</h2>
-        <p>RightSpot Ltd specializes in creating custom software solutions for PC, mobile, tablets, and cloud platforms. With our experienced team and agile methodology, we deliver high-quality applications tailored to your specific business needs.</p>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
 
-        <ul class="feature-list">
-          <li><strong>Custom Development</strong> - Tailored solutions from concept to deployment</li>
-          <li><strong>Agile Process</strong> - Regular releases every 2-4 weeks with full transparency</li>
-          <li><strong>Multi-Platform</strong> - iOS, Android, Windows, Web, Cloud solutions</li>
-          <li><strong>Expert Team</strong> - 45+ years combined R&D expertise</li>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile Navigation">
+    <a href="index.html">Home</a>
+    <a href="news.html">News</a>
+    <a href="software-development.html" class="active">Software Development</a>
+    <a href="products.html">Software Products</a>
+    <a href="references.html">Customer References</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="eula.html">EULA</a>
+  </nav>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <h1>Software Development</h1>
+        <p style="font-size: 1.1rem; opacity: 0.95;">Professional solutions from concept to market</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container content-section">
+        <p style="font-size: 1.1rem; font-weight: 600; color: var(--green-600); margin-bottom: 1.5rem;">Do you have an idea or need to develop a new product or service?</p>
+
+        <h2>Congratulations! You are in the right spot!</h2>
+        <p>We develop and implement professional software solutions and when needed, we will search and implement required hardware for you. Typical customer projects are anywhere between 1 to 12 months of development time.</p>
+        <p>We have capabilities for concepting and fast prototyping. This often helps customers test the product or service idea before going for full scale development.</p>
+        <p>We have delivered solutions that have been running already for years and still going strong. Maintenance is key factor in fast changing IT world to keep the solutions up-to-date.</p>
+
+        <h2>Steps for Your Success</h2>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h4>Pre-Study</h4>
+            <p>We help you clarify your needs through interviews with key stakeholders and form a processed concept idea for you.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h4>Competitor Analysis</h4>
+            <p>We benchmark your solution against competitors to provide valuable insight and identify areas for enhancement.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h4>Requirements</h4>
+            <p>We build a clear picture of features, use cases, and target customers that meets your expectations.</p>
+          </div>
+        </div>
+
+        <h3>Pre-Study</h3>
+        <p>We help you to further clarify your needs. Normally there are multiple needs, view points, feature requests, expectations and opinions within organizations and on the customer side. We make it easy for you! Just nominate key contributors no matter where they physically are. We will interview the individuals, teams, key customers and form a further processed concept idea for you.</p>
+
+        <h3>Competitor Benchmarking</h3>
+        <p>We carry out solutions benchmarking as part of the process. You will get valuable insight for your competitor solutions, how those are built, what is missing, good inventions and what are the possible areas to be enhanced.</p>
+
+        <h3>Requirements</h3>
+        <p>Product or service requirements will form a picture about the final product. It describes features, use cases, environment, connections to related services and the target customer group. This will help us and you to build a quality product that meets your, your team's, and your customer's expectations and needs while being ahead the competition. This will be the basis for development work. Our agile working methods allow us to revisit the project requirements whenever there is mutually agreed need for it.</p>
+
+        <h2>Development Process</h2>
+        <p>Our Development process includes:</p>
+        <ul>
+          <li>Graphical Design</li>
+          <li>User Interface Design</li>
+          <li>Functionality Design</li>
+          <li>Back processes and functions design</li>
+          <li>Development</li>
+          <li>Testing</li>
+          <li>Alpha and Beta releases (every 2 to 4 weeks until product meets its final agreed maturity)</li>
         </ul>
 
-        <p><strong>Project Timeline:</strong> Typical customer projects range from 1 to 12 months of development time, depending on the scope and complexity of your requirements.</p>
+        <h2>Publishment & Maintenance</h2>
+        <p>We publish the end product on your behalf (or assist you to become a publisher) in App Store, Google Play Store, Windows Phone Store. Upon agreement, we can take care of all needed maintenance actions for you including follow-up and product roadmap proposal based on customer feedback.</p>
 
-        <p>We utilize modern technologies including AR (Augmented Reality), Mobile Payment systems, Location services, Image recognition, and more to bring your vision to life.</p>
+        <h2>Development Platforms</h2>
+
+        <h3>Smart Phone / Tablet Applications</h3>
+        <p>We develop smartphone / tablet software using Unity 3D. This platform has been developed since 2006 and it has 45% market share in development platforms used for game industry. There are 4.5M registered developers around the world. Unity 3D supports platforms like iOS, Android, Windows, PS3, PS4, XBOX One, XBOX 360, Linux, Wii, WebGL, and HTML5.</p>
+
+        <h3>Service Platform</h3>
+        <p>Our service platforms are built on MySQL or Microsoft Azure depending on the scale and the amount of the transactions expected. We can utilize other platforms as well depending on customer needs.</p>
+
+        <h3>Web Applications / Cloud Solutions</h3>
+        <p>Our solutions use Visual Studio, .NET, Microsoft Azure, C#, Java and other modern technologies. Solutions are running as web applications so users need only web browsers to access and use the services.</p>
+
+        <h2>Technologies</h2>
+        <p>We have applied many leading-edge technologies in our solutions:</p>
+        <ul>
+          <li><strong>Augmented Reality</strong> - Connects real and virtual objects in a real environment</li>
+          <li><strong>Weather Service</strong> - Real-time weather data integration</li>
+          <li><strong>Push Notifications</strong> - Instant user engagement</li>
+          <li><strong>User Identification</strong> - Secure authentication systems</li>
+          <li><strong>Location and Maps</strong> - GPS and mapping integration</li>
+          <li><strong>Mobile Payment</strong> - Secure payment processing</li>
+          <li><strong>Mobile Advertising</strong> - Targeted marketing solutions</li>
+        </ul>
+
+        <h2>Why Choose Us?</h2>
+        <ul>
+          <li>Long experience in system and software development from measurement systems to games</li>
+          <li>Agile methodology enabling full visibility and feedback every 2–4 weeks</li>
+          <li>Code developed and maintained in Finland</li>
+          <li>Professional project management and transparent communication</li>
+          <li>Proven track record with satisfied customers</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot Ltd" width="180" height="70">
+            <p>RightSpot Ltd develops SOFTWARE and WIRELESS solutions for PC, smart phones and tablets, web / Cloud. Established in 2013, based in Salo, Finland.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="news.html">News</a></li>
+              <li><a href="software-development.html">Software Development</a></li>
+              <li><a href="products.html">Software Products</a></li>
+              <li><a href="references.html">Customer References</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="eula.html">EULA</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <div class="footer-contact">
+              <div class="footer-contact-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span>Satamakatu 28, 24100 SALO, Finland</span>
+              </div>
+              <div class="footer-contact-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg>
+                <span>+358 (0)40 5544853</span>
+              </div>
+              <div class="footer-contact-item">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                <span>rightspot(at)rightspot.fi</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</main>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-inner">
+          <p class="footer-copy">Copyright &copy; 2025 RightSpot Ltd</p>
+          <div class="footer-links">
+            <a href="https://rightspot.fi/privacy-policy/">Privacy Policy</a>
+            <a href="eula.html">EULA</a>
+            <a href="login.html">Admin</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-<div id="footer-placeholder"></div>
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18,15 12,9 6,15"/></svg>
+  </button>
 
-<script type="module">
-  import { renderHeader, renderFooter, initMobileMenu, initBackToTop, setActiveNav } from './js/shared-layout.js';
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = mobileNav.classList.toggle('open');
+      mobileMenuBtn.setAttribute('aria-expanded', isOpen);
+    });
 
-  document.getElementById('header-placeholder').innerHTML = renderHeader();
-  document.getElementById('footer-placeholder').innerHTML = renderFooter();
-  initMobileMenu();
-  initBackToTop();
-  setActiveNav('software-development.html');
-</script>
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      backToTop.classList.toggle('visible', window.scrollY > 400);
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  </script>
 </body>
 </html>
