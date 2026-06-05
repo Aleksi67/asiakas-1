@@ -951,16 +951,23 @@
         const url = editorFrame.contentWindow.location.href;
         if (url.includes('about:blank')) return;
 
-        // Inject editor CSS
+        // Inject editor CSS - make ALL text/image editable
         const style = doc.createElement('style');
         style.textContent = `
-          [data-editable]{outline:2px dashed transparent;outline-offset:2px;cursor:pointer;transition:outline 0.15s,background 0.15s;}
+          [data-editable]{outline:2px dashed transparent;outline-offset:2px;cursor:pointer;transition:outline 0.15s,background 0.15s;position:relative;}
           [data-editable]:hover{outline:2px dashed #279149;background:rgba(39,145,73,0.06)!important;}
           [data-editable].le-editing{outline:2px solid #279149;background:rgba(39,145,73,0.1)!important;}
+          .le-auto-editable{outline:1px dashed transparent;outline-offset:1px;cursor:pointer;transition:outline 0.15s,background 0.15s;}
+          .le-auto-editable:hover{outline:1px dashed #3182ce;background:rgba(49,130,206,0.06)!important;}
+          .le-auto-editable.le-editing{outline:1px solid #3182ce;background:rgba(49,130,206,0.1)!important;}
           .le-toolbar{position:fixed;top:8px;left:50%;transform:translateX(-50%);z-index:99999;background:#fff;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.15);padding:6px 12px;display:flex;gap:8px;align-items:center;font-family:'Inter',sans-serif;font-size:13px;}
           .le-toolbar button{padding:4px 10px;border-radius:6px;border:1px solid #dee2e6;background:#f8f9fa;cursor:pointer;font-size:12px;font-weight:600;color:#495057;}
           .le-toolbar button:hover{background:#279149;color:#fff;border-color:#279149;}
           .le-toolbar .le-saving{color:#279149;font-weight:600;}
+          .le-scale-handle{position:absolute;bottom:-4px;right:-4px;width:16px;height:16px;background:#279149;border-radius:3px;cursor:nwse-resize;z-index:10;opacity:0;transition:opacity 0.15s;}
+          [data-editable="image"]:hover .le-scale-handle,.le-auto-editable img:hover~.le-scale-handle{opacity:1;}
+          .le-key-badge{position:absolute;top:-8px;left:4px;font-size:9px;font-family:'Inter',monospace;background:#3182ce;color:#fff;padding:1px 5px;border-radius:3px;opacity:0;transition:opacity 0.15s;pointer-events:none;z-index:10;}
+          [data-editable]:hover .le-key-badge,.le-auto-editable:hover .le-key-badge{opacity:0.8;}
         `;
         doc.head.appendChild(style);
 
@@ -971,46 +978,49 @@
         doc.body.appendChild(toolbar);
 
         toolbar.querySelector('#le-save-btn').onclick = () => saveEditorChanges();
-        toolbar.querySelector('#le-add-btn').onclick = () => {
-          const key = prompt('Section key (e.g. new_text):');
-          if (!key) return;
-          const el = doc.createElement('div');
-          el.setAttribute('data-editable', 'text');
-          el.setAttribute('data-key', key);
-          el.textContent = 'New text block - click to edit';
-          el.style.cssText = 'padding:1rem;margin:0.5rem 0;';
-          // Find main element and append
-          const main = doc.querySelector('main') || doc.body;
-          main.appendChild(el);
-          setupEditable(el);
-        };
+        toolbar.querySelector('#le-add-btn').onclick = () => addNewElement();
 
-        // Setup all editable elements
-        doc.querySelectorAll('[data-editable]').forEach(el => setupEditable(el));
+        // Setup explicitly marked editable elements
+        doc.querySelectorAll('[data-editable]').forEach(el => setupEditable(el, true));
 
-        function setupEditable(el) {
-          const type = el.getAttribute('data-editable');
-          const key = el.getAttribute('data-key');
+        // Auto-detect ALL other text elements and make them editable
+        const main = doc.querySelector('main');
+        if (main) {
+          const textEls = main.querySelectorAll('h1, h2, h3, h4, h5, h6, p, li, td, th, span, a:not([href$=".html"]), cite, figcaption, label');
+          textEls.forEach(el => {
+            if (el.hasAttribute('data-editable')) return; // skip already marked
+            if (!el.textContent.trim()) return; // skip empty
+            if (el.closest('.le-toolbar')) return; // skip toolbar
+            if (el.tagName === 'A' && el.querySelector('img')) return; // skip image links
+            if (el.tagName === 'svg') return;
+            if (el.closest('svg')) return;
+            if (el.tagName === 'SCRIPT' || el.tagName === 'STYLE') return;
+
+            // Generate auto key from content and position
+            const autoKey = 'auto_' + el.tagName.toLowerCase() + '_' + Math.random().toString(36).substr(2, 6);
+            el.classList.add('le-auto-editable');
+            el.setAttribute('data-key', autoKey);
+            setupEditable(el, false);
+          });
+        }
+
+        function setupEditable(el, isExplicit) {
+          const key = el.getAttribute('data-key') || ('auto_' + Math.random().toString(36).substr(2, 8));
+          if (!el.getAttribute('data-key')) el.setAttribute('data-key', key);
+
+          // Add key badge
+          const badge = doc.createElement('span');
+          badge.className = 'le-key-badge';
+          badge.textContent = key;
+          el.style.position = el.style.position || 'relative';
+          el.appendChild(badge);
 
           el.addEventListener('click', e => {
             e.preventDefault();
             e.stopPropagation();
 
-            if (type === 'text') {
-              // Inline text editing
-              el.setAttribute('contenteditable', 'true');
-              el.classList.add('le-editing');
-              el.focus();
-
-              el.addEventListener('blur', () => {
-                el.removeAttribute('contenteditable');
-                el.classList.remove('le-editing');
-                const newContent = el.textContent.trim();
-                editorChanges.push({ page: editorPage, section_key: key, section_type: 'text', content: newContent, is_visible: true });
-                toast(`Edited: ${key}`);
-              }, { once: true });
-            } else if (type === 'image') {
-              // Show image menu
+            const type = el.getAttribute('data-editable');
+            if (type === 'image') {
               currentImgEl = el;
               currentImgKey = key;
               const rect = el.getBoundingClientRect();
@@ -1018,8 +1028,47 @@
               editorImageMenu.style.display = 'block';
               editorImageMenu.style.left = (rect.left + frameRect.left) + 'px';
               editorImageMenu.style.top = (rect.bottom + frameRect.top + 4) + 'px';
+              return;
             }
+
+            // Text editing - also handle images inside the element
+            const img = el.querySelector('img');
+            if (img && !img.hasAttribute('data-editable')) {
+              // Add scale handle for images inside text blocks
+              const existingHandle = img.parentElement.querySelector('.le-scale-handle');
+              if (!existingHandle) {
+                const handle = doc.createElement('div');
+                handle.className = 'le-scale-handle';
+                img.parentElement.style.position = 'relative';
+                img.parentElement.appendChild(handle);
+                setupScaleHandle(img, handle);
+              }
+            }
+
+            el.setAttribute('contenteditable', 'true');
+            el.classList.add('le-editing');
+            el.focus();
+
+            el.addEventListener('blur', () => {
+              el.removeAttribute('contenteditable');
+              el.classList.remove('le-editing');
+              const newContent = el.textContent.trim();
+              editorChanges.push({ page: editorPage, section_key: key, section_type: 'text', content: newContent, is_visible: true });
+              toast(`Edited: ${key}`);
+            }, { once: true });
           });
+
+          // For data-editable="image" elements with <img> children
+          if (el.getAttribute('data-editable') === 'image') {
+            const img = el.tagName === 'IMG' ? el : el.querySelector('img');
+            if (img) {
+              const handle = doc.createElement('div');
+              handle.className = 'le-scale-handle';
+              el.style.position = 'relative';
+              el.appendChild(handle);
+              setupScaleHandle(img, handle);
+            }
+          }
 
           // Drag & drop
           el.setAttribute('draggable', 'true');
@@ -1028,22 +1077,60 @@
             el.classList.add('le-dragging');
           });
           el.addEventListener('dragend', () => el.classList.remove('le-dragging'));
-          el.addEventListener('dragover', e => {
-            e.preventDefault();
-            el.classList.add('le-drop-zone');
-          });
+          el.addEventListener('dragover', e => { e.preventDefault(); el.classList.add('le-drop-zone'); });
           el.addEventListener('dragleave', () => el.classList.remove('le-drop-zone'));
           el.addEventListener('drop', e => {
             e.preventDefault();
             el.classList.remove('le-drop-zone');
             const draggedKey = e.dataTransfer.getData('text/plain');
             if (draggedKey && draggedKey !== key) {
-              // Swap sort order in DB
               editorChanges.push({ page: editorPage, section_key: draggedKey, section_type: 'order', swap_with: key });
               toast(`Moved ${draggedKey} near ${key}`);
               saveEditorChanges();
             }
           });
+        }
+
+        function setupScaleHandle(imgEl, handle) {
+          let startX, startY, startW, startH;
+          handle.addEventListener('mousedown', e => {
+            e.preventDefault();
+            e.stopPropagation();
+            startX = e.clientX;
+            startY = e.clientY;
+            startW = imgEl.offsetWidth;
+            startH = imgEl.offsetHeight;
+            const onMove = ev => {
+              const dx = ev.clientX - startX;
+              const dy = ev.clientY - startY;
+              const scale = Math.max(0.2, Math.min(3, 1 + (dx + dy) / (startW + startH)));
+              imgEl.style.width = Math.round(startW * scale) + 'px';
+              imgEl.style.height = 'auto';
+            };
+            const onUp = () => {
+              doc.removeEventListener('mousemove', onMove);
+              doc.removeEventListener('mouseup', onUp);
+              editorChanges.push({ page: editorPage, section_key: currentImgKey || imgEl.getAttribute('data-key') || 'img_size', section_type: 'image', image_url: imgEl.src, content: JSON.stringify({width: imgEl.style.width}), is_visible: true });
+              toast('Image resized');
+            };
+            doc.addEventListener('mousemove', onMove);
+            doc.addEventListener('mouseup', onUp);
+          });
+        }
+
+        function addNewElement() {
+          const doc = editorFrame.contentDocument;
+          if (!doc) return;
+          const el = doc.createElement('div');
+          const autoKey = 'new_' + Date.now().toString(36);
+          el.setAttribute('data-editable', 'text');
+          el.setAttribute('data-key', autoKey);
+          el.textContent = 'New text block - click to edit';
+          el.style.cssText = 'padding:1rem;margin:0.5rem 0;';
+          const main = doc.querySelector('main') || doc.body;
+          main.appendChild(el);
+          setupEditable(el, true);
+          toast('New element added - click to edit');
         }
 
       } catch (err) { console.error('Editor injection error:', err); }
@@ -1079,7 +1166,6 @@
     document.getElementById('editorFileInput').onchange = async (e) => {
       const file = e.target.files[0];
       if (!file || !currentImgKey) return;
-      // For now: store as base64 data URL (production would upload to storage)
       const reader = new FileReader();
       reader.onload = () => {
         const dataUrl = reader.result;
@@ -1095,38 +1181,13 @@
     });
 
     document.getElementById('editorAddElBtn').onclick = () => {
-      try {
-        const doc = editorFrame.contentDocument;
-        if (!doc) return;
-        const key = prompt('New section key (e.g. custom_text):');
-        if (!key) return;
-        const el = doc.createElement('div');
-        el.setAttribute('data-editable', 'text');
-        el.setAttribute('data-key', key);
-        el.textContent = 'New text block - click to edit';
-        el.style.cssText = 'padding:1rem;margin:0.5rem 0;';
-        const main = doc.querySelector('main') || doc.body;
-        main.appendChild(el);
-        // Trigger setup
-        el.addEventListener('click', e2 => {
-          e2.preventDefault(); e2.stopPropagation();
-          el.setAttribute('contenteditable','true'); el.classList.add('le-editing'); el.focus();
-          el.addEventListener('blur', () => {
-            el.removeAttribute('contenteditable'); el.classList.remove('le-editing');
-            editorChanges.push({ page: editorPage, section_key: key, section_type: 'text', content: el.textContent.trim(), is_visible: true });
-            toast(`Edited: ${key}`);
-          }, {once:true});
-        });
-        el.setAttribute('draggable','true');
-        toast('New element added');
-      } catch(e) { toast('Error adding element','error'); }
+      // Handled inside the iframe via toolbar
     };
 
     async function saveEditorChanges() {
       if (!editorChanges.length) { toast('No changes to save.','error'); return; }
       for (const ch of editorChanges) {
         if (ch.section_type === 'order') {
-          // Reorder: find both keys and swap sort_order
           const {data:sections} = await sb.from('page_sections').select('id,section_key,sort_order').eq('page',ch.page).in('section_key',[ch.section_key,ch.swap_with]);
           if (sections?.length === 2) {
             await sb.from('page_sections').update({sort_order:sections[0].sort_order,updated_at:new Date().toISOString()}).eq('id',sections[1].id);
