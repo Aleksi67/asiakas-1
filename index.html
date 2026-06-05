@@ -15,26 +15,24 @@
   <!-- HEADER -->
   <header class="site-header">
     <div class="header-inner">
-      <a href="/" class="logo">
+      <a href="index.html" class="logo">
         <img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot Ltd">
       </a>
 
       <nav class="main-nav">
-        <a href="index.html" class="active">Home</a>
-        <a href="news.html">News</a>
-        <a href="software-development.html">Software Development</a>
-        <a href="software-products.html">Software Products</a>
-        <a href="customer-references.html">Customer References</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
+        <a href="index.html" class="active" data-i18n="nav_home">Home</a>
+        <a href="news.html" data-i18n="nav_news">News</a>
+        <a href="software-development.html" data-i18n="nav_dev">Software Development</a>
+        <a href="products.html" data-i18n="nav_products">Software Products</a>
+        <a href="references.html" data-i18n="nav_refs">Customer References</a>
+        <a href="about.html" data-i18n="nav_about">About Us</a>
+        <a href="contact.html" data-i18n="nav_contact">Contact Us</a>
         <a href="eula.html">EULA</a>
       </nav>
 
       <div class="lang-switcher">
-        <img src="images/en.png" alt="English">
-        <a href="index.html">EN</a>
-        <span style="color: var(--neutral-400);">/</span>
-        <a href="https://rightspot.fi/?lang=fi">FI</a>
+        <a href="#" class="lang-btn active" data-lang="en"><img src="images/en.png" alt="EN"> EN</a>
+        <a href="#" class="lang-btn" data-lang="fi"><img src="images/fi.png" alt="FI"> FI</a>
       </div>
 
       <button class="mobile-menu-btn" id="mobile-menu-btn">
@@ -47,37 +45,103 @@
 
   <!-- MOBILE NAV -->
   <nav class="mobile-nav" id="mobile-nav">
-    <a href="index.html" class="active">Home</a>
-    <a href="news.html">News</a>
-    <a href="software-development.html">Software Development</a>
-    <a href="software-products.html">Software Products</a>
-    <a href="customer-references.html">Customer References</a>
-    <a href="about.html">About Us</a>
-    <a href="contact.html">Contact Us</a>
+    <a href="index.html" class="active" data-i18n="nav_home">Home</a>
+    <a href="news.html" data-i18n="nav_news">News</a>
+    <a href="software-development.html" data-i18n="nav_dev">Software Development</a>
+    <a href="products.html" data-i18n="nav_products">Software Products</a>
+    <a href="references.html" data-i18n="nav_refs">Customer References</a>
+    <a href="about.html" data-i18n="nav_about">About Us</a>
+    <a href="contact.html" data-i18n="nav_contact">Contact Us</a>
     <a href="eula.html">EULA</a>
   </nav>
 
   <main>
-    <!-- HERO SLIDER -->
+    <!-- HERO SLIDER WITH OVERLAYS -->
     <section class="hero-slider">
       <div class="slides-wrapper" id="slides-wrapper">
         <div class="slide">
           <img src="images/SoftwareSolutionSlideFull01EN_v2.jpg" alt="Software Solutions">
+          <div class="slide-overlay">
+            <div class="slide-overlay-content">
+              <p class="slide-overlay-eyebrow" data-i18n="hero_eyebrow">Why choose us?</p>
+              <h2 class="slide-overlay-title" data-i18n="hero_title">We have long experience in system and software development from measurement systems to games.</h2>
+              <div class="slide-overlay-quote">
+                <p data-i18n="hero_quote">"It has been a pleasure to work with RightSpot and to get innovative ideas from both parties melted into a successfully implemented product."</p>
+                <cite data-i18n="hero_quote_author">— Erkki Seikkula, Nammo Lapua Oy</cite>
+              </div>
+              <a href="contact.html" class="btn btn-primary btn-hero" data-i18n="hero_cta">Contact Us</a>
+            </div>
+          </div>
         </div>
         <div class="slide">
           <img src="images/PCSoftwareFullEN_v2.jpg" alt="PC Software">
+          <div class="slide-overlay">
+            <div class="slide-overlay-content">
+              <p class="slide-overlay-eyebrow" data-i18n="hero_eyebrow">Why choose us?</p>
+              <h2 class="slide-overlay-title" data-i18n="hero_title">We have long experience in system and software development from measurement systems to games.</h2>
+              <div class="slide-overlay-quote">
+                <p data-i18n="hero_quote">"It has been a pleasure to work with RightSpot and to get innovative ideas from both parties melted into a successfully implemented product."</p>
+                <cite data-i18n="hero_quote_author">— Erkki Seikkula, Nammo Lapua Oy</cite>
+              </div>
+              <a href="contact.html" class="btn btn-primary btn-hero" data-i18n="hero_cta">Contact Us</a>
+            </div>
+          </div>
         </div>
         <div class="slide">
           <img src="images/SmartPhoneSlideFull01EN_v2.jpg" alt="Smart Phone Applications">
+          <div class="slide-overlay">
+            <div class="slide-overlay-content">
+              <p class="slide-overlay-eyebrow" data-i18n="hero_eyebrow">Why choose us?</p>
+              <h2 class="slide-overlay-title" data-i18n="hero_title">We have long experience in system and software development from measurement systems to games.</h2>
+              <div class="slide-overlay-quote">
+                <p data-i18n="hero_quote">"It has been a pleasure to work with RightSpot and to get innovative ideas from both parties melted into a successfully implemented product."</p>
+                <cite data-i18n="hero_quote_author">— Erkki Seikkula, Nammo Lapua Oy</cite>
+              </div>
+              <a href="contact.html" class="btn btn-primary btn-hero" data-i18n="hero_cta">Contact Us</a>
+            </div>
+          </div>
         </div>
         <div class="slide">
           <img src="images/CloudSoftwareFullEN_v2.jpg" alt="Cloud Software">
+          <div class="slide-overlay">
+            <div class="slide-overlay-content">
+              <p class="slide-overlay-eyebrow" data-i18n="hero_eyebrow">Why choose us?</p>
+              <h2 class="slide-overlay-title" data-i18n="hero_title">We have long experience in system and software development from measurement systems to games.</h2>
+              <div class="slide-overlay-quote">
+                <p data-i18n="hero_quote">"It has been a pleasure to work with RightSpot and to get innovative ideas from both parties melted into a successfully implemented product."</p>
+                <cite data-i18n="hero_quote_author">— Erkki Seikkula, Nammo Lapua Oy</cite>
+              </div>
+              <a href="contact.html" class="btn btn-primary btn-hero" data-i18n="hero_cta">Contact Us</a>
+            </div>
+          </div>
         </div>
         <div class="slide">
           <img src="images/EmbeddeSoftwareSlideEN_v3.jpg" alt="Embedded Software">
+          <div class="slide-overlay">
+            <div class="slide-overlay-content">
+              <p class="slide-overlay-eyebrow" data-i18n="hero_eyebrow">Why choose us?</p>
+              <h2 class="slide-overlay-title" data-i18n="hero_title">We have long experience in system and software development from measurement systems to games.</h2>
+              <div class="slide-overlay-quote">
+                <p data-i18n="hero_quote">"It has been a pleasure to work with RightSpot and to get innovative ideas from both parties melted into a successfully implemented product."</p>
+                <cite data-i18n="hero_quote_author">— Erkki Seikkula, Nammo Lapua Oy</cite>
+              </div>
+              <a href="contact.html" class="btn btn-primary btn-hero" data-i18n="hero_cta">Contact Us</a>
+            </div>
+          </div>
         </div>
         <div class="slide">
           <img src="images/LapuaReferenceBanner_eng2.png" alt="Lapua Reference">
+          <div class="slide-overlay">
+            <div class="slide-overlay-content">
+              <p class="slide-overlay-eyebrow" data-i18n="hero_eyebrow">Why choose us?</p>
+              <h2 class="slide-overlay-title" data-i18n="hero_title">We have long experience in system and software development from measurement systems to games.</h2>
+              <div class="slide-overlay-quote">
+                <p data-i18n="hero_quote">"It has been a pleasure to work with RightSpot and to get innovative ideas from both parties melted into a successfully implemented product."</p>
+                <cite data-i18n="hero_quote_author">— Erkki Seikkula, Nammo Lapua Oy</cite>
+              </div>
+              <a href="contact.html" class="btn btn-primary btn-hero" data-i18n="hero_cta">Contact Us</a>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -103,17 +167,17 @@
             <img src="images/RightSpotWebProductCategories_Eng-1.jpg" alt="RightSpot Service Categories">
           </div>
           <div class="intro-content animate-in">
-            <h1>Welcome to RightSpot Ltd</h1>
-            <h2>Software and Wireless Solutions</h2>
+            <h1 data-i18n="intro_h1">Welcome to RightSpot Ltd</h1>
+            <h2 data-i18n="intro_h2">Software and Wireless Solutions</h2>
             <ul class="feature-list">
-              <li>Custom software development for PC, mobile, and cloud platforms</li>
-              <li>Expertise in wireless and embedded systems</li>
-              <li>Web and Cloud solutions tailored to your needs</li>
-              <li>Smart phone and tablet application development</li>
-              <li>Published products with user ratings and app store presence</li>
-              <li>Dedicated team based in Salo, Finland</li>
+              <li data-i18n="intro_f1">Custom software development for PC, mobile, and cloud platforms</li>
+              <li data-i18n="intro_f2">Expertise in wireless and embedded systems</li>
+              <li data-i18n="intro_f3">Web and Cloud solutions tailored to your needs</li>
+              <li data-i18n="intro_f4">Smart phone and tablet application development</li>
+              <li data-i18n="intro_f5">Published products with user ratings and app store presence</li>
+              <li data-i18n="intro_f6">Dedicated team based in Salo, Finland</li>
             </ul>
-            <a href="software-development.html" class="btn btn-primary">Read More</a>
+            <a href="software-development.html" class="btn btn-primary" data-i18n="intro_btn">Read More</a>
           </div>
         </div>
       </div>
@@ -125,19 +189,19 @@
         <div class="stats-grid">
           <div class="stat-item">
             <div class="stat-number" id="stat-products">0</div>
-            <div class="stat-label">Published Products</div>
+            <div class="stat-label" data-i18n="stat_products">Published Products</div>
           </div>
           <div class="stat-item">
             <div class="stat-number" id="stat-ratings">0</div>
-            <div class="stat-label">User Ratings</div>
+            <div class="stat-label" data-i18n="stat_ratings">User Ratings</div>
           </div>
           <div class="stat-item">
             <div class="stat-number" id="stat-avg">0</div>
-            <div class="stat-label">Average Store Rating</div>
+            <div class="stat-label" data-i18n="stat_avg">Average Store Rating</div>
           </div>
           <div class="stat-item">
             <div class="stat-number" id="stat-downloads">0</div>
-            <div class="stat-label">Application Downloads</div>
+            <div class="stat-label" data-i18n="stat_downloads">Application Downloads</div>
           </div>
         </div>
       </div>
@@ -147,8 +211,8 @@
     <section class="services-section section">
       <div class="container">
         <div class="section-header">
-          <span class="section-label">Our Expertise</span>
-          <h2 class="section-title">What We Do</h2>
+          <span class="section-label" data-i18n="svc_label">Our Expertise</span>
+          <h2 class="section-title" data-i18n="svc_title">What We Do</h2>
           <div class="section-divider"></div>
         </div>
         <div class="services-grid">
@@ -157,9 +221,9 @@
               <img src="images/learn-1996845_1920-compressor-compressor.png" alt="Software Development">
             </div>
             <div class="service-card-body">
-              <h3>Software Development</h3>
-              <p>We specialize in creating custom software solutions tailored to your specific business needs and requirements.</p>
-              <a href="software-development.html" class="service-link">
+              <h3 data-i18n="svc1_h">Software Development</h3>
+              <p data-i18n="svc1_p">We specialize in creating custom software solutions tailored to your specific business needs and requirements.</p>
+              <a href="software-development.html" class="service-link" data-i18n="svc1_link">
                 Learn More
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 16px; height: 16px;">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -173,9 +237,9 @@
               <img src="images/PetePhoneWeb.png" alt="Mobile Applications">
             </div>
             <div class="service-card-body">
-              <h3>Mobile Applications</h3>
-              <p>Expert development of smart phone and tablet applications for iOS, Android, and other mobile platforms.</p>
-              <a href="software-products.html" class="service-link">
+              <h3 data-i18n="svc2_h">Mobile Applications</h3>
+              <p data-i18n="svc2_p">Expert development of smart phone and tablet applications for iOS, Android, and other mobile platforms.</p>
+              <a href="products.html" class="service-link" data-i18n="svc2_link">
                 Explore Products
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 16px; height: 16px;">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -191,13 +255,12 @@
     <section class="about-section section">
       <div class="container">
         <div class="section-header">
-          <span class="section-label">About Us</span>
-          <h2 class="section-title">Get to Know RightSpot</h2>
+          <span class="section-label" data-i18n="about_label">About Us</span>
+          <h2 class="section-title" data-i18n="about_title">Get to Know RightSpot</h2>
           <div class="section-divider"></div>
         </div>
 
         <div class="about-grid">
-          <!-- Lapua Card -->
           <div class="about-card animate-in delay-1" id="card-lapua">
             <div class="about-card-front">
               <div class="about-card-icon">
@@ -205,15 +268,14 @@
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                 </svg>
               </div>
-              <h3>Lapua Ballistics</h3>
-              <p>Our flagship product with millions of users worldwide</p>
+              <h3 data-i18n="card1_h">Lapua Ballistics</h3>
+              <p data-i18n="card1_p">Our flagship product with millions of users worldwide</p>
             </div>
             <div class="about-card-back">
               <img src="images/LapuaBallisticsWeb25052017_3-e1496312176415.png" alt="Lapua Ballistics" style="max-width: 100%; max-height: 160px; object-fit: contain;">
             </div>
           </div>
 
-          <!-- Company Card -->
           <div class="about-card animate-in delay-2" id="card-company">
             <div class="about-card-front">
               <div class="about-card-icon">
@@ -221,15 +283,14 @@
                   <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm0-12c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4z"/>
                 </svg>
               </div>
-              <h3>Company</h3>
-              <p>Innovative software solutions since 2010</p>
+              <h3 data-i18n="card2_h">Company</h3>
+              <p data-i18n="card2_p">Innovative software solutions since 2010</p>
             </div>
             <div class="about-card-back">
               <img src="images/binary-1071776_1920-400x238.jpg" alt="Technology" style="max-width: 100%; max-height: 160px; object-fit: contain;">
             </div>
           </div>
 
-          <!-- Location Card -->
           <div class="about-card animate-in delay-3" id="card-location">
             <div class="about-card-front">
               <div class="about-card-icon">
@@ -237,8 +298,8 @@
                   <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                 </svg>
               </div>
-              <h3>Location</h3>
-              <p>Based in Salo, Finland</p>
+              <h3 data-i18n="card3_h">Location</h3>
+              <p data-i18n="card3_p">Based in Salo, Finland</p>
             </div>
             <div class="about-card-back">
               <div class="map-wrapper">
@@ -247,7 +308,6 @@
             </div>
           </div>
 
-          <!-- Personnel Card -->
           <div class="about-card animate-in" id="card-personnel">
             <div class="about-card-front">
               <div class="about-card-icon">
@@ -255,8 +315,8 @@
                   <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
                 </svg>
               </div>
-              <h3>Personnel</h3>
-              <p>Experienced development team</p>
+              <h3 data-i18n="card4_h">Personnel</h3>
+              <p data-i18n="card4_p">Experienced development team</p>
             </div>
             <div class="about-card-back">
               <img src="images/personnel_group.jpg" alt="Team" style="max-width: 100%; max-height: 160px; object-fit: contain;">
@@ -272,7 +332,6 @@
     <div class="container">
       <div class="footer-top">
         <div class="footer-grid">
-          <!-- Brand Column -->
           <div class="footer-brand">
             <img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot Ltd">
             <p>RightSpot Ltd develops SOFTWARE and WIRELESS solutions for PC, smart phones and tablets, web / Cloud. Based in Salo, Finland.</p>
@@ -285,21 +344,19 @@
             </div>
           </div>
 
-          <!-- Navigation Column -->
           <div class="footer-col">
             <h4>Navigation</h4>
             <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="news.html">News</a></li>
-              <li><a href="software-development.html">Software Development</a></li>
-              <li><a href="software-products.html">Software Products</a></li>
-              <li><a href="customer-references.html">Customer References</a></li>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="contact.html">Contact Us</a></li>
+              <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+              <li><a href="news.html" data-i18n="nav_news">News</a></li>
+              <li><a href="software-development.html" data-i18n="nav_dev">Software Development</a></li>
+              <li><a href="products.html" data-i18n="nav_products">Software Products</a></li>
+              <li><a href="references.html" data-i18n="nav_refs">Customer References</a></li>
+              <li><a href="about.html" data-i18n="nav_about">About Us</a></li>
+              <li><a href="contact.html" data-i18n="nav_contact">Contact Us</a></li>
             </ul>
           </div>
 
-          <!-- Contact Column -->
           <div class="footer-col">
             <h4>Contact</h4>
             <div class="footer-contact">
@@ -326,12 +383,9 @@
         </div>
       </div>
 
-      <!-- Footer Bottom -->
       <div class="footer-bottom">
         <div class="footer-bottom-inner">
-          <div class="footer-copy">
-            &copy; 2024 RightSpot Ltd. All rights reserved.
-          </div>
+          <div class="footer-copy">&copy; 2025 RightSpot Ltd. All rights reserved.</div>
           <div class="footer-links">
             <a href="eula.html">EULA</a>
             <a href="#">Privacy Policy</a>
@@ -342,7 +396,6 @@
     </div>
   </footer>
 
-  <!-- BACK TO TOP BUTTON -->
   <button class="back-to-top" id="back-to-top" title="Back to top">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
@@ -350,50 +403,115 @@
   </button>
 
   <script type="module">
-    // Supabase setup
+    // ===== TRANSLATIONS =====
+    const translations = {
+      fi: {
+        nav_home: 'Etusivu',
+        nav_news: 'Uutiset',
+        nav_dev: 'Ohjelmistokehitys',
+        nav_products: 'Ohjelmistotuotteet',
+        nav_refs: 'Asiakasviitteet',
+        nav_about: 'Tietoa meistä',
+        nav_contact: 'Ota yhteyttä',
+        hero_eyebrow: 'Miksi valita meidät?',
+        hero_title: 'Meillä on pitkä kokemus järjestelmä- ja ohjelmistokehityksestä mittausjärjestelmistä peleihin. Hyödynnämme ketteriä menetelmiä kehitysprosessissamme. Tämä mahdollistaa täyden näkyvyyden ja palautteen projektin edistymisestä. Saat tuotejulkaisun joka 2–4 viikko nähdäksesi ja testataksesi tuotteen nykyisen kypsyystason. Koodimme kehitetään ja ylläpidetään Suomessa.',
+        hero_quote: '"On ollut ilo työskennellä RightSpotin kanssa ja saada molempien osapuolten innovatiiviset ideat sulautettua onnistuneesti toteutettuun tuotteeseen."',
+        hero_quote_author: '— Erkki Seikkula, Nammo Lapua Oy',
+        hero_cta: 'Ota yhteyttä',
+        intro_h1: 'Tervetuloa RightSpot Ltd',
+        intro_h2: 'Ohjelmisto- ja langattomat ratkaisut',
+        intro_f1: 'Räätälöityä ohjelmistokehitystä PC-, mobiili- ja pilvialustoille',
+        intro_f2: 'Asiantuntemusta langattomista ja sulautetuista järjestelmistä',
+        intro_f3: 'Web- ja pilviratkaisut tarpeisiinne räätälöitynä',
+        intro_f4: 'Älypuhelin- ja tablettisovelluskehitys',
+        intro_f5: 'Julkaistuja tuotteita käyttäjäarvosteluineen ja sovelluskauppineen',
+        intro_f6: 'Omistautunut tiimi Salon, Suomesta',
+        intro_btn: 'Lue lisää',
+        stat_products: 'Julkaistut tuotteet',
+        stat_ratings: 'Käyttäjäarviot',
+        stat_avg: 'Keskiverto arvosana',
+        stat_downloads: 'Sovelluslataukset',
+        svc_label: 'Asiantuntemuksemme',
+        svc_title: 'Mitä teemme',
+        svc1_h: 'Ohjelmistokehitys',
+        svc1_p: 'Eriuldostamme räätälöityjä ohjelmistoratkaisuja juuri sinun liiketoimintatarpeisiisi.',
+        svc1_link: 'Lue lisää',
+        svc2_h: 'Mobiilisovellukset',
+        svc2_p: 'Asiantuntevaa älypuhelin- ja tablettisovellusten kehitystä iOS-, Android- ja muille mobiilialustoille.',
+        svc2_link: 'Tutustu tuotteisiin',
+        about_label: 'Tietoa meistä',
+        about_title: 'Tutustu RightSpotiin',
+        card1_h: 'Lapua Ballistics',
+        card1_p: 'Lippulaivatuotteemme miljoonine käyttäjineen ympäri maailmaa',
+        card2_h: 'Yritys',
+        card2_p: 'Innovatiivisia ohjelmistoratkaisuja vuodesta 2010',
+        card3_h: 'Sijainti',
+        card3_p: 'Toimipiste Salossa, Suomessa',
+        card4_h: 'Henkilöstö',
+        card4_p: 'Kokenut kehitystiimi'
+      },
+      en: {}
+    };
+
+    // Apply language
+    function applyLanguage(lang) {
+      document.documentElement.lang = lang;
+      localStorage.setItem('rightspot_lang', lang);
+      const t = translations[lang] || {};
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key]) el.textContent = t[key];
+        else if (lang === 'en') {
+          // Reset to original English — store originals on first load
+          const orig = el.getAttribute('data-i18n-original');
+          if (orig) el.textContent = orig;
+        }
+      });
+      // Update lang switcher active state
+      document.querySelectorAll('.lang-btn').forEach(b => {
+        b.classList.toggle('active', b.dataset.lang === lang);
+      });
+    }
+
+    // Store original English text on load
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      el.setAttribute('data-i18n-original', el.textContent);
+    });
+
+    // Language switcher click handler
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        applyLanguage(btn.dataset.lang);
+      });
+    });
+
+    // Load saved language
+    const savedLang = localStorage.getItem('rightspot_lang') || 'en';
+    if (savedLang !== 'en') applyLanguage(savedLang);
+
+    // ===== SUPABASE =====
     const SUPABASE_URL = 'https://ekdwrwhsmurwtctctbal.supabase.co';
     const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVrZHdyd2hzbXVyd3RjdGN0YmFsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA1MjA4MjYsImV4cCI6MjA5NjA5NjgyNn0.30oEuPagsWJV-ShYnb8UTVx0X93pug4DLcOklXEcZGc';
 
-    // Initialize Supabase client
-    const supabaseClient = {
-      url: SUPABASE_URL,
-      anonKey: SUPABASE_ANON_KEY,
-      fetchSettings: async (keys) => {
-        try {
-          const response = await fetch(`${SUPABASE_URL}/rest/v1/site_settings?select=key,value&key=in.(${keys.map(k => `"${k}"`).join(',')})`, {
-            headers: {
-              'apikey': SUPABASE_ANON_KEY,
-              'Content-Type': 'application/json',
-            }
-          });
-          if (response.ok) {
-            return await response.json();
-          }
-        } catch (err) {
-          console.error('Error loading settings:', err);
-        }
-        return [];
-      }
-    };
-
-    // Load stats from Supabase
     async function loadStats() {
-      const keys = ['stats_products', 'stats_ratings', 'stats_avg_rating', 'stats_downloads'];
-      const settings = await supabaseClient.fetchSettings(keys);
-
-      const statsMap = {};
-      settings.forEach(item => {
-        statsMap[item.key] = item.value || '0';
-      });
-
-      // Update DOM with stats
-      document.getElementById('stat-products').textContent = statsMap['stats_products'] || '15';
-      document.getElementById('stat-ratings').textContent = statsMap['stats_ratings'] || '50K';
-      document.getElementById('stat-avg').textContent = statsMap['stats_avg_rating'] || '4.8';
-      document.getElementById('stat-downloads').textContent = statsMap['stats_downloads'] || '2M+';
+      try {
+        const response = await fetch(`${SUPABASE_URL}/rest/v1/site_settings?select=key,value&key=in.("stats_products","stats_ratings","stats_avg_rating","stats_downloads")`, {
+          headers: { 'apikey': SUPABASE_ANON_KEY, 'Content-Type': 'application/json' }
+        });
+        if (response.ok) {
+          const settings = await response.json();
+          const m = {};
+          settings.forEach(item => { m[item.key] = item.value || '0'; });
+          document.getElementById('stat-products').textContent = m['stats_products'] || '15';
+          document.getElementById('stat-ratings').textContent = m['stats_ratings'] || '50K';
+          document.getElementById('stat-avg').textContent = m['stats_avg_rating'] || '4.8';
+          document.getElementById('stat-downloads').textContent = m['stats_downloads'] || '2M+';
+        }
+      } catch (err) { console.error('Error loading settings:', err); }
     }
 
-    // Slider functionality
+    // ===== SLIDER =====
     const slidesWrapper = document.getElementById('slides-wrapper');
     const sliderPrev = document.getElementById('slider-prev');
     const sliderNext = document.getElementById('slider-next');
@@ -404,7 +522,6 @@
     const totalSlides = slides.length;
     let autoSlideInterval;
 
-    // Create dots
     for (let i = 0; i < totalSlides; i++) {
       const dot = document.createElement('button');
       dot.classList.add('slider-dot');
@@ -417,81 +534,35 @@
 
     function updateSlider() {
       slidesWrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
-      dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentSlide);
-      });
+      dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
     }
 
-    function nextSlide() {
-      currentSlide = (currentSlide + 1) % totalSlides;
-      updateSlider();
-      resetAutoSlide();
-    }
-
-    function prevSlide() {
-      currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-      updateSlider();
-      resetAutoSlide();
-    }
-
-    function goToSlide(index) {
-      currentSlide = index;
-      updateSlider();
-      resetAutoSlide();
-    }
-
-    function startAutoSlide() {
-      autoSlideInterval = setInterval(nextSlide, 6000);
-    }
-
-    function resetAutoSlide() {
-      clearInterval(autoSlideInterval);
-      startAutoSlide();
-    }
+    function nextSlide() { currentSlide = (currentSlide + 1) % totalSlides; updateSlider(); resetAutoSlide(); }
+    function prevSlide() { currentSlide = (currentSlide - 1 + totalSlides) % totalSlides; updateSlider(); resetAutoSlide(); }
+    function goToSlide(index) { currentSlide = index; updateSlider(); resetAutoSlide(); }
+    function startAutoSlide() { autoSlideInterval = setInterval(nextSlide, 6000); }
+    function resetAutoSlide() { clearInterval(autoSlideInterval); startAutoSlide(); }
 
     sliderNext.addEventListener('click', nextSlide);
     sliderPrev.addEventListener('click', prevSlide);
     startAutoSlide();
 
-    // Mobile menu toggle
+    // ===== MOBILE MENU =====
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileNav = document.getElementById('mobile-nav');
-    const mobileNavLinks = mobileNav.querySelectorAll('a');
 
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileNav.classList.toggle('open');
-    });
+    mobileMenuBtn.addEventListener('click', () => mobileNav.classList.toggle('open'));
+    mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => mobileNav.classList.remove('open')));
 
-    mobileNavLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileNav.classList.remove('open');
-      });
-    });
+    // ===== ABOUT CARDS FLIP =====
+    document.querySelectorAll('.about-card').forEach(card => card.addEventListener('click', () => card.classList.toggle('flipped')));
 
-    // About cards flip functionality
-    const aboutCards = document.querySelectorAll('.about-card');
-    aboutCards.forEach(card => {
-      card.addEventListener('click', () => {
-        card.classList.toggle('flipped');
-      });
-    });
-
-    // Back to top button
+    // ===== BACK TO TOP =====
     const backToTopBtn = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => backToTopBtn.classList.toggle('visible', window.scrollY > 300));
+    backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        backToTopBtn.classList.add('visible');
-      } else {
-        backToTopBtn.classList.remove('visible');
-      }
-    });
-
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Load stats on page load
+    // Load stats
     document.addEventListener('DOMContentLoaded', loadStats);
   </script>
 </body>
