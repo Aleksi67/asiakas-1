@@ -151,6 +151,15 @@
     .overlay-backdrop.show { display: block; }
 
     @media (max-width: 1024px) { .stats-row { grid-template-columns: repeat(2, 1fr); } .analytics-grid { grid-template-columns: 1fr; } .settings-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
+    /* Live Editor overlay styles injected into iframe */
+    .le-highlight { outline: 2px dashed #279149 !important; outline-offset: 2px; cursor: pointer; background: rgba(39,145,73,0.06) !important; }
+    .le-editing { outline: 2px solid #279149 !important; outline-offset: 2px; background: rgba(39,145,73,0.1) !important; }
+    .le-toolbar { position:fixed;top:8px;left:50%;transform:translateX(-50%);z-index:99999;background:#fff;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.15);padding:6px 12px;display:flex;gap:8px;align-items:center;font-family:'Inter',sans-serif;font-size:13px; }
+    .le-toolbar button { padding:4px 10px;border-radius:6px;border:1px solid #dee2e6;background:#f8f9fa;cursor:pointer;font-size:12px;font-weight:600;color:#495057; }
+    .le-toolbar button:hover { background:#279149;color:#fff;border-color:#279149; }
+    .le-toolbar .le-saving { color:#279149;font-weight:600; }
+    .le-dragging { opacity:0.5; }
+    .le-drop-zone { border-top:3px solid #279149 !important; margin-top:-2px; }
     @media (max-width: 768px) { .sidebar { transform: translateX(-100%); } .sidebar.mobile-open { transform: translateX(0); } .main-area { margin-left: 0; } .stats-row { grid-template-columns: 1fr 1fr; } .page-content { padding: 1.25rem; } .topbar-admin { padding: 0 1.25rem; } .mobile-toggle { display: block; } }
     @media (max-width: 480px) { .stats-row { grid-template-columns: 1fr; } }
   </style>
@@ -184,6 +193,10 @@
       <button class="nav-item" data-view="content">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
         Page Content
+      </button>
+      <button class="nav-item" data-view="editor">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="M3 9h6"/></svg>
+        Live Editor
       </button>
       <div class="nav-section-label">Configuration</div>
       <button class="nav-item" data-view="settings">
@@ -350,6 +363,37 @@
           <div class="section-card-body" style="padding:0;height:500px;overflow:hidden;">
             <iframe id="cmsPreviewFrame" style="width:100%;height:100%;border:none;" src="about:blank"></iframe>
           </div>
+        </div>
+      </div>
+
+      <!-- LIVE EDITOR -->
+      <div class="view" id="view-editor">
+        <div class="section-card" style="margin-bottom:0;">
+          <div class="section-card-header" style="flex-wrap:wrap;gap:0.75rem;">
+            <h2>Live Editor</h2>
+            <div style="display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap;">
+              <select id="editorPageSelect" style="padding:0.4rem 0.6rem;border:1.5px solid var(--neutral-300);border-radius:var(--radius);font-size:0.8125rem;font-family:inherit;">
+                <option value="index">Home Page</option>
+                <option value="software-development">Software Development</option>
+                <option value="products">Products</option>
+                <option value="references">References</option>
+                <option value="about">About</option>
+                <option value="contact">Contact</option>
+              </select>
+              <button class="btn-sm btn-primary" id="editorLoadBtn">Load Page</button>
+              <button class="btn-sm btn-secondary" id="editorSaveAllBtn" style="display:none;">Save All Changes</button>
+              <button class="btn-sm btn-ghost" id="editorAddElBtn" style="display:none;">+ Add Element</button>
+            </div>
+          </div>
+        </div>
+        <div style="position:relative;height:calc(100vh - 180px);background:var(--neutral-100);border-radius:0 0 var(--radius-lg) var(--radius-lg);overflow:hidden;border:1px solid var(--neutral-200);border-top:none;">
+          <iframe id="editorFrame" style="width:100%;height:100%;border:none;" src="about:blank"></iframe>
+          <div id="editorImageMenu" style="display:none;position:absolute;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-md);padding:0.5rem;z-index:50;min-width:180px;">
+            <button class="btn-sm btn-secondary" style="width:100%;margin-bottom:0.25rem;justify-content:flex-start;" id="editorChangeImgBtn">Change Image</button>
+            <button class="btn-sm btn-secondary" style="width:100%;margin-bottom:0.25rem;justify-content:flex-start;" id="editorAddLinkBtn">Add Link</button>
+            <button class="btn-sm btn-danger" style="width:100%;justify-content:flex-start;" id="editorRemoveImgBtn">Remove Image</button>
+          </div>
+          <input type="file" id="editorFileInput" accept="image/*" style="display:none;">
         </div>
       </div>
 
@@ -554,7 +598,7 @@
     document.getElementById('confirmOk').onclick = () => { document.getElementById('confirmOverlay').classList.remove('open'); if(confirmResolve) confirmResolve(true); };
 
     // Navigation
-    const titles = { dashboard:'Dashboard', analytics:'Visitor Analytics', news:'News Posts', products:'Software Products', content:'Page Content', settings:'Site Settings' };
+    const titles = { dashboard:'Dashboard', analytics:'Visitor Analytics', news:'News Posts', products:'Software Products', content:'Page Content', editor:'Live Editor', settings:'Site Settings' };
     let currentView = 'dashboard';
     function showView(name) {
       currentView = name;
@@ -578,6 +622,7 @@
       else if(name==='news') loadNews();
       else if(name==='products') loadProducts();
       else if(name==='content') loadContent();
+      else if(name==='editor') loadEditor();
       else if(name==='settings') loadSettings();
     }
 
@@ -881,6 +926,235 @@
     new MutationObserver(()=>{
       ctbody.querySelectorAll('tr[data-id]').forEach(tr=>{tr.draggable=true;});
     }).observe(ctbody,{childList:true});
+
+    // ===== LIVE EDITOR =====
+    let editorChanges = [];
+    let editorPage = 'index';
+    const editorFrame = document.getElementById('editorFrame');
+    const editorPageSelect = document.getElementById('editorPageSelect');
+    const editorImageMenu = document.getElementById('editorImageMenu');
+    let currentImgEl = null;
+    let currentImgKey = null;
+
+    document.getElementById('editorLoadBtn').onclick = () => {
+      editorPage = editorPageSelect.value;
+      editorChanges = [];
+      editorFrame.src = editorPage + '.html?editor=1&t=' + Date.now();
+      document.getElementById('editorSaveAllBtn').style.display = 'inline-flex';
+      document.getElementById('editorAddElBtn').style.display = 'inline-flex';
+    };
+
+    editorFrame.onload = () => {
+      try {
+        const doc = editorFrame.contentDocument;
+        if (!doc || !doc.body) return;
+        const url = editorFrame.contentWindow.location.href;
+        if (url.includes('about:blank')) return;
+
+        // Inject editor CSS
+        const style = doc.createElement('style');
+        style.textContent = `
+          [data-editable]{outline:2px dashed transparent;outline-offset:2px;cursor:pointer;transition:outline 0.15s,background 0.15s;}
+          [data-editable]:hover{outline:2px dashed #279149;background:rgba(39,145,73,0.06)!important;}
+          [data-editable].le-editing{outline:2px solid #279149;background:rgba(39,145,73,0.1)!important;}
+          .le-toolbar{position:fixed;top:8px;left:50%;transform:translateX(-50%);z-index:99999;background:#fff;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.15);padding:6px 12px;display:flex;gap:8px;align-items:center;font-family:'Inter',sans-serif;font-size:13px;}
+          .le-toolbar button{padding:4px 10px;border-radius:6px;border:1px solid #dee2e6;background:#f8f9fa;cursor:pointer;font-size:12px;font-weight:600;color:#495057;}
+          .le-toolbar button:hover{background:#279149;color:#fff;border-color:#279149;}
+          .le-toolbar .le-saving{color:#279149;font-weight:600;}
+        `;
+        doc.head.appendChild(style);
+
+        // Add toolbar
+        const toolbar = doc.createElement('div');
+        toolbar.className = 'le-toolbar';
+        toolbar.innerHTML = `<span style="font-weight:700;color:#279149;">Live Editor</span><button id="le-save-btn">Save All</button><button id="le-add-btn">+ Add</button>`;
+        doc.body.appendChild(toolbar);
+
+        toolbar.querySelector('#le-save-btn').onclick = () => saveEditorChanges();
+        toolbar.querySelector('#le-add-btn').onclick = () => {
+          const key = prompt('Section key (e.g. new_text):');
+          if (!key) return;
+          const el = doc.createElement('div');
+          el.setAttribute('data-editable', 'text');
+          el.setAttribute('data-key', key);
+          el.textContent = 'New text block - click to edit';
+          el.style.cssText = 'padding:1rem;margin:0.5rem 0;';
+          // Find main element and append
+          const main = doc.querySelector('main') || doc.body;
+          main.appendChild(el);
+          setupEditable(el);
+        };
+
+        // Setup all editable elements
+        doc.querySelectorAll('[data-editable]').forEach(el => setupEditable(el));
+
+        function setupEditable(el) {
+          const type = el.getAttribute('data-editable');
+          const key = el.getAttribute('data-key');
+
+          el.addEventListener('click', e => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            if (type === 'text') {
+              // Inline text editing
+              el.setAttribute('contenteditable', 'true');
+              el.classList.add('le-editing');
+              el.focus();
+
+              el.addEventListener('blur', () => {
+                el.removeAttribute('contenteditable');
+                el.classList.remove('le-editing');
+                const newContent = el.textContent.trim();
+                editorChanges.push({ page: editorPage, section_key: key, section_type: 'text', content: newContent, is_visible: true });
+                toast(`Edited: ${key}`);
+              }, { once: true });
+            } else if (type === 'image') {
+              // Show image menu
+              currentImgEl = el;
+              currentImgKey = key;
+              const rect = el.getBoundingClientRect();
+              const frameRect = editorFrame.getBoundingClientRect();
+              editorImageMenu.style.display = 'block';
+              editorImageMenu.style.left = (rect.left + frameRect.left) + 'px';
+              editorImageMenu.style.top = (rect.bottom + frameRect.top + 4) + 'px';
+            }
+          });
+
+          // Drag & drop
+          el.setAttribute('draggable', 'true');
+          el.addEventListener('dragstart', e => {
+            e.dataTransfer.setData('text/plain', key);
+            el.classList.add('le-dragging');
+          });
+          el.addEventListener('dragend', () => el.classList.remove('le-dragging'));
+          el.addEventListener('dragover', e => {
+            e.preventDefault();
+            el.classList.add('le-drop-zone');
+          });
+          el.addEventListener('dragleave', () => el.classList.remove('le-drop-zone'));
+          el.addEventListener('drop', e => {
+            e.preventDefault();
+            el.classList.remove('le-drop-zone');
+            const draggedKey = e.dataTransfer.getData('text/plain');
+            if (draggedKey && draggedKey !== key) {
+              // Swap sort order in DB
+              editorChanges.push({ page: editorPage, section_key: draggedKey, section_type: 'order', swap_with: key });
+              toast(`Moved ${draggedKey} near ${key}`);
+              saveEditorChanges();
+            }
+          });
+        }
+
+      } catch (err) { console.error('Editor injection error:', err); }
+    };
+
+    // Image menu handlers
+    document.getElementById('editorChangeImgBtn').onclick = () => {
+      editorImageMenu.style.display = 'none';
+      document.getElementById('editorFileInput').click();
+    };
+    document.getElementById('editorAddLinkBtn').onclick = () => {
+      editorImageMenu.style.display = 'none';
+      const url = prompt('Enter link URL:');
+      if (!url || !currentImgEl) return;
+      try {
+        const doc = editorFrame.contentDocument;
+        const a = doc.createElement('a');
+        a.href = url;
+        a.target = '_blank';
+        currentImgEl.parentNode.insertBefore(a, currentImgEl);
+        a.appendChild(currentImgEl);
+        editorChanges.push({ page: editorPage, section_key: currentImgKey, section_type: 'image', content: `<a href="${url}" target="_blank">${currentImgEl.outerHTML}</a>` });
+        toast('Link added to image');
+      } catch(e) { toast('Error adding link','error'); }
+    };
+    document.getElementById('editorRemoveImgBtn').onclick = () => {
+      editorImageMenu.style.display = 'none';
+      if (!currentImgEl) return;
+      currentImgEl.style.display = 'none';
+      editorChanges.push({ page: editorPage, section_key: currentImgKey, section_type: 'image', image_url: '', is_visible: false });
+      toast('Image removed');
+    };
+    document.getElementById('editorFileInput').onchange = async (e) => {
+      const file = e.target.files[0];
+      if (!file || !currentImgKey) return;
+      // For now: store as base64 data URL (production would upload to storage)
+      const reader = new FileReader();
+      reader.onload = () => {
+        const dataUrl = reader.result;
+        if (currentImgEl) currentImgEl.src = dataUrl;
+        editorChanges.push({ page: editorPage, section_key: currentImgKey, section_type: 'image', image_url: dataUrl, is_visible: true });
+        toast('Image updated (stored as base64)');
+      };
+      reader.readAsDataURL(file);
+      e.target.value = '';
+    };
+    document.addEventListener('click', e => {
+      if (!editorImageMenu.contains(e.target)) editorImageMenu.style.display = 'none';
+    });
+
+    document.getElementById('editorAddElBtn').onclick = () => {
+      try {
+        const doc = editorFrame.contentDocument;
+        if (!doc) return;
+        const key = prompt('New section key (e.g. custom_text):');
+        if (!key) return;
+        const el = doc.createElement('div');
+        el.setAttribute('data-editable', 'text');
+        el.setAttribute('data-key', key);
+        el.textContent = 'New text block - click to edit';
+        el.style.cssText = 'padding:1rem;margin:0.5rem 0;';
+        const main = doc.querySelector('main') || doc.body;
+        main.appendChild(el);
+        // Trigger setup
+        el.addEventListener('click', e2 => {
+          e2.preventDefault(); e2.stopPropagation();
+          el.setAttribute('contenteditable','true'); el.classList.add('le-editing'); el.focus();
+          el.addEventListener('blur', () => {
+            el.removeAttribute('contenteditable'); el.classList.remove('le-editing');
+            editorChanges.push({ page: editorPage, section_key: key, section_type: 'text', content: el.textContent.trim(), is_visible: true });
+            toast(`Edited: ${key}`);
+          }, {once:true});
+        });
+        el.setAttribute('draggable','true');
+        toast('New element added');
+      } catch(e) { toast('Error adding element','error'); }
+    };
+
+    async function saveEditorChanges() {
+      if (!editorChanges.length) { toast('No changes to save.','error'); return; }
+      for (const ch of editorChanges) {
+        if (ch.section_type === 'order') {
+          // Reorder: find both keys and swap sort_order
+          const {data:sections} = await sb.from('page_sections').select('id,section_key,sort_order').eq('page',ch.page).in('section_key',[ch.section_key,ch.swap_with]);
+          if (sections?.length === 2) {
+            await sb.from('page_sections').update({sort_order:sections[0].sort_order,updated_at:new Date().toISOString()}).eq('id',sections[1].id);
+            await sb.from('page_sections').update({sort_order:sections[1].sort_order,updated_at:new Date().toISOString()}).eq('id',sections[0].id);
+          }
+        } else {
+          const payload = {
+            page: ch.page,
+            section_key: ch.section_key,
+            section_type: ch.section_type === 'order' ? 'text' : ch.section_type,
+            content: ch.content || '',
+            image_url: ch.image_url || '',
+            is_visible: ch.is_visible !== false,
+            updated_at: new Date().toISOString(),
+          };
+          const {error} = await sb.from('page_sections').upsert(payload, {onConflict:'page,section_key'});
+          if (error) { toast(`Error saving ${ch.section_key}: ${error.message}`, 'error'); }
+        }
+      }
+      editorChanges = [];
+      toast('All changes saved!');
+    }
+
+    document.getElementById('editorSaveAllBtn').onclick = () => saveEditorChanges();
+
+    async function loadEditor() {
+      // Editor loads on demand via button
+    }
 
     loadDashboard();
   </script>
