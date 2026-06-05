@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel – RightSpot Ltd</title>
+  <link rel="icon" href="/assets/cropped-RightSpotFB-32x32-DcIFHZOS.png" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-50: #f0faf3; --green-100: #dcf3e4; --green-200: #bbe7cb;
+      --green-500: #279149; --green-600: #1f7a3c;
+      --neutral-50: #f8f9fa; --neutral-100: #f1f3f5; --neutral-200: #e9ecef;
+      --neutral-300: #dee2e6; --neutral-400: #ced4da; --neutral-500: #adb5bd;
+      --neutral-600: #6c757d; --neutral-700: #495057; --neutral-800: #343a40;
+      --neutral-900: #212529; --white: #ffffff;
+      --red-50: #fff5f5; --red-100: #fed7d7; --red-500: #e53e3e; --red-600: #c53030;
+      --yellow-50: #fffff0; --yellow-500: #d69e2e;
+      --blue-50: #ebf8ff; --blue-500: #3182ce;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+      --shadow: 0 4px 6px rgba(0,0,0,0.07);
+      --shadow-md: 0 10px 15px rgba(0,0,0,0.07);
+      --radius: 8px; --radius-lg: 12px;
+      --sidebar-width: 260px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', -apple-system, sans-serif; background: var(--neutral-100); color: var(--neutral-800); min-height: 100vh; display: flex; -webkit-font-smoothing: antialiased; }
+
+    .sidebar { width: var(--sidebar-width); min-width: var(--sidebar-width); background: var(--neutral-900); display: flex; flex-direction: column; position: fixed; top: 0; left: 0; bottom: 0; overflow-y: auto; z-index: 50; transition: transform 0.3s ease; }
+    .sidebar-logo { padding: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .sidebar-logo img { height: 44px; width: auto; filter: brightness(0) invert(1); display: block; }
+    .sidebar-logo span { display: block; font-size: 0.75rem; color: var(--neutral-500); margin-top: 0.375rem; font-weight: 500; }
+    .sidebar-nav { padding: 1.25rem 0.75rem; flex: 1; }
+    .nav-section-label { font-size: 0.6875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--neutral-600); padding: 0 0.75rem; margin-bottom: 0.5rem; margin-top: 1.25rem; }
+    .nav-section-label:first-child { margin-top: 0; }
+    .nav-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.625rem 0.75rem; border-radius: var(--radius); font-size: 0.875rem; font-weight: 500; color: var(--neutral-500); cursor: pointer; transition: background 0.15s, color 0.15s; border: none; background: none; width: 100%; text-align: left; }
+    .nav-item:hover { background: rgba(255,255,255,0.06); color: var(--white); }
+    .nav-item.active { background: var(--green-500); color: var(--white); }
+    .nav-item svg { width: 18px; height: 18px; min-width: 18px; }
+    .sidebar-footer { padding: 1rem 0.75rem; border-top: 1px solid rgba(255,255,255,0.08); }
+
+    .main-area { margin-left: var(--sidebar-width); flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
+    .topbar-admin { background: var(--white); border-bottom: 1px solid var(--neutral-200); padding: 0 2rem; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 40; box-shadow: var(--shadow-sm); }
+    .topbar-title { font-size: 1.125rem; font-weight: 700; color: var(--neutral-900); }
+    .user-badge { display: flex; align-items: center; gap: 0.625rem; font-size: 0.875rem; color: var(--neutral-700); }
+    .user-avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--green-500); color: var(--white); display: flex; align-items: center; justify-content: center; font-size: 0.875rem; font-weight: 600; }
+    .btn-sm { display: inline-flex; align-items: center; gap: 0.375rem; padding: 0.4375rem 0.875rem; font-size: 0.8125rem; font-weight: 600; border-radius: var(--radius); border: none; cursor: pointer; transition: all 0.15s; font-family: inherit; }
+    .btn-primary { background: var(--green-500); color: var(--white); }
+    .btn-primary:hover { background: var(--green-600); }
+    .btn-danger { background: var(--red-50); color: var(--red-500); border: 1px solid var(--red-100); }
+    .btn-danger:hover { background: var(--red-100); }
+    .btn-secondary { background: var(--neutral-200); color: var(--neutral-700); }
+    .btn-secondary:hover { background: var(--neutral-300); }
+    .btn-ghost { background: transparent; color: var(--neutral-600); border: 1px solid var(--neutral-300); }
+    .btn-ghost:hover { background: var(--neutral-100); }
+
+    .page-content { padding: 2rem; flex: 1; }
+    .view { display: none; }
+    .view.active { display: block; }
+
+    .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; margin-bottom: 2rem; }
+    .stat-card { background: var(--white); border-radius: var(--radius-lg); padding: 1.5rem; box-shadow: var(--shadow-sm); }
+    .stat-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; }
+    .stat-card-icon { width: 40px; height: 40px; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; }
+    .stat-card-icon svg { width: 20px; height: 20px; }
+    .stat-card-icon.green { background: var(--green-50); color: var(--green-500); }
+    .stat-card-icon.blue { background: var(--blue-50); color: var(--blue-500); }
+    .stat-card-icon.yellow { background: var(--yellow-50); color: var(--yellow-500); }
+    .stat-card-icon.red { background: var(--red-50); color: var(--red-500); }
+    .stat-card-value { font-size: 2rem; font-weight: 700; color: var(--neutral-900); line-height: 1; margin-bottom: 0.375rem; }
+    .stat-card-label { font-size: 0.8125rem; color: var(--neutral-500); font-weight: 500; }
+
+    .section-card { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); overflow: hidden; margin-bottom: 1.5rem; }
+    .section-card-header { padding: 1.25rem 1.5rem; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--neutral-200); }
+    .section-card-header h2 { font-size: 1rem; font-weight: 700; color: var(--neutral-900); }
+    .section-card-body { padding: 1.5rem; }
+    .data-table { width: 100%; border-collapse: collapse; }
+    .data-table th { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--neutral-500); padding: 0.75rem 1rem; text-align: left; border-bottom: 1px solid var(--neutral-200); }
+    .data-table td { padding: 0.875rem 1rem; font-size: 0.875rem; color: var(--neutral-700); border-bottom: 1px solid var(--neutral-100); vertical-align: middle; }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tr:hover td { background: var(--neutral-50); }
+    .badge { display: inline-flex; align-items: center; padding: 0.2rem 0.625rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; }
+    .badge-green { background: var(--green-50); color: var(--green-600); }
+    .badge-yellow { background: var(--yellow-50); color: var(--yellow-500); }
+    .badge-blue { background: var(--blue-50); color: var(--blue-500); }
+    .badge-red { background: var(--red-50); color: var(--red-500); }
+    .table-actions { display: flex; gap: 0.5rem; }
+    .empty-state { text-align: center; padding: 3rem; color: var(--neutral-500); }
+    .empty-state svg { width: 48px; height: 48px; margin: 0 auto 1rem; opacity: 0.4; display: block; }
+
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center; z-index: 200; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+    .modal-overlay.open { opacity: 1; pointer-events: auto; }
+    .modal { background: var(--white); border-radius: var(--radius-lg); box-shadow: 0 25px 50px rgba(0,0,0,0.25); width: 100%; max-width: 560px; max-height: 90vh; overflow-y: auto; transform: translateY(16px); transition: transform 0.2s; }
+    .modal-overlay.open .modal { transform: translateY(0); }
+    .modal-header { padding: 1.5rem; border-bottom: 1px solid var(--neutral-200); display: flex; align-items: center; justify-content: space-between; }
+    .modal-header h3 { font-size: 1.0625rem; font-weight: 700; color: var(--neutral-900); }
+    .modal-close { width: 32px; height: 32px; border-radius: var(--radius); background: var(--neutral-100); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; color: var(--neutral-600); transition: background 0.15s; }
+    .modal-close:hover { background: var(--neutral-200); }
+    .modal-close svg { width: 16px; height: 16px; }
+    .modal-body { padding: 1.5rem; }
+    .modal-footer { padding: 1.25rem 1.5rem; border-top: 1px solid var(--neutral-200); display: flex; justify-content: flex-end; gap: 0.75rem; }
+    .form-group { margin-bottom: 1.25rem; }
+    label { display: block; font-size: 0.875rem; font-weight: 500; color: var(--neutral-700); margin-bottom: 0.5rem; }
+    input[type="text"], input[type="url"], textarea, select { width: 100%; padding: 0.625rem 0.875rem; border: 1.5px solid var(--neutral-300); border-radius: var(--radius); font-size: 0.9375rem; font-family: inherit; color: var(--neutral-900); background: var(--white); transition: border-color 0.2s, box-shadow 0.2s; outline: none; }
+    input:focus, textarea:focus, select:focus { border-color: var(--green-500); box-shadow: 0 0 0 3px rgba(39,145,73,0.12); }
+    textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+    .form-check { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
+    .form-check input[type="checkbox"] { width: 16px; height: 16px; min-width: 16px; accent-color: var(--green-500); cursor: pointer; }
+    .form-check span { font-size: 0.875rem; color: var(--neutral-700); }
+    .help-text { font-size: 0.8125rem; color: var(--neutral-500); margin-top: 0.375rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .store-link-preview { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.375rem; }
+    .store-link-preview a { font-size: 0.75rem; color: var(--green-500); }
+    .form-section-label { font-size: 0.8125rem; font-weight: 700; color: var(--neutral-500); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; padding-top: 0.5rem; border-top: 1px solid var(--neutral-200); margin-top: 0.25rem; }
+
+    .toast-container { position: fixed; top: 1.5rem; right: 1.5rem; z-index: 300; display: flex; flex-direction: column; gap: 0.75rem; }
+    .toast { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow-md); padding: 0.875rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; font-size: 0.875rem; font-weight: 500; min-width: 280px; max-width: 380px; animation: toastIn 0.3s ease; border-left: 4px solid var(--green-500); }
+    .toast.error { border-left-color: var(--red-500); }
+    .toast svg { width: 18px; height: 18px; min-width: 18px; }
+    .toast.success svg { color: var(--green-500); }
+    .toast.error svg { color: var(--red-500); }
+    @keyframes toastIn { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: none; } }
+
+    .confirm-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.45); display: flex; align-items: center; justify-content: center; z-index: 300; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.2s; }
+    .confirm-overlay.open { opacity: 1; pointer-events: auto; }
+    .confirm-dialog { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); width: 100%; max-width: 400px; padding: 2rem; transform: scale(0.95); transition: transform 0.2s; }
+    .confirm-overlay.open .confirm-dialog { transform: scale(1); }
+    .confirm-dialog h3 { font-size: 1.0625rem; font-weight: 700; margin-bottom: 0.75rem; color: var(--neutral-900); }
+    .confirm-dialog p { font-size: 0.9rem; color: var(--neutral-600); margin-bottom: 1.5rem; line-height: 1.6; }
+    .confirm-actions { display: flex; justify-content: flex-end; gap: 0.75rem; }
+
+    /* Analytics */
+    .analytics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .chart-placeholder { background: var(--neutral-50); border-radius: var(--radius); padding: 1.5rem; min-height: 200px; display: flex; flex-direction: column; gap: 0.75rem; }
+    .chart-bar-row { display: flex; align-items: center; gap: 0.75rem; }
+    .chart-bar-label { font-size: 0.8125rem; color: var(--neutral-600); min-width: 80px; text-align: right; }
+    .chart-bar-track { flex: 1; background: var(--neutral-200); border-radius: 4px; height: 24px; overflow: hidden; }
+    .chart-bar-fill { height: 100%; background: var(--green-500); border-radius: 4px; transition: width 0.6s ease; display: flex; align-items: center; padding-left: 0.5rem; }
+    .chart-bar-count { font-size: 0.75rem; color: var(--white); font-weight: 600; }
+
+    .settings-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+    .pv-time { font-size: 0.8125rem; color: var(--neutral-500); }
+    .truncate { max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+    .mobile-toggle { display: none; background: none; border: none; cursor: pointer; color: var(--neutral-700); padding: 0.25rem; }
+    .mobile-toggle svg { width: 22px; height: 22px; }
+    .overlay-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.3); z-index: 40; }
+    .overlay-backdrop.show { display: block; }
+
+    @media (max-width: 1024px) { .stats-row { grid-template-columns: repeat(2, 1fr); } .analytics-grid { grid-template-columns: 1fr; } .settings-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
+    /* Live Editor overlay styles injected into iframe */
+    .le-highlight { outline: 2px dashed #279149 !important; outline-offset: 2px; cursor: pointer; background: rgba(39,145,73,0.06) !important; }
+    .le-editing { outline: 2px solid #279149 !important; outline-offset: 2px; background: rgba(39,145,73,0.1) !important; }
+    .le-toolbar { position:fixed;top:8px;left:50%;transform:translateX(-50%);z-index:99999;background:#fff;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.15);padding:6px 12px;display:flex;gap:8px;align-items:center;font-family:'Inter',sans-serif;font-size:13px; }
+    .le-toolbar button { padding:4px 10px;border-radius:6px;border:1px solid #dee2e6;background:#f8f9fa;cursor:pointer;font-size:12px;font-weight:600;color:#495057; }
+    .le-toolbar button:hover { background:#279149;color:#fff;border-color:#279149; }
+    .le-toolbar .le-saving { color:#279149;font-weight:600; }
+    .le-dragging { opacity:0.5; }
+    .le-drop-zone { border-top:3px solid #279149 !important; margin-top:-2px; }
+    @media (max-width: 768px) { .sidebar { transform: translateX(-100%); } .sidebar.mobile-open { transform: translateX(0); } .main-area { margin-left: 0; } .stats-row { grid-template-columns: 1fr 1fr; } .page-content { padding: 1.25rem; } .topbar-admin { padding: 0 1.25rem; } .mobile-toggle { display: block; } }
+    @media (max-width: 480px) { .stats-row { grid-template-columns: 1fr; } }
+  </style>
+  <script type="module" crossorigin src="/assets/admin-BIkO-4qI.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-B5Qt9EMX.js">
+</head>
+<body>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <img src="/assets/rightspot_logo-e1423440880466-1-BtU07ddH.png" alt="RightSpot Ltd">
+      <span>Admin Panel</span>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Overview</div>
+      <button class="nav-item active" data-view="dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Dashboard
+      </button>
+      <button class="nav-item" data-view="analytics">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg>
+        Visitor Analytics
+      </button>
+      <div class="nav-section-label">Content</div>
+      <button class="nav-item" data-view="news">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></svg>
+        News Posts
+      </button>
+      <button class="nav-item" data-view="products">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+        Software Products
+      </button>
+      <button class="nav-item" data-view="content">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        Page Content
+      </button>
+      <button class="nav-item" data-view="editor">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/><path d="M3 9h6"/></svg>
+        Live Editor
+      </button>
+      <div class="nav-section-label">Configuration</div>
+      <button class="nav-item" data-view="settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M12 2v2M12 20v2M20 12h2M2 12h2M17.66 17.66l-1.41-1.41M6.34 17.66l1.41-1.41"/></svg>
+        Site Settings
+      </button>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="nav-item" id="viewSiteBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        View Website
+      </button>
+      <button class="nav-item" id="logoutBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16,17 21,12 16,7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Sign Out
+      </button>
+    </div>
+  </aside>
+
+  <div class="overlay-backdrop" id="sidebarBackdrop"></div>
+
+  <div class="main-area">
+    <header class="topbar-admin">
+      <div style="display:flex;align-items:center;gap:1rem;">
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <span class="topbar-title" id="topbarTitle">Dashboard</span>
+      </div>
+      <div class="user-badge">
+        <div class="user-avatar" id="userAvatar">A</div>
+      </div>
+    </header>
+
+    <div class="page-content">
+
+      <!-- DASHBOARD -->
+      <div class="view active" id="view-dashboard">
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <div><div class="stat-card-value" id="dash-news-count">—</div><div class="stat-card-label">News Posts</div></div>
+              <div class="stat-card-icon green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2z"/></svg></div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <div><div class="stat-card-value" id="dash-products-count">—</div><div class="stat-card-label">Active Products</div></div>
+              <div class="stat-card-icon blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <div><div class="stat-card-value" id="dash-views-today">—</div><div class="stat-card-label">Views Today</div></div>
+              <div class="stat-card-icon yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card-top">
+              <div><div class="stat-card-value" id="dash-views-total">—</div><div class="stat-card-label">Total Page Views</div></div>
+              <div class="stat-card-icon red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg></div>
+            </div>
+          </div>
+        </div>
+        <div class="section-card">
+          <div class="section-card-header">
+            <h2>Recent News Posts</h2>
+            <button class="btn-sm btn-primary" id="dashAddNewsBtn">+ Add News</button>
+          </div>
+          <div class="section-card-body" style="padding:0;">
+            <table class="data-table"><thead><tr><th>Title</th><th>Date</th><th>Status</th></tr></thead>
+            <tbody id="dashNewsBody"><tr><td colspan="3"><div class="empty-state"><p>Loading…</p></div></td></tr></tbody></table>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANALYTICS -->
+      <div class="view" id="view-analytics">
+        <div class="stats-row" style="grid-template-columns:repeat(3,1fr);">
+          <div class="stat-card"><div class="stat-card-value" id="ana-today">—</div><div class="stat-card-label">Views Today</div></div>
+          <div class="stat-card"><div class="stat-card-value" id="ana-week">—</div><div class="stat-card-label">Views This Week</div></div>
+          <div class="stat-card"><div class="stat-card-value" id="ana-total">—</div><div class="stat-card-label">All-Time Views</div></div>
+        </div>
+        <div class="analytics-grid">
+          <div class="section-card">
+            <div class="section-card-header"><h2>Views by Page</h2></div>
+            <div class="section-card-body"><div class="chart-placeholder" id="pageChart"><p style="color:var(--neutral-500);font-size:.875rem;">Loading…</p></div></div>
+          </div>
+          <div class="section-card">
+            <div class="section-card-header"><h2>Recent Visits (Last 20)</h2></div>
+            <div class="section-card-body" style="padding:0;overflow-x:auto;">
+              <table class="data-table"><thead><tr><th>Page</th><th>Referrer</th><th>Time</th></tr></thead>
+              <tbody id="recentVisits"><tr><td colspan="3" style="padding:2rem;text-align:center;color:var(--neutral-500);">Loading…</td></tr></tbody></table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NEWS -->
+      <div class="view" id="view-news">
+        <div class="section-card">
+          <div class="section-card-header">
+            <h2>News Posts</h2>
+            <button class="btn-sm btn-primary" id="addNewsBtn">+ Add News Post</button>
+          </div>
+          <div class="section-card-body" style="padding:0;overflow-x:auto;">
+            <table class="data-table">
+              <thead><tr><th>Title</th><th>Date</th><th>Store Links</th><th>Status</th><th>Actions</th></tr></thead>
+              <tbody id="newsTableBody"><tr><td colspan="5" style="padding:2rem;text-align:center;color:var(--neutral-500);">Loading…</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRODUCTS -->
+      <div class="view" id="view-products">
+        <div class="section-card">
+          <div class="section-card-header">
+            <h2>Software Products</h2>
+            <button class="btn-sm btn-primary" id="addProductBtn">+ Add Product</button>
+          </div>
+          <div class="section-card-body" style="padding:0;overflow-x:auto;">
+            <table class="data-table">
+              <thead><tr><th>Name</th><th>Platform</th><th>Status</th><th>Sort</th><th>Actions</th></tr></thead>
+              <tbody id="productsTableBody"><tr><td colspan="5" style="padding:2rem;text-align:center;color:var(--neutral-500);">Loading…</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTENT (CMS) -->
+      <div class="view" id="view-content">
+        <div class="section-card">
+          <div class="section-card-header">
+            <h2>Page Content Editor</h2>
+            <div style="display:flex;gap:0.75rem;align-items:center;">
+              <select id="cmsPageSelect" style="padding:0.4rem 0.6rem;border:1.5px solid var(--neutral-300);border-radius:var(--radius);font-size:0.8125rem;font-family:inherit;">
+                <option value="index">Home Page</option>
+                <option value="software-development">Software Development</option>
+                <option value="news">News</option>
+                <option value="products">Products</option>
+                <option value="references">References</option>
+                <option value="about">About</option>
+                <option value="contact">Contact</option>
+              </select>
+              <button class="btn-sm btn-primary" id="addSectionBtn">+ Add Section</button>
+            </div>
+          </div>
+          <div class="section-card-body" style="padding:0;">
+            <table class="data-table">
+              <thead><tr><th style="width:40px;"></th><th>Section Key</th><th>Type</th><th>Content Preview</th><th>Image</th><th>Sort</th><th>Visible</th><th>Actions</th></tr></thead>
+              <tbody id="contentTableBody"><tr><td colspan="8" style="padding:2rem;text-align:center;color:var(--neutral-500);">Select a page and sections will load.</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+        <!-- Preview iframe -->
+        <div class="section-card" style="margin-top:1.5rem;">
+          <div class="section-card-header">
+            <h2>Live Preview</h2>
+            <div style="display:flex;gap:0.75rem;">
+              <button class="btn-sm btn-secondary" id="cmsPreviewBtn">Refresh Preview</button>
+            </div>
+          </div>
+          <div class="section-card-body" style="padding:0;height:500px;overflow:hidden;">
+            <iframe id="cmsPreviewFrame" style="width:100%;height:100%;border:none;" src="about:blank"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- LIVE EDITOR -->
+      <div class="view" id="view-editor">
+        <div class="section-card" style="margin-bottom:0;">
+          <div class="section-card-header" style="flex-wrap:wrap;gap:0.75rem;">
+            <h2>Live Editor</h2>
+            <div style="display:flex;gap:0.75rem;align-items:center;flex-wrap:wrap;">
+              <select id="editorPageSelect" style="padding:0.4rem 0.6rem;border:1.5px solid var(--neutral-300);border-radius:var(--radius);font-size:0.8125rem;font-family:inherit;">
+                <option value="index">Home Page</option>
+                <option value="software-development">Software Development</option>
+                <option value="products">Products</option>
+                <option value="references">References</option>
+                <option value="about">About</option>
+                <option value="contact">Contact</option>
+              </select>
+              <button class="btn-sm btn-primary" id="editorLoadBtn">Load Page</button>
+              <button class="btn-sm btn-secondary" id="editorSaveAllBtn" style="display:none;">Save All Changes</button>
+              <button class="btn-sm btn-ghost" id="editorAddElBtn" style="display:none;">+ Add Element</button>
+            </div>
+          </div>
+        </div>
+        <div style="position:relative;height:calc(100vh - 180px);background:var(--neutral-100);border-radius:0 0 var(--radius-lg) var(--radius-lg);overflow:hidden;border:1px solid var(--neutral-200);border-top:none;">
+          <iframe id="editorFrame" style="width:100%;height:100%;border:none;" src="about:blank"></iframe>
+          <div id="editorImageMenu" style="display:none;position:absolute;background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow-md);padding:0.5rem;z-index:50;min-width:180px;">
+            <button class="btn-sm btn-secondary" style="width:100%;margin-bottom:0.25rem;justify-content:flex-start;" id="editorChangeImgBtn">Change Image</button>
+            <button class="btn-sm btn-secondary" style="width:100%;margin-bottom:0.25rem;justify-content:flex-start;" id="editorAddLinkBtn">Add Link</button>
+            <button class="btn-sm btn-danger" style="width:100%;justify-content:flex-start;" id="editorRemoveImgBtn">Remove Image</button>
+          </div>
+          <input type="file" id="editorFileInput" accept="image/*" style="display:none;">
+        </div>
+      </div>
+
+      <!-- SETTINGS -->
+      <div class="view" id="view-settings">
+        <div class="section-card">
+          <div class="section-card-header">
+            <h2>Site Settings</h2>
+            <button class="btn-sm btn-primary" id="saveSettingsBtn">Save Changes</button>
+          </div>
+          <div class="section-card-body">
+            <div class="settings-grid" id="settingsGrid"><p style="color:var(--neutral-500);">Loading…</p></div>
+          </div>
+        </div>
+        <div class="section-card">
+          <div class="section-card-header"><h2>Homepage Statistics</h2></div>
+          <div class="section-card-body">
+            <p style="font-size:.875rem;color:var(--neutral-600);margin-bottom:1.25rem;">These values appear in the stats bar on the homepage.</p>
+            <div class="settings-grid" id="statsSettingsGrid"><p style="color:var(--neutral-500);">Loading…</p></div>
+            <div style="margin-top:1.5rem;"><button class="btn-sm btn-primary" id="saveStatsBtn">Save Statistics</button></div>
+          </div>
+        </div>
+        <div class="section-card">
+          <div class="section-card-header"><h2>Technology Links</h2></div>
+          <div class="section-card-body">
+            <p style="font-size:.875rem;color:var(--neutral-600);margin-bottom:1.25rem;">YouTube and other links shown in the Software Development page technology section.</p>
+            <div class="settings-grid" id="techSettingsGrid"><p style="color:var(--neutral-500);">Loading…</p></div>
+            <div style="margin-top:1.5rem;"><button class="btn-sm btn-primary" id="saveTechBtn">Save Tech Links</button></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- NEWS MODAL -->
+  <div class="modal-overlay" id="newsModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="newsModalTitle">Add News Post</h3>
+        <button class="modal-close" id="newsModalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="newsId">
+        <div class="form-group">
+          <label for="newsTitle">Title *</label>
+          <input type="text" id="newsTitle" placeholder="News post title">
+        </div>
+        <div class="form-group">
+          <label for="newsContent">Content *</label>
+          <textarea id="newsContent" placeholder="Write the news content here…" rows="5"></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="newsDate">Published Date</label>
+            <input type="text" id="newsDate" placeholder="YYYY-MM-DD">
+            <div class="help-text">Leave blank for today.</div>
+          </div>
+          <div class="form-group">
+            <label for="newsImageUrl">Image Path / URL</label>
+            <input type="text" id="newsImageUrl" placeholder="images/photo.jpg or https://…">
+            <div class="help-text">Optional image for the news item.</div>
+          </div>
+        </div>
+
+        <div class="form-section-label">Store &amp; Media Links</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="newsAppStore">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--neutral-700)" style="display:inline;margin-right:4px;vertical-align:middle;"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+              App Store URL
+            </label>
+            <input type="url" id="newsAppStore" placeholder="https://apps.apple.com/…">
+          </div>
+          <div class="form-group">
+            <label for="newsPlayStore">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--neutral-700)" style="display:inline;margin-right:4px;vertical-align:middle;"><path d="M3.18 23.76c.3.17.64.2.96.09l12.93-7.47-2.77-2.77-11.12 10.15zm-1.01-19.5C2.06 4.6 2 4.98 2 5.38v13.25c0 .4.06.78.17 1.12l.09.08 7.42-7.42v-.17L2.17 4.17l-.09.09h.09zm15.83 9.16l-2.31-2.31-9.11 9.11 2.3.06L18 13.42zM2.17 4.17l11.52 6.49-2.3 2.3-9.22-8.79z"/></svg>
+              Google Play URL
+            </label>
+            <input type="url" id="newsPlayStore" placeholder="https://play.google.com/…">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="newsYoutube">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#e53e3e" style="display:inline;margin-right:4px;vertical-align:middle;"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.75 15.5V8.5l6.25 3.5-6.25 3.5z"/></svg>
+            YouTube URL
+          </label>
+          <input type="url" id="newsYoutube" placeholder="https://youtube.com/watch?v=…">
+          <div class="help-text">Optional YouTube video link shown as a button on the news post.</div>
+        </div>
+
+        <div class="form-group" style="margin-bottom:0;">
+          <label class="form-check">
+            <input type="checkbox" id="newsPublished" checked>
+            <span>Published (visible on website)</span>
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-sm btn-ghost" id="newsModalCancel">Cancel</button>
+        <button class="btn-sm btn-primary" id="newsModalSave">Save Post</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRODUCT MODAL -->
+  <div class="modal-overlay" id="productModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="productModalTitle">Add Software Product</h3>
+        <button class="modal-close" id="productModalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="productId">
+        <div class="form-group"><label for="productName">Product Name *</label><input type="text" id="productName" placeholder="e.g. Lapua Ballistics"></div>
+        <div class="form-group"><label for="productPlatform">Platform *</label><input type="text" id="productPlatform" placeholder="e.g. iOS, Android, Windows"></div>
+        <div class="form-group"><label for="productDescription">Description</label><textarea id="productDescription" rows="3"></textarea></div>
+        <div class="form-group"><label for="productImageUrl">Image URL</label><input type="url" id="productImageUrl" placeholder="https://…"></div>
+        <div class="form-group"><label for="productStoreUrl">Store / Product URL</label><input type="url" id="productStoreUrl" placeholder="https://…"></div>
+        <div class="form-group"><label for="productSort">Sort Order</label><input type="text" id="productSort" placeholder="0"><div class="help-text">Lower numbers appear first.</div></div>
+        <div class="form-group"><label class="form-check"><input type="checkbox" id="productActive" checked><span>Active (visible on website)</span></label></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-sm btn-ghost" id="productModalCancel">Cancel</button>
+        <button class="btn-sm btn-primary" id="productModalSave">Save Product</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION MODAL -->
+  <div class="modal-overlay" id="sectionModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="sectionModalTitle">Add Section</h3>
+        <button class="modal-close" id="sectionModalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="sectionId">
+        <div class="form-group"><label for="sectionKey">Section Key *</label><input type="text" id="sectionKey" placeholder="e.g. intro_h1"><div class="help-text">Unique identifier for this section within the page.</div></div>
+        <div class="form-group"><label for="sectionType">Type</label><select id="sectionType"><option value="text">Text</option><option value="image">Image</option><option value="html">HTML</option></select></div>
+        <div class="form-group"><label for="sectionContent">Content</label><textarea id="sectionContent" rows="6" placeholder="Enter text or HTML content…"></textarea></div>
+        <div class="form-group"><label for="sectionImage">Image URL</label><input type="text" id="sectionImage" placeholder="images/photo.jpg or https://…"><div class="help-text">Optional image for this section.</div></div>
+        <div class="form-row">
+          <div class="form-group"><label for="sectionSort">Sort Order</label><input type="text" id="sectionSort" placeholder="0"><div class="help-text">Lower numbers appear first.</div></div>
+          <div class="form-group" style="padding-top:1.75rem;"><label class="form-check"><input type="checkbox" id="sectionVisible" checked><span>Visible on website</span></label></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-sm btn-ghost" id="sectionModalCancel">Cancel</button>
+        <button class="btn-sm btn-primary" id="sectionModalSave">Save Section</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONFIRM DIALOG -->
+  <div class="confirm-overlay" id="confirmOverlay">
+    <div class="confirm-dialog">
+      <h3 id="confirmTitle">Confirm Delete</h3>
+      <p id="confirmMsg">Are you sure? This action cannot be undone.</p>
+      <div class="confirm-actions">
+        <button class="btn-sm btn-ghost" id="confirmCancel">Cancel</button>
+        <button class="btn-sm btn-danger" id="confirmOk">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+</body>
+</html>
