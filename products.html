@@ -4,20 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Software Products – RightSpot Ltd</title>
+  <link rel="icon" href="images/cropped-RightSpotFB-32x32.png" sizes="32x32">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-  <!-- Header -->
+
   <header class="site-header">
-    <div class="header-inner container">
-      <div class="logo">
-        <img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot">
-      </div>
+    <div class="header-inner">
+      <a href="index.html" class="logo"><img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot Ltd" width="160" height="62"></a>
       <nav class="main-nav">
         <a href="index.html">Home</a>
         <a href="news.html">News</a>
-        <a href="softwaredev.html">Software Development</a>
+        <a href="software-development.html">Software Development</a>
         <a href="products.html" class="active">Software Products</a>
         <a href="references.html">Customer References</a>
         <a href="about.html">About Us</a>
@@ -25,304 +26,245 @@
         <a href="eula.html">EULA</a>
       </nav>
       <div class="lang-switcher">
-        <a href="#" title="English">
-          <img src="https://flags.cdn-5d9f6f.workers.dev/en.png" alt="EN">
-          <span>EN</span>
-        </a>
-        <span style="color: var(--neutral-400);">|</span>
-        <a href="#" title="Suomi">
-          <img src="https://flags.cdn-5d9f6f.workers.dev/fi.png" alt="FI">
-          <span>FI</span>
-        </a>
+        <a href="products.html" title="English"><img src="images/en.png" alt="EN"></a>
+        <a href="https://rightspot.fi/customer-projects/?lang=fi" title="Finnish"><img src="images/fi.png" alt="FI"></a>
       </div>
-      <button class="mobile-menu-btn" id="mobileMenuBtn">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
+      <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
     </div>
-    <nav class="mobile-nav" id="mobileNav">
-      <a href="index.html">Home</a>
-      <a href="news.html">News</a>
-      <a href="softwaredev.html">Software Development</a>
-      <a href="products.html" class="active">Software Products</a>
-      <a href="references.html">Customer References</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact Us</a>
-      <a href="eula.html">EULA</a>
-    </nav>
   </header>
 
-  <!-- Page Header -->
-  <section class="page-header">
-    <div class="container">
-      <h1>Software Products</h1>
-      <p>Mobile applications and professional solutions across multiple platforms</p>
-    </div>
-  </section>
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="index.html">Home</a>
+    <a href="news.html">News</a>
+    <a href="software-development.html">Software Development</a>
+    <a href="products.html" class="active">Software Products</a>
+    <a href="references.html">Customer References</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="eula.html">EULA</a>
+  </nav>
 
-  <!-- Products Section -->
-  <section class="products-section section">
-    <div class="container">
+  <main>
 
-      <!-- Mobile Applications Category -->
-      <h2 class="products-category-title">Mobile Applications</h2>
-      <div class="products-grid">
-        <!-- Lapua Ballistics -->
-        <div class="product-card">
-          <div class="product-card-img">
-            <img src="images/LapuaBallisticsWeb25052017_3-e1496312176415.png" alt="Lapua Ballistics">
-          </div>
-          <div class="product-card-body">
-            <span class="product-tag">Mobile Application</span>
-            <h3>Lapua Ballistics</h3>
-            <p class="customer">Nammo Lapua Ltd</p>
-            <p>Lapua Ballistics is the ultimate 6DOF ballistics tool for mobile devices. It's the first mobile ballistics app utilizing the 6DOF calculation model, which makes it the most accurate ballistics app on the market.</p>
-            <a href="references.html#lapua" class="product-card-link">
-              View Details
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Vihtavuori Reload -->
-        <div class="product-card">
-          <div class="product-card-img">
-            <img src="images/PetePhoneWeb.png" alt="Vihtavuori Reload">
-          </div>
-          <div class="product-card-body">
-            <span class="product-tag">Mobile Application</span>
-            <h3>Vihtavuori Reload</h3>
-            <p class="customer">Vihtavuori Oy – Part of Nammo Group</p>
-            <p>Free of charge mobile application to help with your reloading process and track reloading recipes. Use created recipes on all your devices (Android, iOS). Easy access to latest Vihtavuori Reloading Data.</p>
-            <a href="references.html#vihtavuori" class="product-card-link">
-              View Details
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Pete Patruuna -->
-        <div class="product-card">
-          <div class="product-card-img">
-            <img src="images/PetePhoneWeb-300x186.png" alt="Pete Patruuna">
-          </div>
-          <div class="product-card-body">
-            <span class="product-tag">Mobile Application</span>
-            <h3>Pete Patruuna</h3>
-            <p class="customer">Finnish Shooting Sport Federation</p>
-            <p>Application made for Finnish Shooting Sport Federation to support sport shooting school activities of young shooters.</p>
-            <a href="references.html#pete" class="product-card-link">
-              View Details
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </a>
-          </div>
-        </div>
+    <!-- HERO BANNER -->
+    <section class="dev-hero-banner">
+      <div class="container">
+        <p class="eyebrow">Innovative Software Products</p>
+        <h1>Our Software Solutions</h1>
       </div>
+    </section>
 
-      <!-- Simulators Category -->
-      <h2 class="products-category-title">Simulators</h2>
-      <div class="products-grid">
-        <!-- BIATHLON X5 -->
-        <div class="product-card">
-          <div class="product-card-img" style="background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/binary-1071776_1920-200x119.jpg'); background-size: cover; background-position: center;">
-            <img src="images/binary-1071776_1920-200x119.jpg" alt="BIATHLON X5" style="opacity: 0;">
-          </div>
-          <div class="product-card-body">
-            <span class="product-tag">Game Simulator</span>
-            <h3>BIATHLON X5</h3>
-            <p>Shooting at falling targets, rifle loading, wind conditions, sights adjustments, skiing speed and even rifle zeroing in live competition is modeled. Based on 10s of years of experience in biathlon and sports shooting.</p>
+    <!-- PRODUCTS SECTION -->
+    <section class="products-section">
+      <div class="container">
+
+        <!-- Mobile Applications Category -->
+        <div class="products-category">
+          <h2 class="products-category-title">Mobile Applications</h2>
+          <div class="products-grid">
+
+            <!-- Lapua Ballistics -->
+            <div class="product-card">
+              <div class="product-card-img">
+                <img src="images/LapuaBallisticsWeb25052017_3-e1496312176415.png" alt="Lapua Ballistics" loading="lazy">
+              </div>
+              <div class="product-card-body">
+                <h3>Lapua Ballistics</h3>
+                <p class="product-customer">Customer: Nammo Lapua Ltd</p>
+                <p>Lapua Ballistics is the ultimate 6DOF ballistics tool for mobile devices. It's the first mobile ballistics app utilizing the 6DOF calculation model, which makes it the most accurate ballistics app on the market.</p>
+                <a href="references.html#lapua" class="product-card-link">
+                  Read more
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <!-- Vihtavuori Reload -->
+            <div class="product-card">
+              <div class="product-card-img">
+                <img src="images/PetePhoneWeb.png" alt="Vihtavuori Reload" loading="lazy">
+              </div>
+              <div class="product-card-body">
+                <h3>Vihtavuori Reload</h3>
+                <p class="product-customer">Customer: Vihtavuori Oy – Part of Nammo Group</p>
+                <p>Vihtavuori Reload is a free of charge mobile application to help you with your reloading process as well as to keep track of your reloading recipes. Use created recipes on all of your devices (Android, IOS). Everything stays in order in Vihtavuori Reload. With Vihtavuori Reload, you have easy access to latest Vihtavuori Reloading Data as well as other Vihtavuori information.</p>
+                <a href="references.html#vihtavuori" class="product-card-link">
+                  Read more
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <!-- BIATHLON X5 Pro -->
-        <div class="product-card">
-          <div class="product-card-img" style="background: linear-gradient(135deg, rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/binary-1071776_1920-200x119.jpg'); background-size: cover; background-position: center;">
-            <img src="images/binary-1071776_1920-200x119.jpg" alt="BIATHLON X5 Pro" style="opacity: 0;">
-          </div>
-          <div class="product-card-body">
-            <span class="product-tag">Game Simulator</span>
-            <h3>BIATHLON X5 Pro</h3>
-            <p>New refreshed outlook. All shop items free of charge including head start to Live competitions. Authentic sounds from a real rifle recorded in a real biathlon arena. Savings worth of more than 20 €.</p>
+        <!-- Simulators Category -->
+        <div class="products-category">
+          <h2 class="products-category-title">Simulators</h2>
+          <div class="products-grid">
+
+            <!-- BIATHLON X5 -->
+            <div class="product-card">
+              <div class="product-card-img">
+                <img src="images/binary-1071776_1920-300x179.jpg" alt="BIATHLON X5" loading="lazy">
+              </div>
+              <div class="product-card-body">
+                <h3>BIATHLON X5</h3>
+                <p>Shooting at falling targets, rifle loading, wind conditions, sights adjustments, skiing speed and even rifle zeroing in live competition is modeled. This is based on 10s of years of experience in biathlon and sports shooting.</p>
+              </div>
+            </div>
+
+            <!-- BIATHLON X5 Pro -->
+            <div class="product-card">
+              <div class="product-card-img">
+                <img src="images/binary-1071776_1920-300x179.jpg" alt="BIATHLON X5 Pro" loading="lazy">
+              </div>
+              <div class="product-card-body">
+                <h3>BIATHLON X5 Pro</h3>
+                <p>New refreshed outlook. All shop items free of charge including head start to Live competitions. Use the full potential and make savings worth of more than 20 €. Shooting at falling targets, rifle loading, wind conditions, sights adjustments, skiing speed and even rifle zeroing in live competition is modeled. Authentic sounds from a real rifle (firing), reloading, target hit and miss recorded in a real biathlon arena. This is based on 10s of years of experience in biathlon and sports shooting.</p>
+              </div>
+            </div>
+
           </div>
         </div>
+
+        <!-- Training Category -->
+        <div class="products-category">
+          <h2 class="products-category-title">Training</h2>
+          <div class="products-grid">
+
+            <!-- Kurt Thune Training -->
+            <div class="product-card">
+              <div class="product-card-img">
+                <img src="images/learn-1996845_1920-compressor-compressor.png" alt="Kurt Thune Training" loading="lazy">
+              </div>
+              <div class="product-card-body">
+                <h3>Kurt Thune Training</h3>
+                <p>Training tool for sport shooters. (Rifle and Pistol) Improve your scores and mental competition skills.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Location and Maps Category -->
+        <div class="products-category">
+          <h2 class="products-category-title">Location and Maps</h2>
+          <div class="products-grid">
+
+            <!-- GAME HUNT LOCATION -->
+            <div class="product-card">
+              <div class="product-card-img">
+                <img src="images/binary-1071776_1920-300x179.jpg" alt="GAME HUNT LOCATION" loading="lazy">
+              </div>
+              <div class="product-card-body">
+                <h3>GAME HUNT LOCATION</h3>
+                <p>Report the hunt result in seconds (Roe Deer, Deer, Moose). Automatic location and map information.</p>
+                <div class="product-card-note">Read more (in Finnish)</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Games Category -->
+        <div class="products-category">
+          <h2 class="products-category-title">Games</h2>
+          <div class="products-grid">
+
+            <!-- BIATHLON X1 -->
+            <div class="product-card">
+              <div class="product-card-img">
+                <img src="images/binary-1071776_1920-200x119.jpg" alt="BIATHLON X1" loading="lazy">
+              </div>
+              <div class="product-card-body">
+                <h3>BIATHLON X1</h3>
+                <p>Realistic shooting on falling targets. Earn coins, complete levels, achieve grades, become Master</p>
+              </div>
+            </div>
+
+            <!-- BIATHLON X2 -->
+            <div class="product-card">
+              <div class="product-card-img">
+                <img src="images/binary-1071776_1920-200x119.jpg" alt="BIATHLON X2" loading="lazy">
+              </div>
+              <div class="product-card-body">
+                <h3>BIATHLON X2</h3>
+                <p>Realistic shooting on falling targets and non traditional skiing tracks. Earn coins, complete levels, achieve grades, become Master</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Cloud Solutions Category -->
+        <div class="products-category">
+          <h2 class="products-category-title">Cloud Solutions</h2>
+          <div class="products-grid">
+
+            <!-- Product Data Management and Publishment Solution -->
+            <div class="product-card">
+              <div class="product-card-img">
+                <img src="images/CloudSoftwareFullEN_v2-400x127.jpg" alt="Product Data Management and Publishment Solution" loading="lazy">
+              </div>
+              <div class="product-card-body">
+                <h3>Product Data Management and Publishment Solution</h3>
+                <p class="product-customer">Customer: Nammo Vihtavuori Oy</p>
+                <p>Cloud based management and publishment solution.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
+    </section>
 
-      <!-- Training Category -->
-      <h2 class="products-category-title">Training</h2>
-      <div class="products-grid">
-        <!-- Kurt Thune Training -->
-        <div class="product-card">
-          <div class="product-card-img">
-            <img src="images/learn-1996845_1920-compressor-compressor.png" alt="Kurt Thune Training">
-          </div>
-          <div class="product-card-body">
-            <span class="product-tag">Training Tool</span>
-            <h3>Kurt Thune Training</h3>
-            <p>Training tool for sport shooters (Rifle and Pistol). Improve your scores and mental competition skills with this specialized training application.</p>
-          </div>
-        </div>
-      </div>
+  </main>
 
-      <!-- Location and Maps Category -->
-      <h2 class="products-category-title">Location and Maps</h2>
-      <div class="products-grid">
-        <!-- Game Hunt Location -->
-        <div class="product-card">
-          <div class="product-card-img">
-            <img src="images/binary-1071776_1920-300x179.jpg" alt="Game Hunt Location">
-          </div>
-          <div class="product-card-body">
-            <span class="product-tag">Location & Maps</span>
-            <h3>Game Hunt Location</h3>
-            <p>Report the hunt result in seconds (Roe Deer, Deer, Moose). Automatic location and map information. Fast and easy reporting for hunters.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Games Category -->
-      <h2 class="products-category-title">Games</h2>
-      <div class="products-grid">
-        <!-- BIATHLON X1 -->
-        <div class="product-card">
-          <div class="product-card-img" style="background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/binary-1071776_1920-200x119.jpg'); background-size: cover; background-position: center;">
-            <img src="images/binary-1071776_1920-200x119.jpg" alt="BIATHLON X1" style="opacity: 0;">
-          </div>
-          <div class="product-card-body">
-            <span class="product-tag">Game</span>
-            <h3>BIATHLON X1</h3>
-            <p>Realistic shooting on falling targets. Earn coins, complete levels, achieve grades, become Master!</p>
-          </div>
-        </div>
-
-        <!-- BIATHLON X2 -->
-        <div class="product-card">
-          <div class="product-card-img" style="background: linear-gradient(135deg, rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('images/binary-1071776_1920-200x119.jpg'); background-size: cover; background-position: center;">
-            <img src="images/binary-1071776_1920-200x119.jpg" alt="BIATHLON X2" style="opacity: 0;">
-          </div>
-          <div class="product-card-body">
-            <span class="product-tag">Game</span>
-            <h3>BIATHLON X2</h3>
-            <p>Realistic shooting on falling targets and non traditional skiing tracks. Earn coins, complete levels, achieve grades, become Master!</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Back to Top Button -->
-  <button class="back-to-top" id="backToTop">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <polyline points="18 15 12 9 6 15"></polyline>
-    </svg>
-  </button>
-
-  <!-- Footer -->
   <footer class="site-footer">
-    <div class="footer-top container">
-      <div class="footer-grid">
-        <!-- Brand -->
-        <div class="footer-brand">
-          <img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot">
-          <p>Leading mobile and web application development company based in Finland, delivering innovative solutions for global clients.</p>
-          <div class="footer-social">
-            <a href="https://facebook.com/rightspotltd" target="_blank" title="Facebook">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-        <!-- Navigation -->
-        <div class="footer-col">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="news.html">News</a></li>
-            <li><a href="softwaredev.html">Software Development</a></li>
-            <li><a href="products.html">Software Products</a></li>
-            <li><a href="references.html">Customer References</a></li>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-          </ul>
-        </div>
-        <!-- Contact -->
-        <div class="footer-col">
-          <h4>Contact</h4>
-          <div class="footer-contact">
-            <div class="footer-contact-item">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-              </svg>
-              <span>Satamakatu 28<br>24100 Salo, Finland</span>
-            </div>
-            <div class="footer-contact-item">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-              </svg>
-              <a href="tel:+358405544853">+358 (0)40 5544853</a>
-            </div>
-            <div class="footer-contact-item">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-              </svg>
-              <a href="mailto:rightspot@rightspot.fi">rightspot(at)rightspot.fi</a>
-            </div>
-          </div>
+    <div class="footer-top"><div class="container"><div class="footer-grid">
+      <div class="footer-brand">
+        <img src="images/rightspot_logo-e1423440880466-1.png" alt="RightSpot Ltd">
+        <p>RightSpot Ltd develops SOFTWARE and WIRELESS solutions for PC, smart phones and tablets, web / Cloud. Established December 2013, based in Salo, Finland.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/RightSpotLtd" target="_blank" rel="noreferrer" aria-label="Facebook">
+            <svg viewBox="0 0 24 24"><path d="M18.77 7.46H14.5v-1.9c0-.9.6-1.1 1-1.1h3V.5h-4.33C10.24.5 9.5 3.44 9.5 5.32v2.15h-3v4h3v12h5v-12h3.85l.42-4z"/></svg>
+          </a>
         </div>
       </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-bottom-inner container">
-        <p class="footer-copy">Copyright © 2025 RightSpot Ltd</p>
-        <div class="footer-links">
-          <a href="privacy.html">Privacy Policy</a>
-          <a href="eula.html">EULA</a>
-          <a href="login.html">Admin</a>
-        </div>
-      </div>
-    </div>
+      <div class="footer-col"><h4>Navigation</h4><ul>
+        <li><a href="news.html">News</a></li>
+        <li><a href="software-development.html">Software Development</a></li>
+        <li><a href="products.html">Software Products</a></li>
+        <li><a href="references.html">Customer References</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><div class="footer-contact">
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Satamakatu 28, 24100 Salo, Finland</span></div>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.73a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2.03z"/></svg><a href="tel:+358405544853">+358 (0)40 5544853</a></div>
+        <div class="footer-contact-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>rightspot(at)rightspot.fi</span></div>
+      </div></div>
+    </div></div></div>
+    <div class="footer-bottom"><div class="container"><div class="footer-bottom-inner">
+      <p class="footer-copy">Copyright &copy; 2025 RightSpot Ltd</p>
+      <div class="footer-links"><a href="https://rightspot.fi/privacy-policy/">Privacy Policy</a><a href="eula.html">EULA</a><a href="login.html">Admin</a></div>
+    </div></div></div>
   </footer>
 
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18,15 12,9 6,15"/></svg>
+  </button>
+
   <script>
-    // Mobile menu toggle
-    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-    const mobileNav = document.getElementById('mobileNav');
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileNav.classList.toggle('open');
-    });
-    document.querySelectorAll('.mobile-nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileNav.classList.remove('open');
-      });
-    });
-
-    // Back to top button
-    const backToTop = document.getElementById('backToTop');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 300) {
-        backToTop.classList.add('visible');
-      } else {
-        backToTop.classList.remove('visible');
-      }
-    });
-    backToTop.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-
-    // Set active nav link
-    document.querySelectorAll('.main-nav a, .mobile-nav a').forEach(link => {
-      if (link.href === window.location.href) {
-        link.classList.add('active');
-      }
-    });
+    const btn = document.getElementById('mobileMenuBtn'), nav = document.getElementById('mobileNav');
+    btn.onclick = () => { const o = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', o); };
+    const btt = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 400), {passive:true});
+    btt.onclick = () => window.scrollTo({top:0,behavior:'smooth'});
   </script>
 </body>
 </html>

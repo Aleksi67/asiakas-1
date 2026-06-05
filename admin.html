@@ -181,6 +181,10 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
         Software Products
       </button>
+      <button class="nav-item" data-view="content">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        Page Content
+      </button>
       <div class="nav-section-label">Configuration</div>
       <button class="nav-item" data-view="settings">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M12 2v2M12 20v2M20 12h2M2 12h2M17.66 17.66l-1.41-1.41M6.34 17.66l1.41-1.41"/></svg>
@@ -306,6 +310,45 @@
               <thead><tr><th>Name</th><th>Platform</th><th>Status</th><th>Sort</th><th>Actions</th></tr></thead>
               <tbody id="productsTableBody"><tr><td colspan="5" style="padding:2rem;text-align:center;color:var(--neutral-500);">Loading…</td></tr></tbody>
             </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTENT (CMS) -->
+      <div class="view" id="view-content">
+        <div class="section-card">
+          <div class="section-card-header">
+            <h2>Page Content Editor</h2>
+            <div style="display:flex;gap:0.75rem;align-items:center;">
+              <select id="cmsPageSelect" style="padding:0.4rem 0.6rem;border:1.5px solid var(--neutral-300);border-radius:var(--radius);font-size:0.8125rem;font-family:inherit;">
+                <option value="index">Home Page</option>
+                <option value="software-development">Software Development</option>
+                <option value="news">News</option>
+                <option value="products">Products</option>
+                <option value="references">References</option>
+                <option value="about">About</option>
+                <option value="contact">Contact</option>
+              </select>
+              <button class="btn-sm btn-primary" id="addSectionBtn">+ Add Section</button>
+            </div>
+          </div>
+          <div class="section-card-body" style="padding:0;">
+            <table class="data-table">
+              <thead><tr><th style="width:40px;"></th><th>Section Key</th><th>Type</th><th>Content Preview</th><th>Image</th><th>Sort</th><th>Visible</th><th>Actions</th></tr></thead>
+              <tbody id="contentTableBody"><tr><td colspan="8" style="padding:2rem;text-align:center;color:var(--neutral-500);">Select a page and sections will load.</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+        <!-- Preview iframe -->
+        <div class="section-card" style="margin-top:1.5rem;">
+          <div class="section-card-header">
+            <h2>Live Preview</h2>
+            <div style="display:flex;gap:0.75rem;">
+              <button class="btn-sm btn-secondary" id="cmsPreviewBtn">Refresh Preview</button>
+            </div>
+          </div>
+          <div class="section-card-body" style="padding:0;height:500px;overflow:hidden;">
+            <iframe id="cmsPreviewFrame" style="width:100%;height:100%;border:none;" src="about:blank"></iframe>
           </div>
         </div>
       </div>
@@ -437,6 +480,31 @@
     </div>
   </div>
 
+  <!-- SECTION MODAL -->
+  <div class="modal-overlay" id="sectionModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="sectionModalTitle">Add Section</h3>
+        <button class="modal-close" id="sectionModalClose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="sectionId">
+        <div class="form-group"><label for="sectionKey">Section Key *</label><input type="text" id="sectionKey" placeholder="e.g. intro_h1"><div class="help-text">Unique identifier for this section within the page.</div></div>
+        <div class="form-group"><label for="sectionType">Type</label><select id="sectionType"><option value="text">Text</option><option value="image">Image</option><option value="html">HTML</option></select></div>
+        <div class="form-group"><label for="sectionContent">Content</label><textarea id="sectionContent" rows="6" placeholder="Enter text or HTML content…"></textarea></div>
+        <div class="form-group"><label for="sectionImage">Image URL</label><input type="text" id="sectionImage" placeholder="images/photo.jpg or https://…"><div class="help-text">Optional image for this section.</div></div>
+        <div class="form-row">
+          <div class="form-group"><label for="sectionSort">Sort Order</label><input type="text" id="sectionSort" placeholder="0"><div class="help-text">Lower numbers appear first.</div></div>
+          <div class="form-group" style="padding-top:1.75rem;"><label class="form-check"><input type="checkbox" id="sectionVisible" checked><span>Visible on website</span></label></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-sm btn-ghost" id="sectionModalCancel">Cancel</button>
+        <button class="btn-sm btn-primary" id="sectionModalSave">Save Section</button>
+      </div>
+    </div>
+  </div>
+
   <!-- CONFIRM DIALOG -->
   <div class="confirm-overlay" id="confirmOverlay">
     <div class="confirm-dialog">
@@ -486,7 +554,7 @@
     document.getElementById('confirmOk').onclick = () => { document.getElementById('confirmOverlay').classList.remove('open'); if(confirmResolve) confirmResolve(true); };
 
     // Navigation
-    const titles = { dashboard:'Dashboard', analytics:'Visitor Analytics', news:'News Posts', products:'Software Products', settings:'Site Settings' };
+    const titles = { dashboard:'Dashboard', analytics:'Visitor Analytics', news:'News Posts', products:'Software Products', content:'Page Content', settings:'Site Settings' };
     let currentView = 'dashboard';
     function showView(name) {
       currentView = name;
@@ -509,6 +577,7 @@
       else if(name==='analytics') loadAnalytics();
       else if(name==='news') loadNews();
       else if(name==='products') loadProducts();
+      else if(name==='content') loadContent();
       else if(name==='settings') loadSettings();
     }
 
@@ -722,6 +791,96 @@
 
     function esc(str){const d=document.createElement('div');d.appendChild(document.createTextNode(String(str)));return d.innerHTML;}
     function fmt(s){if(!s)return'—';return new Date(s).toLocaleDateString('en-US',{year:'numeric',month:'short',day:'numeric'});}
+
+    // CMS - Page Content
+    let cmsCurrentPage='index';
+    document.getElementById('cmsPageSelect').onchange=function(){cmsCurrentPage=this.value;loadContent();};
+    document.getElementById('addSectionBtn').onclick=()=>openSectionModal();
+    document.getElementById('cmsPreviewBtn').onclick=()=>{
+      const f=document.getElementById('cmsPreviewFrame');
+      f.src=cmsCurrentPage+'.html?t='+Date.now();
+    };
+
+    async function loadContent(){
+      const{data,error}=await sb.from('page_sections').select('*').eq('page',cmsCurrentPage).order('sort_order');
+      const tbody=document.getElementById('contentTableBody');
+      if(error||!data?.length){tbody.innerHTML=`<tr><td colspan="8"><div class="empty-state"><p>No sections for this page yet.</p></div></td></tr>`;return;}
+      tbody.innerHTML=data.map((s,i)=>`<tr data-id="${s.id}">
+        <td style="cursor:grab;color:var(--neutral-400);font-size:1rem;" title="Drag to reorder">&#9776;</td>
+        <td style="font-weight:500;">${esc(s.section_key)}</td>
+        <td><span class="badge badge-blue">${esc(s.section_type)}</span></td>
+        <td style="max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${esc(s.content?.slice(0,80)||'')}</td>
+        <td>${s.image_url?'<span class="badge badge-green">Yes</span>':'<span style="color:var(--neutral-400)">—</span>'}</td>
+        <td>${s.sort_order}</td>
+        <td><span class="badge ${s.is_visible?'badge-green':'badge-yellow'}">${s.is_visible?'Yes':'No'}</span></td>
+        <td><div class="table-actions">
+          <button class="btn-sm btn-secondary" onclick="editSection('${s.id}')">Edit</button>
+          <button class="btn-sm btn-danger" onclick="deleteSection('${s.id}','${esc(s.section_key).replace(/'/g,"\\'")}')">Delete</button>
+        </div></td>
+      </tr>`).join('');
+    }
+
+    let editingSectionId=null;
+    function openSectionModal(data=null){
+      editingSectionId=data?.id||null;
+      document.getElementById('sectionModalTitle').textContent=data?'Edit Section':'Add Section';
+      document.getElementById('sectionId').value=data?.id||'';
+      document.getElementById('sectionKey').value=data?.section_key||'';
+      document.getElementById('sectionType').value=data?.section_type||'text';
+      document.getElementById('sectionContent').value=data?.content||'';
+      document.getElementById('sectionImage').value=data?.image_url||'';
+      document.getElementById('sectionSort').value=data?.sort_order??'0';
+      document.getElementById('sectionVisible').checked=data?data.is_visible:true;
+      document.getElementById('sectionModal').classList.add('open');
+    }
+    function closeSectionModal(){document.getElementById('sectionModal').classList.remove('open');}
+    document.getElementById('sectionModalClose').onclick=closeSectionModal;
+    document.getElementById('sectionModalCancel').onclick=closeSectionModal;
+    document.getElementById('sectionModal').onclick=e=>{if(e.target===document.getElementById('sectionModal'))closeSectionModal();};
+
+    document.getElementById('sectionModalSave').onclick=async()=>{
+      const section_key=document.getElementById('sectionKey').value.trim();
+      if(!section_key){toast('Please enter a section key.','error');return;}
+      const payload={
+        page:cmsCurrentPage,
+        section_key,
+        section_type:document.getElementById('sectionType').value,
+        content:document.getElementById('sectionContent').value,
+        image_url:document.getElementById('sectionImage').value.trim(),
+        sort_order:parseInt(document.getElementById('sectionSort').value)||0,
+        is_visible:document.getElementById('sectionVisible').checked,
+        updated_at:new Date().toISOString(),
+      };
+      let err;
+      if(editingSectionId){({error:err}=await sb.from('page_sections').update(payload).eq('id',editingSectionId));}
+      else{({error:err}=await sb.from('page_sections').insert(payload));}
+      if(err){toast('Error: '+err.message,'error');return;}
+      toast(editingSectionId?'Section updated!':'Section added!');
+      closeSectionModal();loadContent();
+    };
+
+    window.editSection=async(id)=>{const{data}=await sb.from('page_sections').select('*').eq('id',id).maybeSingle();if(data)openSectionModal(data);};
+    window.deleteSection=async(id,key)=>{const ok=await confirm('Delete Section',`Delete section "${key}"?`);if(!ok)return;const{error}=await sb.from('page_sections').delete().eq('id',id);if(error){toast('Error.','error');return;}toast('Section deleted.');loadContent();};
+
+    // Drag-and-drop reorder for content table
+    const ctbody=document.getElementById('contentTableBody');
+    let dragRow=null;
+    ctbody.addEventListener('dragstart',e=>{dragRow=e.target.closest('tr');if(dragRow)dragRow.style.opacity='0.4';});
+    ctbody.addEventListener('dragend',e=>{if(dragRow){dragRow.style.opacity='1';dragRow=null;}});
+    ctbody.addEventListener('dragover',e=>{e.preventDefault();const tr=e.target.closest('tr');if(tr&&tr!==dragRow)tr.before(dragRow);});
+    ctbody.addEventListener('drop',async()=>{
+      const rows=ctbody.querySelectorAll('tr[data-id]');
+      const ids=[...rows].map(r=>r.dataset.id);
+      for(let i=0;i<ids.length;i++){
+        await sb.from('page_sections').update({sort_order:i,updated_at:new Date().toISOString()}).eq('id',ids[i]);
+      }
+      toast('Order saved!');
+      loadContent();
+    });
+    // Make rows draggable
+    new MutationObserver(()=>{
+      ctbody.querySelectorAll('tr[data-id]').forEach(tr=>{tr.draggable=true;});
+    }).observe(ctbody,{childList:true});
 
     loadDashboard();
   </script>
